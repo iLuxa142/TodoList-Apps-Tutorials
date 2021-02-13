@@ -6,12 +6,12 @@ Vue.createApp({
         };
     },
     methods: {
-        handlyInput(event) {
+        handleInput(event) {
             this.valueInput = event.target.value;
         },
         addTask() {
             if (this.valueInput === '') return;
-            
+
             this.needDoList.push({
                 title: this.valueInput,
                 id: Math.random()
