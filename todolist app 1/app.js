@@ -10,7 +10,8 @@ Vue.createApp({
             this.valueInput = event.target.value;
         },
         addTask() {
-            if (this.valueInput === '') { return };
+            if (this.valueInput === '') return;
+            
             this.needDoList.push({
                 title: this.valueInput,
                 id: Math.random()
