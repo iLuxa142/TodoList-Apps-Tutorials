@@ -16,8 +16,8 @@
             <div class="container">
                 <div class="logo">Todo list</div>
                 <div class="form">
-                    <input type="text" v-bind:value="valueInput">
-                    <button class="btn">add task</button>
+                    <input type="text" v-bind:value="valueInput" v-on:input="handlyInput">
+                    <button class="btn" v-on:click="addTask">add task</button>
                 </div>
             </div>
         </div>
@@ -28,10 +28,10 @@
                 <span class="mask-num">10</span>
             </h2>
             <ul class="mask-list">
-                <li>
+                <li v-for="(mask, index) in needDoList" :key="mask.id">
                     <div>
                         <input type="checkbox">
-                        <span>New task 1</span>
+                        <span>{{ mask.title }}</span>
                         <button class="btn-remove">remove</button>
                     
                     </div>
