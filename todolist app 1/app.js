@@ -11,7 +11,6 @@ Vue.createApp({
             this.valueInput = event.target.value;
         },
         addTask () {
-
             if (this.valueInput === '') return;
 
             this.needDoList.push({
