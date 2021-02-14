@@ -14,14 +14,14 @@ Vue.createApp({
         addTask () {
             if (this.valueInput === '') return;
 
-            var nowDateTime = new Date();
+            const nowDateTime = new Date();
             var options = {
-            year: '2-digit',
-            month: '2-digit',
-            day: '2-digit',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit'
+                year: '2-digit',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
             };
             var strDateTime = nowDateTime.toLocaleString("ru", options);
 
