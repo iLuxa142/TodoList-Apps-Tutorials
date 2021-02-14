@@ -34,7 +34,7 @@
                     </div>
                     <div>
                         [{{ task.datetime }}]
-                        <button class="btn-remove" @click="removeTask(index, 'need')">remove</button>
+                        <button class="btn-remove" @click="removeTaskFromDoList(index)">remove</button>
                     </div>
                 </li>
             </ul>
@@ -50,7 +50,7 @@
                     </div>
                     <div>
                         [{{ task.datetime }}]
-                        <button class="btn-remove" @click="removeTask(index, 'complete')">remove</button>
+                        <button class="btn-remove" @click="removeTaskFromCompleteList(index)">remove</button>
                     </div>
                 </li>
             </ul>
@@ -65,7 +65,7 @@
                     </div>
                     <div>
                         [{{ task.datetime }}]
-                        <button class="btn-recover" @click="removeTask(index, 'recover')">recover</button>
+                        <button class="btn-recover" @click="recoverTaskFromRecycleList(index)">recover</button>
                     </div>
                 </li>
             </ul>
