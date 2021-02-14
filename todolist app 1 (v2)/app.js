@@ -15,7 +15,7 @@ Vue.createApp({
             if (this.valueInput === '') return;
 
             const nowDateTime = new Date();
-            var options = {
+            const options = {
                 year: '2-digit',
                 month: '2-digit',
                 day: '2-digit',
@@ -23,7 +23,7 @@ Vue.createApp({
                 minute: '2-digit',
                 second: '2-digit'
             };
-            var strDateTime = nowDateTime.toLocaleString("ru", options);
+            const strDateTime = nowDateTime.toLocaleString("ru", options);
 
             this.needDoList.push({
                 title: this.valueInput,
@@ -33,15 +33,13 @@ Vue.createApp({
 
             this.valueInput = '';
         },
-        doCheck(index, type) {
-            if (type === 'need') {
-                const completeTask = this.needDoList.splice(index, 1);
-                this.completeList.push(...completeTask);
-            }
-            else {
-                const noCompleteTask = this.completeList.splice(index, 1);
-                this.needDoList.push(...noCompleteTask);
-            }
+        doCheckMoveToCompleteList(index) {
+            const completeTask = this.needDoList.splice(index, 1);
+            this.completeList.push(...completeTask);
+        },
+        doCheckMoveToDoList(index) {
+            const noCompleteTask = this.completeList.splice(index, 1);
+            this.needDoList.push(...noCompleteTask);
         },
         removeTaskFromDoList(index) {
             const recycleTask = this.needDoList.splice(index, 1);
