@@ -21,7 +21,6 @@
                 </div>
             </div>
         </div>
-
         <div class="container">
             <h2>
                 <span>To Do</span>
@@ -31,9 +30,12 @@
                 <li v-for="(task, index) in needDoList" :key="task.id">
                     <div>
                         <input type="checkbox" @change="doCheck(index, 'need')"/>
-                        <span>{{ task.title }}</span>
+                        <span>{{ task.title }}</span> 
                     </div>
-                    <button class="btn-remove" @click="removeTask(index, 'need')">remove</button>
+                    <div>
+                        [{{ task.datetime }}]
+                        <button class="btn-remove" @click="removeTask(index, 'need')">remove</button>
+                    </div>
                 </li>
             </ul>
             <h2>
@@ -44,9 +46,27 @@
                 <li v-for="(task, index) in completeList" :key="task.id">
                     <div>
                         <input type="checkbox" @change="doCheck(index, 'complete')" checked />
-                        <span>{{ task.title }}</span>
+                        <span>{{ task.title }}</span> 
                     </div>
-                    <button class="btn-remove" @click="removeTask(index, 'complete')">remove</button>
+                    <div>
+                        [{{ task.datetime }}]
+                        <button class="btn-remove" @click="removeTask(index, 'complete')">remove</button>
+                    </div>
+                </li>
+            </ul>
+            <h2>
+                <span>Recycle</span>
+                <span class="task-num">{{ recycleList.length }}</span>
+            </h2>
+            <ul class="task-list complete-list">
+                <li v-for="(task, index) in recycleList" :key="task.id">
+                    <div>
+                        <span>{{ task.title }} </span> 
+                    </div>
+                    <div>
+                        [{{ task.datetime }}]
+                        <button class="btn-recover" @click="removeTask(index, 'recover')">recover</button>
+                    </div>
                 </li>
             </ul>
         </div>
