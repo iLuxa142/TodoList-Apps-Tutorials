@@ -8,10 +8,10 @@ Vue.createApp({
         };
     },
     methods: {
-        handleInput (event) {
+        handleInput(event) {
             this.valueInput = event.target.value;
         },
-        addTask () {
+        addTask() {
             if (this.valueInput === '') return;
 
             const nowDateTime = new Date();
@@ -31,9 +31,9 @@ Vue.createApp({
                 id: Math.random()
             });
 
-            this.valueInput = ''; 
+            this.valueInput = '';
         },
-        doCheck (index, type) {
+        doCheck(index, type) {
             if (type === 'need') {
                 const completeTask = this.needDoList.splice(index, 1);
                 this.completeList.push(...completeTask);
@@ -41,23 +41,19 @@ Vue.createApp({
             else {
                 const noCompleteTask = this.completeList.splice(index, 1);
                 this.needDoList.push(...noCompleteTask);
-            }    
+            }
         },
-        removeTask (index, type) {
-            if (type === 'need') {
-                const recycleTask = this.needDoList.splice(index, 1);
-                this.recycleList.push(...recycleTask);
-            }
-            else if (type === 'complete') {
-                const recycleTask = this.completeList.splice(index, 1);
-                this.recycleList.push(...recycleTask);
-            }
-            else {  // Recover
-                const noCompleteTask = this.recycleList.splice(index, 1);
-                this.needDoList.push(...noCompleteTask);
-            }
-//             const toDoList = type === 'need' ? this.needDoList.splice(index, 1) : this.completeList.splice(index, 1);
-//             this.recycleList.push(...toDoList);
+        removeTaskFromDoList(index) {
+            const recycleTask = this.needDoList.splice(index, 1);
+            this.recycleList.push(...recycleTask);
+        },
+        removeTaskFromCompleteList(index) {
+            const recycleTask = this.completeList.splice(index, 1);
+            this.recycleList.push(...recycleTask);
+        },
+        recoverTaskFromRecycleList(index) {
+            const noCompleteTask = this.recycleList.splice(index, 1);
+            this.needDoList.push(...noCompleteTask);
         }
     }
 }).mount('#app');
