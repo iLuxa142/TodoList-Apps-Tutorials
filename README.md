@@ -8,7 +8,7 @@
 
 ### Готово:
 
-• • > [14/02] 🔶 **Todolist app 2 (origin)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/todo-app-2-origin/todolist%20app%202) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist%20app%202/)  
+• • > [14/02] 🔶 **Todolist app 2 (origin)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist%20app%202) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist%20app%202/)  
 •  
 • ▶️ [[VUE.JS] TODO APP](https://www.youtube.com/watch?v=L58tyEkpWLE) • ( 🧑 [Edward Lance Lorilla LAB](https://www.youtube.com/channel/UCWc48sSzqPLUOfNCy9sxUug) • 👨‍👨‍👧 3,61K • 🕑 10:55 • 👁 1 718 • 📅 6 окт 2016 )  
 • Особенности: Vue 1.0.12  • Интересные фичи: 1\. Кнопка "Clear List". 2\. Кнопка "удаление задачи (Х)" появляется только при наведении мышью на строку задачи. 3\. Общий чекбокс, отмечающий все задачи  
