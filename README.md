@@ -2,23 +2,23 @@
 
 ### В процессе:
 
-• • > [15/02] **Todolist app 2 (v2)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/todolist-app-2-v2/todolist%20app%201%20(v2)) | Demo  
+• • > [15/02] 🔶 **Todolist app 2 (v2)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/todolist-app-2-v2/todolist%20app%201%20(v2)) | Demo  
 • • > [новые фичи: 1. Фон выполненной задачи помечается серым. 2. Счетчик всех и выполненных задач.]  
 •  
 
 ### Готово:
 
-• • > [14/02] **Todolist app 2 (origin)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/todo-app-2-origin/todolist%20app%202) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist%20app%202/)  
+• • > [14/02] 🔶 **Todolist app 2 (origin)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/todo-app-2-origin/todolist%20app%202) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist%20app%202/)  
 •  
-• ▶️ **Туториал**: [[VUE.JS] TODO APP](https://www.youtube.com/watch?v=L58tyEkpWLE) • ( 🧑 [Edward Lance Lorilla LAB](https://www.youtube.com/channel/UCWc48sSzqPLUOfNCy9sxUug) • 👨‍👨‍👧 3,61K • 🕑 10:55 • 👁 1 718 • 📅 6 окт 2016 )  
+• ▶️ [[VUE.JS] TODO APP](https://www.youtube.com/watch?v=L58tyEkpWLE) • ( 🧑 [Edward Lance Lorilla LAB](https://www.youtube.com/channel/UCWc48sSzqPLUOfNCy9sxUug) • 👨‍👨‍👧 3,61K • 🕑 10:55 • 👁 1 718 • 📅 6 окт 2016 )  
 • Особенности: Vue 1.0.12  • Интересные фичи: 1\. Кнопка "Clear List". 2\. Кнопка "удаление задачи (Х)" появляется только при наведении мышью на строку задачи. 3\. Общий чекбокс, отмечающий все задачи  
 
-• • > [14/02] **Todolist app 1 (v2)**   :  [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist%20app%201%20(v2)) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist%20app%201%20(v2)/index.html)   
+• • > [14/02] 🔶 **Todolist app 1 (v2)**   :  [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist%20app%201%20(v2)) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist%20app%201%20(v2)/index.html)   
 • • > [новые фичи: 1. Корзина (удаление, восстановление). 2. Дата/время добавления задач.]  
 •  
-• • > [13/02] **Todolist app 1 (original)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist%20app%201) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist%20app%201/index.html)  
+• • > [13/02] 🔶 **Todolist app 1 (original)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist%20app%201) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist%20app%201/index.html)  
 •  
-• ▶️ **Туториал**: [ПРИЛОЖЕНИЕ на Vue 3 Делаем ToDo List с нуля на практике [2021]](https://www.youtube.com/watch?v=27Vhe78OsCg) • ( 🧑 [Анна Блок](https://www.youtube.com/channel/UCn5wduCq2Mus0v85QZn9IaA) • 👨‍👨‍👧 53,4K • 🕑 30:12 • 👁 11 094 • 📅 2 фев 2021 )  
+• ▶️ [ПРИЛОЖЕНИЕ на Vue 3 Делаем ToDo List с нуля на практике [2021]](https://www.youtube.com/watch?v=27Vhe78OsCg) • ( 🧑 [Анна Блок](https://www.youtube.com/channel/UCn5wduCq2Mus0v85QZn9IaA) • 👨‍👨‍👧 53,4K • 🕑 30:12 • 👁 11 094 • 📅 2 фев 2021 )  
 • Особенности: Vue 3 
 
 ### Структура (workflow) подпроектов:  
@@ -165,9 +165,9 @@
 [ASP.NET Core 3 CRUD Project - TO DO list](https://www.youtube.com/watch?v=jAET1F3zHIw)
 
 ## Шаблоны:  
-• • > [14/02] **todolist app x (origin)** : [Code](github) | [Demo](github)  
+• • > [14/02] 🔶 **Todolist app x (origin)** : [Code](github) | [Demo](github)  
 •  
-• ▶️ **Туториал**: [xxxxxxxxxxxxx](xxxxxxxxxxxxxxx) • ( 🧑 [Channel](xxxxxxxxxxxxxxxxxxxx) • 👨‍👨‍👧 0000K • 🕑 00:00 • 👁 000000 • 📅 6 окт 2016 )    
+• ▶️ [xxxxxxxxxxxxx](xxxxxxxxxxxxxxx) • ( 🧑 [Channel](xxxxxxxxxxxxxxxxxxxx) • 👨‍👨‍👧 0000K • 🕑 00:00 • 👁 000000 • 📅 6 окт 2016 )    
 • Особенности:   • Интересные фичи:  
 
 ## Фичи от заказчика
