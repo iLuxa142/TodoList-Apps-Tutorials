@@ -8,14 +8,15 @@
 <body>
     <div class="container" id="todo">
         <section class="panel">
-            <input type="checkbox" id="mark-all" :checked="areAllSelected" @click="selectAll">
+            <input type="checkbox" id="mark-all" :checked="areAllChecked" @click="checkAll">
             <input type="text" class="text-input" v-model="newTask" @keyup.enter="addTask" autofocus placeholder="What do you need to do?">
             <button @click="clearList">Clear List</button>
+            All: {{ taskList.length }} / {{ checkedTasks }} (checked)
         </section>
     
         <ul class="list">
             <li v-for="task in taskList" :class="{done: task.checked}">
-                <input type="checkbox" class="checkbox" v-model="task.checked">
+                <input type="checkbox" class="checkbox" v-model="task.checked" @click="checkTask(task)">
                 <label for="checkbox">{{ task.text }}</label>
                 <button class="delete" @click="removeTask(task)">X</button>
             </li>

@@ -70,6 +70,11 @@ button {
     text-decoration: line-through; /* завершенная/отмеченная задача зачёркнута */
 }
 
+.list li.done {
+    color: #d9d9d9;
+    background-color: #aaa
+}
+
 @media screen and (max-width: 768px) {
     .container {
         width: 90%;
