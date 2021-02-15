@@ -16,12 +16,11 @@
             <div class="container">
                 <div class="logo">Todo list</div>
                 <div class="form">
-                    <input type="text" :value="valueInput" @input="handleInput" @keypress.enter="addTask">
+                    <input type="text" :value="valueInput" @input="handleInput" @keypress.enter="addTask" placeholder="Enter task here" />
                     <button class="btn" @click="addTask">add task</button>
                 </div>
             </div>
         </div>
-
         <div class="container">
             <h2>
                 <span>To Do</span>
@@ -30,10 +29,13 @@
             <ul class="task-list">
                 <li v-for="(task, index) in needDoList" :key="task.id">
                     <div>
-                        <input type="checkbox" @change="doCheck(index, 'need')"/>
-                        <span>{{ task.title }}</span>
+                        <input type="checkbox" @change="doCheckMoveToCompleteList(index)"/>
+                        <span>{{ task.title }}</span> 
                     </div>
-                    <button class="btn-remove" @click="removeTask(index, 'need')">remove</button>
+                    <div>
+                        [{{ task.datetime }}]
+                        <button class="btn-remove" @click="removeTaskFromDoList(index)">remove</button>
+                    </div>
                 </li>
             </ul>
             <h2>
@@ -43,10 +45,28 @@
             <ul class="task-list complete-list">
                 <li v-for="(task, index) in completeList" :key="task.id">
                     <div>
-                        <input type="checkbox" @change="doCheck(index, 'complete')" checked />
-                        <span>{{ task.title }}</span>
+                        <input type="checkbox" @change="doCheckMoveToDoList(index)" checked />
+                        <span>{{ task.title }}</span> 
                     </div>
-                    <button class="btn-remove" @click="removeTask(index, 'complete')">remove</button>
+                    <div>
+                        [{{ task.datetime }}]
+                        <button class="btn-remove" @click="removeTaskFromCompleteList(index)">remove</button>
+                    </div>
+                </li>
+            </ul>
+            <h2>
+                <span>Recycle</span>
+                <span class="task-num">{{ recycleList.length }}</span>
+            </h2>
+            <ul class="task-list complete-list">
+                <li v-for="(task, index) in recycleList" :key="task.id">
+                    <div>
+                        <span>{{ task.title }} </span> 
+                    </div>
+                    <div>
+                        [{{ task.datetime }}]
+                        <button class="btn-recover" @click="recoverTaskFromRecycleList(index)">recover</button>
+                    </div>
                 </li>
             </ul>
         </div>
