@@ -5,12 +5,14 @@
 • • > [15/02] **Todolist app 2 (v2)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/todolist-app-2-v2/todolist%20app%201%20(v2)) | Demo  
 • • > [новые фичи: 1. Фон выполненной задачи помечается серым. 2. Счетчик всех и выполненных задач.]  
 •  
-• • > [14/02] **Todolist app 2 (origin)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/todo-app-2-origin/todolist%20app%202) | Demo  
+
+### Готово:
+
+• • > [14/02] **Todolist app 2 (origin)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/todo-app-2-origin/todolist%20app%202) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist%20app%202/)  
 •  
 • ▶️ **Туториал**: [[VUE.JS] TODO APP](https://www.youtube.com/watch?v=L58tyEkpWLE) • ( 🧑 [Edward Lance Lorilla LAB](https://www.youtube.com/channel/UCWc48sSzqPLUOfNCy9sxUug) • 👨‍👨‍👧 3,61K • 🕑 10:55 • 👁 1 718 • 📅 6 окт 2016 )  
 • Особенности: Vue 1.0.12  • Интересные фичи: 1\. Кнопка "Clear List". 2\. Кнопка "удаление задачи (Х)" появляется только при наведении мышью на строку задачи. 3\. Общий чекбокс, отмечающий все задачи  
 
-### Готово:
 • • > [14/02] **Todolist app 1 (v2)**   :  [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist%20app%201%20(v2)) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist%20app%201%20(v2)/index.html)   
 • • > [новые фичи: 1. Корзина (удаление, восстановление). 2. Дата/время добавления задач.]  
 •  
