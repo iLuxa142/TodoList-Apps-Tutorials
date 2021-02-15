@@ -11,6 +11,7 @@ Vue.createApp({
         handleInput(event) {
             this.valueInput = event.target.value;
         },
+
         addTask() {
             if (this.valueInput === '') return;
 
@@ -33,22 +34,27 @@ Vue.createApp({
 
             this.valueInput = '';
         },
-        doCheckMoveToCompleteList(index) {
+
+        moveToCompleteList(index) {
             const completeTask = this.needDoList.splice(index, 1);
             this.completeList.push(...completeTask);
         },
-        doCheckMoveToDoList(index) {
+
+        moveToDoList(index) {
             const noCompleteTask = this.completeList.splice(index, 1);
             this.needDoList.push(...noCompleteTask);
         },
+
         removeTaskFromDoList(index) {
             const recycleTask = this.needDoList.splice(index, 1);
             this.recycleList.push(...recycleTask);
         },
+
         removeTaskFromCompleteList(index) {
             const recycleTask = this.completeList.splice(index, 1);
             this.recycleList.push(...recycleTask);
         },
+        
         recoverTaskFromRecycleList(index) {
             const noCompleteTask = this.recycleList.splice(index, 1);
             this.needDoList.push(...noCompleteTask);
