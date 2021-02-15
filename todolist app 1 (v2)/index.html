@@ -29,7 +29,7 @@
             <ul class="task-list">
                 <li v-for="(task, index) in needDoList" :key="task.id">
                     <div>
-                        <input type="checkbox" @change="doCheckMoveToCompleteList(index)"/>
+                        <input type="checkbox" @change="moveToCompleteList(index)"/>
                         <span>{{ task.title }}</span> 
                     </div>
                     <div>
@@ -45,7 +45,7 @@
             <ul class="task-list complete-list">
                 <li v-for="(task, index) in completeList" :key="task.id">
                     <div>
-                        <input type="checkbox" @change="doCheckMoveToDoList(index)" checked />
+                        <input type="checkbox" @change="moveToDoList(index)" checked />
                         <span>{{ task.title }}</span> 
                     </div>
                     <div>
