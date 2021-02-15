@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:="http://wwww.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo list 2 (origin)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" id="todo">
+        <section class="panel">
+            <input type="checkbox" id="mark-all" :checked="areAllSelected" @click="selectAll">
+            <input type="text" class="text-input" v-model="newTask" @keyup.enter="addTask" autofocus placeholder="What do you need to do?">
+            <button @click="clearList">Clear List</button>
+        </section>
+    
+        <ul class="list">
+            <li v-for="task in taskList" :class="{done: task.checked}">
+                <input type="checkbox" class="checkbox" v-model="task.checked">
+                <label for="checkbox">{{ task.text }}</label>
+                <button class="delete" @click="removeTask(task)">X</button>
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.12/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
