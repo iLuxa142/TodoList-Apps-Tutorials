@@ -2,20 +2,20 @@
 
 ## В процессе:
 
-• • > [16/02] 🔶 **Todolist app 3 (original)** : [Code](github) | [Demo](github)  
-•  
-• ▶️ [Пишем список задач(todo list) на Vue.js](https://www.youtube.com/watch?v=JkYOYtIAwR0)   • ( 🧑 [Лукьянов Артём](https://www.youtube.com/channel/UCO8KyfLYPUU5NbfvOktKAQg) • 👨‍👨‍👧 1,1K • 🕑 27:05 • 👁 7 411 • 📅 28 апр 2019 )    
-• Особенности: Vue, Vue.component.   • Интересные фичи:  1\. Поле описания/description для задачи. 
 
----
-
-• • > [15/02] 🔶 **Todolist app 2 (v2)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/todolist-app-2-v2/todolist%20app%201%20(v2)) | Demo  
-• • > [новые фичи: 1. Фон выполненной задачи помечается серым. 2. Счетчик всех и выполненных задач.]  
+• • > [15/02] 🔶 **Todolist app 2 (v2)** : Pull Request [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/todolist-app-2-v2/todolist%20app%201%20(v2)) | Demo  
+• • > [новые фичи: 1. Фон выполненной задачи помечается серым. 2. Счётчик всех и выполненных задач.]  
 •  
   
   
 ## Готово:
   
+• • > [16/02] 🔶 **Todolist app 3 (original)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist%20app%203) | [Demo](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist%20app%203)  
+•  
+• ▶️ [Пишем список задач(todo list) на Vue.js](https://www.youtube.com/watch?v=JkYOYtIAwR0)   • ( 🧑 [Лукьянов Артём](https://www.youtube.com/channel/UCO8KyfLYPUU5NbfvOktKAQg) • 👨‍👨‍👧 1,1K • 🕑 27:05 • 👁 7 411 • 📅 28 апр 2019 )    
+• Особенности: Vue, Vue.component.   • Интересные фичи:  1\. Поле описания/description для задачи. 
+
+---
   
 • • > [14/02] 🔶 **Todolist app 2 (original)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist%20app%202) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist%20app%202/)  
 •  
