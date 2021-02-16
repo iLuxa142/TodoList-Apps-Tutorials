@@ -15,14 +15,14 @@
         </section>
     
         <ul class="list">
-            <li v-for="(task, index) in taskList" :key="task" :class="{done: task.checked}">
+            <li v-for="(task, index) in taskList" :class="{done: task.checked}">
                 <input type="checkbox" class="checkbox" v-model="task.checked" @click="checkTask(task)">
-                <label for="checkbox">{{index}} + {{ task.text }}</label>
+                <label for="checkbox">{{ task.text }}</label>
                 <button class="delete" @click="removeTask(index)">X</button>
             </li>
         </ul>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.12/vue.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
     <script src="app.js"></script>
 </body>
 </html>

@@ -1,29 +1,33 @@
-new Vue({
-    el: "#todo",
-    data: {
-        newTask: "",
-        checkedTasks: 0,
-        taskList: []
+Vue.createApp({
+    data() {
+        return {
+            newTask: "",
+            checkedTasks: 0,
+            taskList: []
+        };
     },
-
     computed: {
         isAllChecked() {
-            return this.taskList.every( task => task.checked ) && this.taskList.length > 0;
+            return this.taskList.every(task => task.checked) && this.taskList.length > 0;
         }
     },
-
     methods: {
         addTask() {
             const task = this.newTask.trim();
 
             if (task) {
-                this.taskList.push( { text: task, checked: false } );
+                this.taskList.push({
+                    text: task,
+                    checked: false,
+                    id: Math.random()
+                });
+
                 this.newTask = "";
             }
         },
 
         removeTask(index) {
-            alert(index);
+
             if (this.taskList[index].checked) {
                 this.checkedTasks--;
             }
@@ -32,7 +36,7 @@ new Vue({
         },
 
         clearList() {
-            this.taskList =[];
+            this.taskList = [];
             this.checkedTasks = 0;
         },
 
@@ -43,7 +47,7 @@ new Vue({
                 this.taskList[i].checked = targetValue;
             }
 
-            if ( targetValue == true ) {
+            if (targetValue == true) {
                 this.checkedTasks = this.taskList.length;
             } else {
                 this.checkedTasks = 0;
@@ -54,4 +58,4 @@ new Vue({
             task.checked ? this.checkedTasks-- : this.checkedTasks++;
         }
     }
-});
+}).mount('#todo');
