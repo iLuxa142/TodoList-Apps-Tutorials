@@ -1,39 +1,47 @@
 new Vue({
     el: "#todo",
-    data: {
+    data: 
+    {
         newTask: "",
         checkedTasks: 0,
         taskList: []
     },
-    computed: {
-        areAllChecked: function(){
-            return this.taskList.every(function(task){
-                return task.checked;
-            }) && this.taskList.length > 0;
+
+    computed: 
+    {
+        areAllChecked: function()
+        {
+            return this.taskList.every( function(task){return task.checked;} ) && this.taskList.length > 0;
         }
     },
-    methods: {
-        addTask: function() {
+
+    methods: 
+    {
+        addTask: function() 
+        {
             var task = this.newTask.trim();
             if (task) {
-                this.taskList.push({
-                    text: task,
-                    checked: false
-                });
+                this.taskList.push( { text: task, checked: false } );
 
                 this.newTask = "";
             }
         },
-        removeTask: function(task) {
+
+        removeTask: function(task) 
+        {
             this.taskList.$remove(task);
             if (task.checked)
                 this.checkedTasks--;
         },
-        clearList: function() {
+
+        clearList: function() 
+        {
             this.taskList =[];
             this.checkedTasks = 0;
         },
-        checkAll: function(task) {
+
+        checkAll: function(task) 
+        {
             const targetValue = this.areAllChecked ? false : true;
 
             for (var i = 0; i < this.taskList.length; i++) {
@@ -42,7 +50,9 @@ new Vue({
 
             targetValue ? this.checkedTasks = this.taskList.length  : this.checkedTasks = 0;
         },
-        checkTask: function(task) {
+
+        checkTask: function(task) 
+        {
             task.checked ? this.checkedTasks-- : this.checkedTasks++;
         }
     }
