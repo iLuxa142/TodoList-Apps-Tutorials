@@ -51,11 +51,11 @@
 [Todo app (список задач) на Vue 3 + Composition API / Vue практика](https://www.youtube.com/watch?v=mqsXRxWvR3o)  
 [Vue js #13 Vue Todo list часть #1 создаем список дел](https://www.youtube.com/watch?v=S4KhAjN25rs)  
 [Vue js #14 Vue Todo list часть #2 localStorage, props, $emit](https://www.youtube.com/watch?v=EIfsUCrqaK4)  
-[Vue.js Todo App](https://www.youtube.com/playlist?list=PLEhEHUEU3x5q-xB1On4CsLPts0-rZ9oos)  
+[Vue.js Todo App (playlist)](https://www.youtube.com/playlist?list=PLEhEHUEU3x5q-xB1On4CsLPts0-rZ9oos)  
 [Vue.js Todo Task List App Tutorial](https://www.youtube.com/watch?v=W4qrvNHKtD8)  
 [VueJS Build A Todo App | Code On-The-Fly](https://www.youtube.com/watch?v=IBDVWntKQZ4)  
 [Vuetify: Create an App with Vue JS - in 30 MINUTES!](https://www.youtube.com/watch?v=CjXgoYo86yY)  
-[[ Arabic ] Vue.js Tutorials - How To Create To-Do List](https://www.youtube.com/watch?v=OoDEFCkFOzE)  
+[(Arabic) Vue.js Tutorials - How To Create To-Do List](https://www.youtube.com/watch?v=OoDEFCkFOzE)  
 [Пишем список задач(todo list) на Vue.js](https://www.youtube.com/watch?v=JkYOYtIAwR0)  
 [Уроки Vue js практика - Task list](https://www.youtube.com/watch?v=EdzVypBkfZg)  
 [№2 Создаем список задача (ToDo) на Vue, React, Svelte, Angular](https://www.youtube.com/watch?v=A8r4PSOIG5c)  
@@ -131,13 +131,15 @@
 [Todo List Using HTML & CSS & JavaScript](https://www.youtube.com/watch?v=Gp2bUX7_WIg)  
 [Todolist with Vanilla JavaScript & Local Storage - Speed Coding - YouTube](https://www.youtube.com/watch?v=utg5nhC3cq8)  
 [Vanilla JS todo App](https://www.youtube.com/watch?v=77bdtx2gxPk)  
-[Vanilla JavaScript Todo App - YouTube](https://www.youtube.com/playlist?list=PL2dKqfImstaTpcGL3Fb109V4Bg4XKy8mQ)  
+[Vanilla JavaScript Todo App - YouTube (playlist)](https://www.youtube.com/playlist?list=PL2dKqfImstaTpcGL3Fb109V4Bg4XKy8mQ)  
 [Как просто создать to do list на JavaScript [GeekBrains]](https://www.youtube.com/watch?v=rLNxhkmVdE8)  
 [Пишем на javascript простой todo list](https://www.youtube.com/watch?v=IG5NVbebBaY)  
 [Пишем приложение на голом JS с авторизацией без фреймворков](https://www.youtube.com/watch?v=KS2ngnRAKlg)  
 [Практика JavaScript — пишем туду лист на JavaScript | Уроки для новичков](https://www.youtube.com/watch?v=6A51fI5QoUM)  
 [Создаём свой To Do List на чистом JavaScript](https://www.youtube.com/watch?v=VEA6_-gjPUY)  
 [Список дел | Todo list | vanilla javascript](https://www.youtube.com/watch?v=o2-PP3r8Wpw)  
+[Учим JavaScript 33. Создаем ToDo список дел](https://www.youtube.com/watch?v=742Yk1W41tc)  
+
 
 **LocalStorage**  
 [Локальное хранилище localStorage Списка дел | LocalStorage ToDo List](https://www.youtube.com/watch?v=Wr1z_rFU5ZE)  
@@ -147,7 +149,7 @@
 
 **Drag & Drop**  
 [Drag & Drop With Vanilla JS](https://www.youtube.com/watch?v=C22hQKE_32c)  
-[Drag and Drop Todo List Using Vuejs & Firebase Part 1 - YouTube](https://www.youtube.com/watch?v=Xgzl_KJTLCA&list=PLRw77Eat4Uuqd7wBp7dASeDu5FtNNc6Lg)  
+[Drag and Drop Todo List Using Vuejs & Firebase Part 1 (playlist)](https://www.youtube.com/watch?v=Xgzl_KJTLCA&list=PLRw77Eat4Uuqd7wBp7dASeDu5FtNNc6Lg)  
 [Easy Drag n Drop with JavaScript - how to code tutorial](https://www.youtube.com/watch?v=tZ45HZAkbLc)  
 [Todo App + Drag&Drop in Vanilla JS](https://www.youtube.com/watch?v=pz7bO9_lsGo)  
 
@@ -178,7 +180,7 @@
 • Особенности:   • Интересные фичи:  
 
 
-### Внедренные фичи
+### Внедрённые фичи
 - добавление задачи в список (input + button|key.enter)
 - отметка/check выполненной задачи
 - список выполненных задач
@@ -199,7 +201,7 @@
 - Поиск
 - drag n drop изменение порядка в списке
 - drag n drop между двумя списками
-- Удаление с подверждением через alert, потом через модальное окно
+- Удаление с подтверждением через alert, потом через модальное окно
 - Возможность поставить дату исполнения, красить красным таски, которые близки к сроку, отмечать знаком просроченные
 - Возможность добавить таймер с обратными отсчётом
 
