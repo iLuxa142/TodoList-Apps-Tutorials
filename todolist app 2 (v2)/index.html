@@ -15,10 +15,10 @@
         </section>
     
         <ul class="list">
-            <li v-for="task in taskList" :class="{done: task.checked}">
+            <li v-for="(task, index) in taskList" :key="task" :class="{done: task.checked}">
                 <input type="checkbox" class="checkbox" v-model="task.checked" @click="checkTask(task)">
-                <label for="checkbox">{{ task.text }}</label>
-                <button class="delete" @click="removeTask(task)">X</button>
+                <label for="checkbox">{{index}} + {{ task.text }}</label>
+                <button class="delete" @click="removeTask(index)">X</button>
             </li>
         </ul>
     </div>

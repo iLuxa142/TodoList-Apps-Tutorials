@@ -1,21 +1,18 @@
 new Vue({
     el: "#todo",
-    data: 
-    {
+    data: {
         newTask: "",
         checkedTasks: 0,
         taskList: []
     },
 
-    computed: 
-    {
+    computed: {
         isAllChecked() {
             return this.taskList.every( task => task.checked ) && this.taskList.length > 0;
         }
     },
 
-    methods: 
-    {
+    methods: {
         addTask() {
             const task = this.newTask.trim();
 
@@ -25,10 +22,13 @@ new Vue({
             }
         },
 
-        removeTask(task) {
-            this.taskList.$remove(task);
-            if (task.checked)
+        removeTask(index) {
+            alert(index);
+            if (this.taskList[index].checked) {
                 this.checkedTasks--;
+            }
+
+            this.taskList.splice(index, 1);
         },
 
         clearList() {
@@ -45,8 +45,7 @@ new Vue({
 
             if ( targetValue == true ) {
                 this.checkedTasks = this.taskList.length;
-            }
-            else {
+            } else {
                 this.checkedTasks = 0;
             }
         },
