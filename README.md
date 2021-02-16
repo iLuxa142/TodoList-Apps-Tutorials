@@ -177,11 +177,18 @@
 [How To Code Your First Mobile App Using Vue Native](https://www.youtube.com/watch?v=05LZ6-_FZj8)  
 
 **Games**  
+
+[HTML CSS JS - Speed Code - Puzzle Game](https://www.youtube.com/watch?v=s-nPR9-ham)  
 [Build PACMAN in vanilla JavaScript, HTML and CSS | Ania Kubow](https://www.youtube.com/watch?v=CeUGlSl2i4Q)  
 [Learn JavaScript by Building 7 Games - Full Course - YouTube](https://www.youtube.com/watch?v=lhNdUVh3qCc)  
+[Интенсив JS "Судоку" 1 день (10 января)](https://www.youtube.com/watch?v=_w_ZcvhvVOM)  
+[Интенсив JS "Судоку" 2 день (11 января)](https://www.youtube.com/watch?v=dixvCJE-aRQ)  
+[Sudoku & Vue: Build a Sudoku Game with Vue.js](https://www.youtube.com/watch?v=oWimqARmM7s)  
+[Sudoku Game using HTML, CSS, and JavaScript (playlist)](https://www.youtube.com/playlist?list=PLSZdxnY7ocZOsG0_TmJ7yQeDRYBnwIoab)  
+[5+ FREE HTML5 JavaScript Sudoku Games Script](http://www.iamrohit.in/html5-javascript-sudoku-games-script/)  
 
 **ASP.NET**  
-[ASP.NET Core 3 CRUD Project - TO DO list](https://www.youtube.com/watch?v=jAET1F3zHIw)
+[ASP.NET Core 3 CRUD Project - TO DO list](https://www.youtube.com/watch?v=jAET1F3zHIw)  
 
 ### Шаблоны:  
 • • > [14/02] 🔶 **Todolist app x (origin)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/todolist-app-3-v2/todolist%20app%203) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist%20app%203/)  
