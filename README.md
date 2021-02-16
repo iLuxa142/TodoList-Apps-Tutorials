@@ -2,6 +2,12 @@
 
 ## В процессе:
 
+• • > [16/02] 🔶 **Todolist app 3 (original)** : [Code](github) | [Demo](github)  
+•  
+• ▶️ [Пишем список задач(todo list) на Vue.js](https://www.youtube.com/watch?v=JkYOYtIAwR0)   • ( 🧑 [Лукьянов Артём](https://www.youtube.com/channel/UCO8KyfLYPUU5NbfvOktKAQg) • 👨‍👨‍👧 1,1K • 🕑 27:05 • 👁 7 411 • 📅 28 апр 2019 )    
+• Особенности: Vue, Vue.component.   • Интересные фичи:  1\. Поле описания/description для задачи. 
+
+---
 
 • • > [15/02] 🔶 **Todolist app 2 (v2)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/todolist-app-2-v2/todolist%20app%201%20(v2)) | Demo  
 • • > [новые фичи: 1. Фон выполненной задачи помечается серым. 2. Счетчик всех и выполненных задач.]  
@@ -11,7 +17,7 @@
 ## Готово:
   
   
-• • > [14/02] 🔶 **Todolist app 2 (origin)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist%20app%202) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist%20app%202/)  
+• • > [14/02] 🔶 **Todolist app 2 (original)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist%20app%202) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist%20app%202/)  
 •  
 • ▶️ [[VUE.JS] TODO APP](https://www.youtube.com/watch?v=L58tyEkpWLE) • ( 🧑 [Edward Lance Lorilla LAB](https://www.youtube.com/channel/UCWc48sSzqPLUOfNCy9sxUug) • 👨‍👨‍👧 3,61K • 🕑 10:55 • 👁 1 718 • 📅 6 окт 2016 )  
 • Особенности: Vue 1.0.12  • Интересные фичи: 1\. Кнопка "Clear List". 2\. Кнопка "удаление задачи (Х)" появляется только при наведении мышью на строку задачи. 3\. Общий чекбокс, отмечающий все задачи  
@@ -56,7 +62,6 @@
 [VueJS Build A Todo App | Code On-The-Fly](https://www.youtube.com/watch?v=IBDVWntKQZ4)  
 [Vuetify: Create an App with Vue JS - in 30 MINUTES!](https://www.youtube.com/watch?v=CjXgoYo86yY)  
 [(Arabic) Vue.js Tutorials - How To Create To-Do List](https://www.youtube.com/watch?v=OoDEFCkFOzE)  
-[Пишем список задач(todo list) на Vue.js](https://www.youtube.com/watch?v=JkYOYtIAwR0)  
 [Уроки Vue js практика - Task list](https://www.youtube.com/watch?v=EdzVypBkfZg)  
 [№2 Создаем список задача (ToDo) на Vue, React, Svelte, Angular](https://www.youtube.com/watch?v=A8r4PSOIG5c)  
 
