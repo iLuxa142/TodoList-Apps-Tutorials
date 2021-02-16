@@ -2,6 +2,11 @@
 
 ## В процессе:
 
+• • > [16/02] 🔶 **Todolist app 3 (v2)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/todolist-app-3-v2/todolist%20app%203%20(v2)) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist%20app%203%20(v2)/)  
+• • > [новые фичи: 1. Список завершённых задач. 2. Редактирование названия и описания уже созданной задачи?.]  
+•  
+
+---
 
 • • > [15/02] 🔶 **Todolist app 2 (v2)** : Pull Request [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/todolist-app-2-v2/todolist%20app%201%20(v2)) | Demo  
 • • > [новые фичи: 1. Фон выполненной задачи помечается серым. 2. Счётчик всех и выполненных задач.]  
@@ -10,7 +15,7 @@
   
 ## Готово:
   
-• • > [16/02] 🔶 **Todolist app 3 (original)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist%20app%203) | [Demo](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist%20app%203)  
+• • > [16/02] 🔶 **Todolist app 3 (original)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist%20app%203) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist%20app%203/)  
 •  
 • ▶️ [Пишем список задач(todo list) на Vue.js](https://www.youtube.com/watch?v=JkYOYtIAwR0)   • ( 🧑 [Лукьянов Артём](https://www.youtube.com/channel/UCO8KyfLYPUU5NbfvOktKAQg) • 👨‍👨‍👧 1,1K • 🕑 27:05 • 👁 7 411 • 📅 28 апр 2019 )    
 • Особенности: Vue, Vue.component.   • Интересные фичи:  1\. Поле описания/description для задачи. 
@@ -179,7 +184,7 @@
 [ASP.NET Core 3 CRUD Project - TO DO list](https://www.youtube.com/watch?v=jAET1F3zHIw)
 
 ### Шаблоны:  
-• • > [14/02] 🔶 **Todolist app x (origin)** : [Code](github) | [Demo](github)  
+• • > [14/02] 🔶 **Todolist app x (origin)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/todolist-app-3-v2/todolist%20app%203) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist%20app%203/)  
 •  
 • ▶️ [xxxxxxxxxxxxx](xxxxxxxxxxxxxxx) • ( 🧑 [Channel](xxxxxxxxxxxxxxxxxxxx) • 👨‍👨‍👧 0000K • 🕑 00:00 • 👁 000000 • 📅 6 окт 2016 )    
 • Особенности:   • Интересные фичи:  
