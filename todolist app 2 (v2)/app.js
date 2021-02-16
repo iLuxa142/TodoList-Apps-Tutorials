@@ -9,16 +9,14 @@ new Vue({
 
     computed: 
     {
-        isAllChecked()
-        {
+        isAllChecked() {
             return this.taskList.every( task => task.checked ) && this.taskList.length > 0;
         }
     },
 
     methods: 
     {
-        addTask() 
-        {
+        addTask() {
             const task = this.newTask.trim();
 
             if (task) {
@@ -27,35 +25,33 @@ new Vue({
             }
         },
 
-        removeTask(task) 
-        {
+        removeTask(task) {
             this.taskList.$remove(task);
             if (task.checked)
                 this.checkedTasks--;
         },
 
-        clearList() 
-        {
+        clearList() {
             this.taskList =[];
             this.checkedTasks = 0;
         },
 
-        checkAll(task) 
-        {
+        checkAll(task) {
             const targetValue = this.isAllChecked ? false : true;
 
             for (var i = 0; i < this.taskList.length; i++) {
                 this.taskList[i].checked = targetValue;
             }
 
-            if ( targetValue == true )  
+            if ( targetValue == true ) {
                 this.checkedTasks = this.taskList.length;
-            else
+            }
+            else {
                 this.checkedTasks = 0;
+            }
         },
 
-        checkTask(task) 
-        {
+        checkTask(task) {
             task.checked ? this.checkedTasks-- : this.checkedTasks++;
         }
     }
