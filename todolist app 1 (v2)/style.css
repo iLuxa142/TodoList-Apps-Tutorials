@@ -114,7 +114,7 @@ input[type="checkbox"] + span {
     border: 1px solid #2a2f36;
     font-size: 12px;
     border: 2px solid #2a2f36;
-    background-color: #333333;
+    background-color: #ff0000;
     color: #fff;
     font-weight: 700;
     text-transform: uppercase;
@@ -125,8 +125,27 @@ input[type="checkbox"] + span {
 }
 
 .btn-remove:hover {
-  background-color: #535151;
-  border-color: #535151;
+  background-color: #5c0000;
+  border-color: #5c0000;
+}
+
+.btn-recover {
+  border: 1px solid #2a2f36;
+  font-size: 12px;
+  border: 2px solid #2a2f36;
+  background-color: #09ff00;
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  font-size: 12px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.btn-recover:hover {
+background-color: #006b09;
+border-color: #535151;
 }
 
 input[type="checkbox"]:checked,
