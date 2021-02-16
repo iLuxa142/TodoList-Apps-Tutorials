@@ -9,49 +9,52 @@ new Vue({
 
     computed: 
     {
-        areAllChecked: function()
+        isAllChecked()
         {
-            return this.taskList.every( function(task){return task.checked;} ) && this.taskList.length > 0;
+            return this.taskList.every( task => task.checked ) && this.taskList.length > 0;
         }
     },
 
     methods: 
     {
-        addTask: function() 
+        addTask() 
         {
-            var task = this.newTask.trim();
+            const task = this.newTask.trim();
+
             if (task) {
                 this.taskList.push( { text: task, checked: false } );
-
                 this.newTask = "";
             }
         },
 
-        removeTask: function(task) 
+        removeTask(task) 
         {
             this.taskList.$remove(task);
             if (task.checked)
                 this.checkedTasks--;
         },
 
-        clearList: function() 
+        clearList() 
         {
             this.taskList =[];
             this.checkedTasks = 0;
         },
 
-        checkAll: function(task) 
+        checkAll(task) 
         {
-            const targetValue = this.areAllChecked ? false : true;
+            const targetValue = this.isAllChecked ? false : true;
 
             for (var i = 0; i < this.taskList.length; i++) {
                 this.taskList[i].checked = targetValue;
             }
 
-            targetValue ? this.checkedTasks = this.taskList.length  : this.checkedTasks = 0;
+            if ( targetValue == true )  
+                this.checkedTasks = this.taskList.length;
+            else
+                this.checkedTasks = 0;
         },
 
-        checkTask: function(task) 
+        checkTask(task) 
         {
             task.checked ? this.checkedTasks-- : this.checkedTasks++;
         }
