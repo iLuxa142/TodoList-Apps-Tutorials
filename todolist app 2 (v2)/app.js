@@ -3,7 +3,12 @@ Vue.createApp({
         return {
             newTask: "",
             checkedTasks: 0,
-            taskList: [],
+            taskList: [
+                { text: "Task 1", checked: false },
+                { text: "Task 2", checked: false },
+                { text: "Task 3", checked: false },
+                { text: "Task 4", checked: false },
+                { text: "Task 5", checked: false }],
             isConfirmDelete: true
         };
     },
@@ -28,16 +33,16 @@ Vue.createApp({
 
         removeTask(index) {
             if (this.taskList[index]) {
-                if (this.taskList[index].checked) {
-                    this.checkedTasks--;
-                }
 
-                // удаление с подтверждением или без (опция checkbox isConfirmDelete)
-                if (this.isConfirmDelete) {
-                    if (confirm("Are you sure you want to delete this task? \n" + this.taskList[index].text)) {
-                        this.taskList.splice(index, 1);
-                    }
+                // если опция подтверждения включена и ответ НЕТ, то выход
+                // else (нет подтверждения | есть подтверждение и ответ ДА), то удалить задачу
+                if (this.isConfirmDelete && !confirm("Are you sure you want to delete this task? \n" + this.taskList[index].text)) {
+                    return;
                 } else {
+                    if (this.taskList[index].checked) {
+                        this.checkedTasks--;
+                    }
+
                     this.taskList.splice(index, 1);
                 }
             }
