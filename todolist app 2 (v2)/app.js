@@ -31,7 +31,9 @@ Vue.createApp({
                 this.checkedTasks--;
             }
 
-            this.taskList.splice(index, 1);
+            if (confirm("Are you sure you want to delete this task?")) {
+                this.taskList.splice(index, 1);
+            }
         },
 
         clearList() {
