@@ -25,11 +25,7 @@ Vue.createApp({
             const task = this.newTask.trim();
 
             if (task) {
-                this.taskList.push({
-                    text: task,
-                    checked: false
-                });
-
+                this.taskList.push({ text: task, checked: false });
                 this.newTask = "";
             }
         },
@@ -55,8 +51,8 @@ Vue.createApp({
             this.taskList = this.taskList.filter(task => !task.checked);
         },
 
-        checkAll(task) {
-            const targetValue = this.isAllChecked ? false : true;
+        checkAll() {
+            const targetValue = !this.isAllChecked;
 
             for (let i = 0; i < this.taskList.length; i++) {
                 this.taskList[i].checked = targetValue;
