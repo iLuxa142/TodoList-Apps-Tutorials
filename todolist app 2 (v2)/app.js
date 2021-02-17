@@ -52,12 +52,7 @@ Vue.createApp({
         },
 
         removeCheckedTasks() {
-            for (let i = 0; i < this.taskList.length; i++) {
-                if (this.taskList[i].checked) {
-                    this.removeTask(i);
-                    i--; // индекс на месте один цикл, т.к. на это место переместился следующий элемент
-                }
-            }
+            this.taskList = this.taskList.filter(task => !task.checked);
         },
 
         checkAll(task) {
