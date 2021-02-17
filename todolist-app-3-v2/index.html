@@ -12,18 +12,28 @@
 
 <body>
     <div id="app">
-        <div class="stats">
-            <h3 class="stats__title">{{"Текущие задачи: " + tasks.length }}</h3>
-            <task @task_done="delete_task(index)" :data="data" v-for="(data, index) in tasks" :key="index"></task>
-        </div>
         <div class="add_task">
             <div class="add_task__input">
                 <input type="text" v-model="new_task.title" placeholder="Новая задача">
                 <textarea v-model="new_task.desc" placeholder="описание"></textarea>
             </div>
-            <button class="add_task__btn" @click="add_task()">➕</button>
+            <button class="add_task__btn" @click="addTask()">➕</button>
         </div>
+        <div class="stats">
+            <h3 class="stats__title">Текущие задачи:</h3>
+            <task @task_done="changeStatusTask(index)" @task_title_edit="editTaskTitle(index)"
+                @task_desc_edit="editTaskDesc(index)" :data="data" v-for="(data, index) in Tasks" v-if="!data.isDone">
+            </task>
+
+            <h3 class="stats__title">Завершённые задачи:</h3>
+            <task @task_done="changeStatusTask(index)" @task_title_edit="editTaskTitle(index)"
+                @task_desc_edit="editTaskDesc(index)" :data="data" v-for="(data, index) in Tasks" v-if="data.isDone">
+            </task>
+        </div>
+
+        * - Редактирование заголовка/описания задачи - двойной клик по ним
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>
