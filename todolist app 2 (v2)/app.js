@@ -13,18 +13,11 @@ Vue.createApp({
     },
     computed: {
         isAllChecked() {
-            return this.taskList.every(task => task.checked) && this.taskList.length > 0;
+            return (this.taskList.length > 0) && this.taskList.every(task => task.checked);
         },
-        iCheckedTasks() {
-            let checkedTasks = 0;
 
-            for (let i = 0; i < this.taskList.length; i++) {
-                if (this.taskList[i].checked) {
-                    checkedTasks++;
-                }
-            }
-
-            return checkedTasks;
+        checkedTasks() {
+            return this.taskList.filter(task => task.checked).length;
         }
     },
     methods: {
