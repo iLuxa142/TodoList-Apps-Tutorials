@@ -27,7 +27,7 @@ li {
 .text-input {
     border: 1px solid #dedede;
     padding-left: 10px;
-    width: 70%;
+    width: 90%;
     height: 35px;
     color: #555;
 }
@@ -36,10 +36,20 @@ button {
     background-color: #ffffff;
     border: 1px solid #bbb;
     outline: 0;
-    width: 100px;
+    width: auto;
     height: 38px;
     cursor: pointer;
     font-size: 14px;
+}
+.linkstyle {
+    background: none!important;
+    border: none;
+    width: auto;
+    padding: 0!important;
+    /*optional*/
+    color: #069;
+    text-decoration: underline;
+    cursor: pointer;
 }
 .list li {
     background-color: #3465A4;

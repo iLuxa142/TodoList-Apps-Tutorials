@@ -3,7 +3,8 @@ Vue.createApp({
         return {
             newTask: "",
             checkedTasks: 0,
-            taskList: []
+            taskList: [],
+            isConfirmDelete: true
         };
     },
     computed: {
@@ -26,19 +27,34 @@ Vue.createApp({
         },
 
         removeTask(index) {
+            if (this.taskList[index]) {
+                if (this.taskList[index].checked) {
+                    this.checkedTasks--;
+                }
 
-            if (this.taskList[index] && this.taskList[index].checked) {
-                this.checkedTasks--;
-            }
-
-            if (confirm("Are you sure you want to delete this task?")) {
-                this.taskList.splice(index, 1);
+                // удаление с подтверждением или без (опция checkbox isConfirmDelete)
+                if (this.isConfirmDelete) {
+                    if (confirm("Are you sure you want to delete this task? \n" + this.taskList[index].text)) {
+                        this.taskList.splice(index, 1);
+                    }
+                } else {
+                    this.taskList.splice(index, 1);
+                }
             }
         },
 
         clearList() {
             this.taskList = [];
             this.checkedTasks = 0;
+        },
+
+        removeCheckedTasks() {
+            // обход элементов в обратном порядке (чтобы избежать пропусков нужных элементов из-за сдвига остальных при удалении одного)
+            for (var i = this.taskList.length - 1; i >= 0; i--) {
+                if (this.taskList[i].checked) {
+                    this.removeTask(i);
+                }
+            }
         },
 
         checkAll(task) {
