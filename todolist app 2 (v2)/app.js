@@ -18,8 +18,7 @@ Vue.createApp({
             if (task) {
                 this.taskList.push({
                     text: task,
-                    checked: false,
-                    id: Math.random()
+                    checked: false
                 });
 
                 this.newTask = "";
@@ -28,7 +27,7 @@ Vue.createApp({
 
         removeTask(index) {
 
-            if (this.taskList[index].checked) {
+            if (this.taskList[index] && this.taskList[index].checked) {
                 this.checkedTasks--;
             }
 
