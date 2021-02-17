@@ -25,7 +25,7 @@
         </ul>
         <div>
             Tasks: {{ taskList.length }} / {{ checkedTasks }} (All / Сhecked) |
-            Check/uncheck all: <input type="checkbox" id="mark-all" :checked="areAllChecked" @click="checkAll"> |
+            Check/uncheck all: <input type="checkbox" id="mark-all" :checked="isAllChecked" @click="checkAll"> |
             Confirm delete: <input type="checkbox" class="checkbox" v-model="isConfirmDelete"> <br />
             <button class="linkstyle" @click="clearList">Clear List</button> |
             <button class="linkstyle" @click="removeCheckedTasks">Remove checked tasks</button>
