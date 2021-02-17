@@ -1,8 +1,8 @@
-Vue.component('task',{
+Vue.component('task', {
     props: ['data'],
 
     methods: {
-        task_done () {
+        task_done() {
             this.$emit('task_done');
         }
     },
@@ -22,13 +22,17 @@ var vue = new Vue({
     data: {
         new_task: {
             title: '',
-            desc:  ''
+            desc: ''
         },
-        tasks: [ 
-            { title: 'Доделать проект Х к 31.03.2021',
-              desc:  'Позвонить Х, узнать детали' },
-            { title: 'Доделать проект У к 31.02.2021',
-              desc:  'Запустить сайт' } ]
+        tasks: [
+            {
+                title: 'Доделать проект Х к 31.03.2021',
+                desc: 'Позвонить Х, узнать детали'
+            },
+            {
+                title: 'Доделать проект У к 31.02.2021',
+                desc: 'Запустить сайт'
+            }]
     },
 
     methods: {
@@ -38,7 +42,7 @@ var vue = new Vue({
 
         add_task() {
             if (this.new_task.title != '') {
-                this.tasks.push( this.new_task );
+                this.tasks.push(this.new_task);
                 this.new_task = [];
             }
         }
