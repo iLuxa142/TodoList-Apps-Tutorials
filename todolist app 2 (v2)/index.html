@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:="http://wwww.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Todo list 2 (v2)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container" id="todo">
+        <section class="panel">
+
+            <input type="text" class="text-input" v-model="newTask" @keyup.enter="addTask" autofocus
+                placeholder="What do you need to do?">
+            <button @click="addTask">Add Task</button>
+        </section>
+
+        <ul class="list">
+            <li v-for="(task, index) in taskList" :class="{done: task.checked}">
+                <input type="checkbox" class="checkbox" v-model="task.checked">
+                <label for="checkbox">{{ task.text }}</label>
+                <button class="delete" @click="removeTask(index)">X</button>
+            </li>
+        </ul>
+        <div>
+            Tasks: {{ taskList.length }} / {{ checkedTasksCount }} (All / Сhecked) |
+            Check/uncheck all: <input type="checkbox" id="mark-all" :checked="isAllChecked" @click="checkAll"> |
+            Confirm delete: <input type="checkbox" class="checkbox" v-model="isConfirmDelete"> <br />
+            <button class="linkstyle" @click="clearList">Clear List</button> |
+            <button class="linkstyle" @click="removeCheckedTasks">Remove checked tasks</button>
+        </div>
+
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
