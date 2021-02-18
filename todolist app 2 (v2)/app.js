@@ -2,13 +2,13 @@ Vue.createApp({
     data() {
         return {
             newTask: "",
+            isConfirmDelete: true,
             taskList: [
                 { text: "Task 1", checked: false },
                 { text: "Task 2", checked: false },
                 { text: "Task 3", checked: false },
                 { text: "Task 4", checked: false },
-                { text: "Task 5", checked: false }],
-            isConfirmDelete: true
+                { text: "Task 5", checked: false }]
         };
     },
     computed: {
@@ -16,7 +16,7 @@ Vue.createApp({
             return (this.taskList.length > 0) && this.taskList.every(task => task.checked);
         },
 
-        checkedTasks() {
+        checkedTasksCount() {
             return this.taskList.filter(task => task.checked).length;
         }
     },
@@ -31,12 +31,10 @@ Vue.createApp({
         },
 
         removeTask(index) {
-            if (!this.taskList[index]) {
-                return;
-            }
-
-            // если опция подтверждения включена и ответ НЕТ, то выход
-            if (this.isConfirmDelete && !confirm("Are you sure you want to delete this task? \n" + this.taskList[index].text)) {
+            // Не сильно перегружен if ?
+            // если элемент массива неопределён или (опция подтверждения включена и ответ НЕТ), то выход
+            if (!this.taskList[index] ||
+                (this.isConfirmDelete && !confirm("Are you sure you want to delete this task? \n" + this.taskList[index].text))) {
                 return;
             }
 
@@ -54,9 +52,19 @@ Vue.createApp({
         checkAll() {
             const targetValue = !this.isAllChecked;
 
-            for (let i = 0; i < this.taskList.length; i++) {
-                this.taskList[i].checked = targetValue;
-            }
+            this.taskList = this.taskList.map(task => ({ ...task, checked: targetValue }));
+
+            // Вариант map без Spread(...)
+            // this.taskList = this.taskList.map(task => ({ text: task.text, checked: targetValue }));
+
+            // Вариант с for без тела (и не пиши, что не красиво!)
+            // for (let i = this.taskList.length + 1; i--; this.taskList[i - 1].checked = targetValue);
+
+            // Вариант с while
+            /* let i = this.taskList.length+1;
+               while (i--) {
+                  this.taskList[i-1].checked = targetValue;
+               } */
         }
     }
 }).mount('#todo');
