@@ -17,7 +17,7 @@
 • Особенности: Vue, Vue.component.   • Интересные фичи:  1\. Поле описания/description для задачи. 
 
 ---
-• • > [15/02-18/02] 🔶 **Todolist app 2 (v2)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist%20app%202%20(v2)) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist%20app%202%20(v2))  
+• • > [15/02-18/02] 🔶 **Todolist app 2 (v2)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist%20app%202%20(v2)) | [Mindmap Code](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist%20app%202%20(v2)/Mindmap_Code.png) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist%20app%202%20(v2))  
 • • > [новые фичи: 1. Фон выполненной задачи помечается серым. 2. Счётчик всех и выполненных задач. 3. Подтверждение удаления. 4. Удаление всех выполненных/отмеченных задач.]  
 •  
 • • > [14/02] 🔶 **Todolist app 2 (original)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist%20app%202) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist%20app%202/)  
@@ -148,6 +148,8 @@
 [Список дел | Todo list | vanilla javascript](https://www.youtube.com/watch?v=o2-PP3r8Wpw)  
 [Учим JavaScript 33. Создаем ToDo список дел](https://www.youtube.com/watch?v=742Yk1W41tc)  
 
+**Blazor (.NET Core)**  
+[Youtube search: todo Blazor](https://www.youtube.com/results?search_query=todo+Blazor)  
 
 **LocalStorage**  
 [Локальное хранилище localStorage Списка дел | LocalStorage ToDo List](https://www.youtube.com/watch?v=Wr1z_rFU5ZE)  
@@ -184,6 +186,7 @@
 [Sudoku & Vue: Build a Sudoku Game with Vue.js](https://www.youtube.com/watch?v=oWimqARmM7s)  
 [Sudoku Game using HTML, CSS, and JavaScript (playlist)](https://www.youtube.com/playlist?list=PLSZdxnY7ocZOsG0_TmJ7yQeDRYBnwIoab)  
 [5+ FREE HTML5 JavaScript Sudoku Games Script](http://www.iamrohit.in/html5-javascript-sudoku-games-script/)  
+[Live Coding a Memory Game: HTML, CSS, Javascript](https://www.youtube.com/watch?v=bbb9dZotsOc)  
 
 **ASP.NET**  
 [ASP.NET Core 3 CRUD Project - TO DO list](https://www.youtube.com/watch?v=jAET1F3zHIw)  
@@ -207,7 +210,6 @@
 - счётчик задач в конкретном списке или статусе (универсально)
 - дата и время создания добавленных задач
 
-
 ### Будущие фичи
 - иерархический список
 - Форматирование Markdown (список и заметки к задачам)
@@ -224,8 +226,10 @@
 - Возможность добавить таймер с обратными отсчётом
 
 ### Чеклист начинающего кодера
-- Отступы для хорошей читаемости кода
+- Отступы (гориз. и верт.) для хорошей читаемости кода
+- избегать слишком большой вложенности ветвлений, циклов (if, for, while, switch)
 - вместо var - const (константы) и let (изменяемые) (JS)
 - Осмысленные названия переменных и функций
 - Функции со сложной логикой, по возможности делить на более простые функции с понятными названиями, отражающими выполняемые действия/логику. 
 - для работы с итерируемыми объектами применять forEach, every, map, filter, reduce
+- не заниматься преждевременной оптимизацией
