@@ -86,6 +86,7 @@
 [Todo List Tutorial - Angular 4 and Redux](https://www.youtube.com/watch?v=Qd_V5hpYk_A)  
 
 **React**  
+[14. Building a Todo List App in React - YouTube](https://www.youtube.com/watch?v=h5crrOsLbpk)  
 [5 Minute Coding Challenge | To Do List App | ReactJS](https://www.youtube.com/watch?v=A2PKZlzbOtI)  
 [Build A Todo App With REACT | React Project For Beginners (FULL).](https://www.youtube.com/watch?v=pCA4qpQDZD8)  
 [Build To Do App with React JS + Hooks + Redux](https://www.youtube.com/watch?v=xwkbWUOGfws)  
@@ -176,20 +177,22 @@
 [Android. Пишем приложение - список дел, с использованием архитектурных компонентов от Google.](https://www.youtube.com/watch?v=nxDKAwH5wG0)  
 [How To Code Your First Mobile App Using Vue Native](https://www.youtube.com/watch?v=05LZ6-_FZj8)  
 
-**Games**  
-
-[HTML CSS JS - Speed Code - Puzzle Game](https://www.youtube.com/watch?v=s-nPR9-ham)  
-[Build PACMAN in vanilla JavaScript, HTML and CSS | Ania Kubow](https://www.youtube.com/watch?v=CeUGlSl2i4Q)  
-[Learn JavaScript by Building 7 Games - Full Course - YouTube](https://www.youtube.com/watch?v=lhNdUVh3qCc)  
-[Интенсив JS "Судоку" 1 день (10 января)](https://www.youtube.com/watch?v=_w_ZcvhvVOM)  
-[Интенсив JS "Судоку" 2 день (11 января)](https://www.youtube.com/watch?v=dixvCJE-aRQ)  
-[Sudoku & Vue: Build a Sudoku Game with Vue.js](https://www.youtube.com/watch?v=oWimqARmM7s)  
-[Sudoku Game using HTML, CSS, and JavaScript (playlist)](https://www.youtube.com/playlist?list=PLSZdxnY7ocZOsG0_TmJ7yQeDRYBnwIoab)  
-[5+ FREE HTML5 JavaScript Sudoku Games Script](http://www.iamrohit.in/html5-javascript-sudoku-games-script/)  
-[Live Coding a Memory Game: HTML, CSS, Javascript](https://www.youtube.com/watch?v=bbb9dZotsOc)  
-
 **ASP.NET**  
 [ASP.NET Core 3 CRUD Project - TO DO list](https://www.youtube.com/watch?v=jAET1F3zHIw)  
+
+**Search projects**  
+[codepen.io : todo](https://codepen.io/search/pens?q=todo)  
+[codepen.io : notes](https://codepen.io/search/pens?q=notes)  
+[codepen.io : mindmap](https://codepen.io/search/pens?q=mindmap)  
+[github.com : todo](https://github.com/search?q=todo)  
+[github.com : note taking](https://github.com/search?q=note+taking)  
+[github.com : outliner](https://github.com/search?q=outliner)  
+[github.com : mindmap](https://github.com/search?q=mindmap)  
+[sourceforge.net : notes](https://sourceforge.net/directory/?q=notes)  
+[sourceforge.net : outliner](https://sourceforge.net/directory/?q=outliner)  
+[sourceforge.net : todo](https://sourceforge.net/directory/?q=todo)  
+[sourceforge.net : mindmap](https://sourceforge.net/directory/?q=mindmap)  
+
 
 ### Шаблоны:  
 • • > [14/02] 🔶 **Todolist app x (origin)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/todolist-app-3-v2/todolist%20app%203) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist%20app%203/)  
@@ -214,6 +217,7 @@
 - иерархический список
 - Форматирование Markdown (список и заметки к задачам)
 - Undo / Redo
+- теги
 
 ### Фичи от заказчика
 - Сохранение в хранилище (local storage, indexdb)
