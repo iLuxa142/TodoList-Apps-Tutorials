@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <title>Todolist app 3</title>
+    <title>Todolist app 3 (v2)</title>
 </head>
 
 <body>
@@ -15,23 +15,27 @@
         <div class="add_task">
             <div class="add_task__input">
                 <input type="text" v-model="new_task.title" placeholder="Новая задача">
-                <textarea v-model="new_task.desc" placeholder="описание"></textarea>
+                <textarea v-model="new_task.desc" placeholder="Описание (не обязательно)"></textarea>
             </div>
             <button class="add_task__btn" @click="addTask()">➕</button>
         </div>
         <div class="stats">
+            <!-- Отображение одного массива по двум спискам с помощью v-if -->
             <h3 class="stats__title">Текущие задачи:</h3>
-            <task @task_done="changeStatusTask(index)" @task_title_edit="editTaskTitle(index)"
-                @task_desc_edit="editTaskDesc(index)" :data="data" v-for="(data, index) in Tasks" v-if="!data.isDone">
+            <task v-for="(task, index) in Tasks" :key="index" :data="task" v-if="!task.isDone"
+                @change_task_status="changeStatusTask(index)" @edit_task_title="editTaskTitle(index)"
+                @edit_task_desc="editTaskDesc(index)">
+
             </task>
 
             <h3 class="stats__title">Завершённые задачи:</h3>
-            <task @task_done="changeStatusTask(index)" @task_title_edit="editTaskTitle(index)"
-                @task_desc_edit="editTaskDesc(index)" :data="data" v-for="(data, index) in Tasks" v-if="data.isDone">
+            <task v-for="(task, index) in Tasks" :key="index" :data="task" v-if="task.isDone"
+                @change_task_status="changeStatusTask(index)" @edit_task_title="editTaskTitle(index)"
+                @edit_task_desc="editTaskDesc(index)" class="done1">
             </task>
         </div>
 
-        * - Редактирование заголовка/описания задачи - двойной клик по ним
+        <p>* - Редактирование заголовка/описания задачи - двойной клик по нужной области</p>
     </div>
     <script src="script.js"></script>
 </body>
