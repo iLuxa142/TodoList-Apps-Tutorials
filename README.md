@@ -2,7 +2,7 @@
 
 ## В процессе:
 
-• • > [16/02] 🔶 **Todolist app 3 (v2)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/todolist-app-3-v2/todolist%20app%203%20(v2)) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist%20app%203%20(v2)/)  
+• • > [16/02] 🔶 **Todolist app 3 (v2)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/todolist-app-3-v2/todolist-app-3-v2) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist-app-3-v2/)  
 • • > [новые фичи: 1. Список завершённых задач. 2. Редактирование названия и описания уже созданной задачи?.]  
 •  
 
@@ -173,6 +173,11 @@
 [Youtube search: notes angular](https://www.youtube.com/results?search_query=notes+angular)  
 [Youtube search: notes vue](https://www.youtube.com/results?search_query=notes+vue)  
 
+**OutLiners**  
+[SuperCool Outliner](https://codepen.io/181dev/pen/Dblvc)  
+[Outliner Alpha](https://codepen.io/patrickpang/pen/nHfDL)  
+
+
 **Android / Mobile**  
 [Android. Пишем приложение - список дел, с использованием архитектурных компонентов от Google.](https://www.youtube.com/watch?v=nxDKAwH5wG0)  
 [How To Code Your First Mobile App Using Vue Native](https://www.youtube.com/watch?v=05LZ6-_FZj8)  
@@ -192,6 +197,8 @@
 [sourceforge.net : outliner](https://sourceforge.net/directory/?q=outliner)  
 [sourceforge.net : todo](https://sourceforge.net/directory/?q=todo)  
 [sourceforge.net : mindmap](https://sourceforge.net/directory/?q=mindmap)  
+[code-projects.org : js](https://code-projects.org/c/languages/project/jsprojects/)  
+
 
 
 ### Шаблоны:  
