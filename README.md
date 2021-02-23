@@ -44,9 +44,9 @@
 ### Видеоинструкции:
 
 **Vue**  
-[Basic Todo App in Vue.js and Tailwind](https://www.youtube.com/watch?v=_JJJETbUXs4)  
-[Build Todo List App in Vue JS + Vuex](https://www.youtube.com/watch?v=xrkWxxdgBi4)  
-[Build a Realtime Full-stack ToDo App in 15 Minutes with Vue, Vuetify, VueFire, and Firebase](https://www.youtube.com/watch?v=tkvQVt2sX7Y)  
+• ▶️ [Build Todo List App in Vue JS + Vuex](https://www.youtube.com/watch?v=xrkWxxdgBi4) • ( 🧑 [neecoder x](https://www.youtube.com/channel/UCtL_snE3VQQN_lAMefQYhMA) • 👨‍👨‍👧 1,5K • 🕑 17:21 • 👁 2 844 • 📅 12 июн. 2020 )  
+• Особенности: vue, vuex, bootstrap, vue-cli, babel, export/import .vue components, vuex: state, mutations, actions, modules  
+• Интересные фичи:  1. Редактирование заголовка задачи на месте через input (v-if, v-else h3/input)  
 [Build a todo list with VueJS in 15 minutes](https://www.youtube.com/watch?v=oYDRUHCytFk)  
 [Code your first VUE JS App | Coding for Beginners | To Do List](https://www.youtube.com/watch?v=EhrY9lB7rgU)  
 [Create A Todo List Using HTML, CSS And Vue js](https://www.youtube.com/watch?v=UXkDgSChp2Y)  
@@ -152,11 +152,13 @@
 **Blazor (.NET Core)**  
 [Youtube search: todo Blazor](https://www.youtube.com/results?search_query=todo+Blazor)  
 
-**LocalStorage**  
+**Хранилище (LocalStorage, DB, indexdb)**  
 [Локальное хранилище localStorage Списка дел | LocalStorage ToDo List](https://www.youtube.com/watch?v=Wr1z_rFU5ZE)  
 [Урок 17\. JavaScript. Все о LocalStorage](https://www.youtube.com/watch?v=3-bZ7gLVSzo)  
 [Todo List application in JavaScript 2020 || CRUD operation in Javascript || Uses of local storage](https://www.youtube.com/watch?v=aC6cp5D0bvA)  
 [Making a ToDo List app with Local Storage!](https://www.youtube.com/watch?v=Z43SXaDPo2s)  
+• ▶️ [Build a Realtime Full-stack ToDo App in 15 Minutes with Vue, Vuetify, VueFire, and Firebase](https://www.youtube.com/watch?v=tkvQVt2sX7Y) • ( 🧑 [Diligent Dev](https://www.youtube.com/channel/UCLrTZVMYP_VsEyzxTAMcIcQ) • 👨‍👨‍👧 1,63K • 🕑 15:50 • 👁 3 858 • 📅 1 июн. 2020 )    
+• Особенности: Vue, Vuetify, VueFire, and Firebase  • Интересные фичи:  
 
 **Drag & Drop**  
 [Drag & Drop With Vanilla JS](https://www.youtube.com/watch?v=C22hQKE_32c)  
