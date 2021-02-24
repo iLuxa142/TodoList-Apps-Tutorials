@@ -1,26 +1,24 @@
 Vue.component('task', {
     props: ['data'],
-
     methods: {
-        change_task_status() {
-            this.$emit('change_task_status');
+        changeTaskStatus() {
+            this.$emit('change-task-status');
         },
 
-        edit_task_title() {
-            this.$emit('edit_task_title');
+        editTaskTitle() {
+            this.$emit('edit-task-title');
         },
 
-        edit_task_desc() {
-            this.$emit('edit_task_desc');
+        editTaskDesc() {
+            this.$emit('edit-task-desc');
         }
     },
-
     template: `
     <div class="task">
-        <input type="checkbox" class="task__done" :checked="data.isDone" @change="$emit('change_task_status')">
+        <input type="checkbox" class="task__done" :checked="data.isDone" @change="changeTaskStatus()">
         <div>
-            <h3 class="task__title" @dblclick="edit_task_title()">{{data.title}}</h3>
-            <p class="task__desc" @dblclick="edit_task_desc()">{{data.desc}}</p>
+            <h3 class="task__title" @dblclick="editTaskTitle()">{{data.title}}</h3>
+            <p class="task__desc" @dblclick="editTaskDesc()">{{data.desc}}</p>
         </div>
     </div>
     `
@@ -28,62 +26,53 @@ Vue.component('task', {
 
 var vue = new Vue({
     el: '#app',
-
     data: {
-        new_task: {
-            title: '',
-            desc: '',
-            isDone: false
-        },
-        Tasks: [{
-            title: 'Доделать проект Х к 30.03.2021',
-            desc: 'Позвонить Х, закрыть сделку',
-            isDone: false
-        },
-        {
-            title: 'Доделать проект У к 30.04.2021',
-            desc: 'Запустить сайт Y',
-            isDone: false
-        },
-        {
-            title: 'Доделать проект Z к 30.05.2021',
-            desc: 'Купить Х',
-            isDone: true
-        }]
+        filterText: '',
+        newTask: { title: '', desc: '', isDone: false },
+
+        taskList: [
+            {
+                title: 'Доделать проект Х к 30.03.2021',
+                desc: 'Позвонить Х, закрыть сделку',
+                isDone: false
+            },
+            {
+                title: 'Доделать проект У к 30.04.2021',
+                desc: 'Запустить сайт Y',
+                isDone: false
+            },
+            {
+                title: 'Доделать проект Z к 30.05.2021',
+                desc: 'Купить Х',
+                isDone: true
+            }
+        ]
     },
-
     methods: {
-
         changeStatusTask(id) {
-            if (this.Tasks[id]) {
-                this.Tasks[id].isDone = !this.Tasks[id].isDone;
+            if (this.taskList[id]) {
+                this.taskList[id].isDone = !this.taskList[id].isDone;
             }
         },
-
-
 
         editTaskTitle(id) {
-            if (!this.Tasks[id]) {
-                return;
-            }
+            if (!this.taskList[id]) return;
 
-            const newTaskTitle = prompt("Enter new task title: ", this.Tasks[id].title);
+            const newTaskTitle = prompt("Enter new task title: ", this.taskList[id].title);
 
             if (newTaskTitle) {
-                this.Tasks[id].title = newTaskTitle;
+                this.taskList[id].title = newTaskTitle;
             }
         },
 
         editTaskDesc(id) {
-            if (!this.Tasks[id]) {
-                return;
-            }
+            if (!this.taskList[id]) return;
 
             // вариант редактирования через prompt только однострочного desc
-            const newTaskDesc = prompt("Enter new task desc: ", this.Tasks[id].desc);
+            const newTaskDesc = prompt("Enter new task desc: ", this.taskList[id].desc);
 
             if (newTaskDesc) {
-                this.Tasks[id].desc = newTaskDesc;
+                this.taskList[id].desc = newTaskDesc;
             }
         },
 
@@ -94,10 +83,9 @@ var vue = new Vue({
             даже если при создании задачи поле new_task.desc не заполнено?
         */
         addTask() {
-            if (this.new_task.title) {
-                this.new_task.isDone = false;
-                this.Tasks.push({ ...this.new_task });
-                this.new_task = [];
+            if (this.newTask.title) {
+                this.taskList.push(this.newTask);
+                this.newTask = { title: '', desc: '', isDone: false };
             }
         }
     }
