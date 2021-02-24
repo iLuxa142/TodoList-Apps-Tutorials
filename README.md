@@ -3,7 +3,7 @@
 ## В процессе:
 
 • • > [16/02] 🔶 **Todolist app 3 (v2)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/todolist-app-3-v2/todolist-app-3-v2) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist-app-3-v2/)  
-• • > [новые фичи: 1. Список завершённых задач. 2. Редактирование названия и описания уже созданной задачи?.]  
+• • > [новые фичи: 1. Списки завершённых и удалённых задач с счётчиками. 2. Опция скрытия списков завершённых и/или удалённых задач. 3. Восстановление задачи из удалённых. 4. Редактирование названия и описания уже созданных задач (через promt). 5. Многострочное описание/desc задачи. 6. Фильтр/поиск по задачам.]  
 •  
 
 ---
@@ -33,40 +33,66 @@
 • • > [13/02] 🔶 **Todolist app 1 (original)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist%20app%201) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist%20app%201/index.html)  
 •  
 • ▶️ [ПРИЛОЖЕНИЕ на Vue 3 Делаем ToDo List с нуля на практике [2021]](https://www.youtube.com/watch?v=27Vhe78OsCg) • ( 🧑 [Анна Блок](https://www.youtube.com/channel/UCn5wduCq2Mus0v85QZn9IaA) • 👨‍👨‍👧 53,4K • 🕑 30:12 • 👁 11 094 • 📅 2 фев 2021 )  
-• Особенности: Vue 3 
+• Особенности: Vue 3; Отлично для начального туториала
 
 ---
   
 ### Структура (workflow) подпроектов:  
-1. Todolist app N (original) - оригинальный код из пройденного туториала  
+1. Todolist app N - оригинальный код из пройденного туториала  
 2. Todolist app N (v2) - доработка кода (см. чеклист нач. кодера) + пара новых фич + фича от заказчика + Code Review
 
 ### Видеоинструкции:
 
 **Vue**  
+• ▶️ [Vue js #13 Vue Todo list часть #1 создаем список дел](https://www.youtube.com/watch?v=S4KhAjN25rs) • ( 🧑 [Mario Dev](https://www.youtube.com/channel/UCkK0zr_EquhaXZfChS3iiyw) • 👨‍👨‍👧 1,28K • 🕑 26:08 • 👁 1 167 • 📅 25 апр. 2020 )    
+• Особенности: Хорошо объясняет/комментирует; Отлично для начального туториала; Saas • Интересные фичи:  
+
+• ▶️ [Vue js #14 Vue Todo list часть #2 localStorage, props, $emit](https://www.youtube.com/watch?v=EIfsUCrqaK4) • ( 🧑 [Mario Dev](https://www.youtube.com/channel/UCkK0zr_EquhaXZfChS3iiyw) • 👨‍👨‍👧 1,28K • 🕑 18:49 • 👁 643 • 📅 3 мая 2020 )    
+• Особенности: Хорошо объясняет/комментирует; Отлично для начального туториала; • Интересные фичи:  localStorage
+
+• ▶️ [Todo app (список задач) на Vue 3 + Composition API / Vue практика](https://www.youtube.com/watch?v=mqsXRxWvR3o) • ( 🧑 [Лукьянов Артём](https://www.youtube.com/channel/UCO8KyfLYPUU5NbfvOktKAQg) • 👨‍👨‍👧 1,1K • 🕑 25:46 • 👁 3 132 • 📅 7 окт. 2020 )  
+• Особенности: Vue 3 + Composition API; хорошее объяснение/комментарии  • Интересные фичи:  
+
 • ▶️ [Build Todo List App in Vue JS + Vuex](https://www.youtube.com/watch?v=xrkWxxdgBi4) • ( 🧑 [neecoder x](https://www.youtube.com/channel/UCtL_snE3VQQN_lAMefQYhMA) • 👨‍👨‍👧 1,5K • 🕑 17:21 • 👁 2 844 • 📅 12 июн. 2020 )  
 • Особенности: vue, vuex, bootstrap, vue-cli, babel, export/import .vue components, vuex: state, mutations, actions, modules  
 • Интересные фичи:  1. Редактирование заголовка задачи на месте через input (v-if, v-else h3/input)  
-[Build a todo list with VueJS in 15 minutes](https://www.youtube.com/watch?v=oYDRUHCytFk)  
-[Code your first VUE JS App | Coding for Beginners | To Do List](https://www.youtube.com/watch?v=EhrY9lB7rgU)  
-[Create A Todo List Using HTML, CSS And Vue js](https://www.youtube.com/watch?v=UXkDgSChp2Y)  
-[Creating To-Do List Application with Using Materialize CSS and Vue.js - YouTube](https://www.youtube.com/watch?v=ncRaPE77eSg)  
-[Full Stack Todo List Tutorial using Vue.js & AdonisJs](https://www.youtube.com/watch?v=dfEZlcPvez8)  
-[How to create a To-Do List Web App with Vue JS](https://www.youtube.com/watch?v=KGsIQQXWSR4)  
-[Intro to Vue.js: Build a Todo App](https://www.youtube.com/watch?v=-X2hP9pOVss)  
-[Learn To Build A Vue.js Todo App With Local Storage Part 1](https://www.youtube.com/watch?v=pF590TdMKO4)  
-[Learn Vue - Build your first app - to-do list example - underpinning knowledge - vue js tutorial](https://www.youtube.com/watch?v=4nLTqit1BGg)  
-[To-Do List Application In Vue.JS With Source Code | Source Code & Projects](https://www.youtube.com/watch?v=cVbxxoZVzBo)  
-[Todo app (список задач) на Vue 3 + Composition API / Vue практика](https://www.youtube.com/watch?v=mqsXRxWvR3o)  
-[Vue js #13 Vue Todo list часть #1 создаем список дел](https://www.youtube.com/watch?v=S4KhAjN25rs)  
-[Vue js #14 Vue Todo list часть #2 localStorage, props, $emit](https://www.youtube.com/watch?v=EIfsUCrqaK4)  
-[Vue.js Todo App (playlist)](https://www.youtube.com/playlist?list=PLEhEHUEU3x5q-xB1On4CsLPts0-rZ9oos)  
-[Vue.js Todo Task List App Tutorial](https://www.youtube.com/watch?v=W4qrvNHKtD8)  
-[VueJS Build A Todo App | Code On-The-Fly](https://www.youtube.com/watch?v=IBDVWntKQZ4)  
-[Vuetify: Create an App with Vue JS - in 30 MINUTES!](https://www.youtube.com/watch?v=CjXgoYo86yY)  
-[(Arabic) Vue.js Tutorials - How To Create To-Do List](https://www.youtube.com/watch?v=OoDEFCkFOzE)  
-[Уроки Vue js практика - Task list](https://www.youtube.com/watch?v=EdzVypBkfZg)  
-[№2 Создаем список задача (ToDo) на Vue, React, Svelte, Angular](https://www.youtube.com/watch?v=A8r4PSOIG5c)  
+
+• ▶️ [How to create a To-Do List Web App with Vue JS](https://www.youtube.com/watch?v=KGsIQQXWSR4) • ( 🧑 [Webnoob](https://www.youtube.com/channel/UCVI6tv5boZ62bSsd8k9eM7Q) • 👨‍👨‍👧 4,46K • 🕑 26:06 • 👁 3 982 • 📅 12 апр. 2019 )  
+• Особенности: стиль Wunderlist, .vue components  • Интересные фичи: 1. Favorite status  
+• [Github](https://github.com/webnoobcodes/vuejs-todoapp)  
+
+• ▶️ [Learn Vue - Build your first app - to-do list example - underpinning knowledge - vue js tutorial](https://www.youtube.com/watch?v=4nLTqit1BGg) • ( 🧑 [Very Academy](https://www.youtube.com/channel/UC1mxuk7tuQT2D0qTMgKji3w) • 👨‍👨‍👧 7,75K • 🕑 26:57 • 👁 446 • 📅 4 июн. 2020 )    
+• Особенности: Build and start a new vue project (npm); Bootstrap; Start the server;  • Интересные фичи: local storage; hide completed;  
+
+• ▶️ [To-Do List Application In Vue.JS With Source Code | Source Code & Projects](https://www.youtube.com/watch?v=cVbxxoZVzBo)  
+• Особенности: Демонстрация работы To-Do List App и ссылка на код  • Интересные фичи: Возможность создавать несколько списков, оформленных в виде карточек.  
+• [Код](https://code-projects.org/to-do-list-application-in-vue-js-with-source-code/)  
+
+• ▶️ [VueJS Build A Todo App | Code On-The-Fly](https://www.youtube.com/watch?v=IBDVWntKQZ4) • ( 🧑 [Liz Chow](https://www.youtube.com/channel/UCMZcg3titeO2OWU-afSzzdQ) • 👨‍👨‍👧 356 • 🕑 16:47 • 👁 5 683 • 📅 18 сент. 2019 )    
+• Особенности: 🔥🔥🔥  • Интересные фичи:  Несколько списков задач; мобильный интерфейс; процент завершённых задач в списке  
+
+• ▶️ [Vuetify: Create an App with Vue JS - in 30 MINUTES!](https://www.youtube.com/watch?v=CjXgoYo86yY) • ( 🧑 [Make Apps with Danny](https://www.youtube.com/channel/UC6eR_ndNgaTeE5t2Ud4ZiHw) • 👨‍👨‍👧 8,14K • 🕑 38:54 • 👁 20 713 • 📅 21 окт. 2020 )    
+• Особенности: 🔥🔥🔥🔥🔥 Vuetify (Material Framework)  • Интересные фичи:   
+
+• ▶️ [Learn To Build A Vue.js Todo App With Local Storage Part 1](https://www.youtube.com/watch?v=pF590TdMKO4) ( 🧑 [Program With Erik](https://www.youtube.com/channel/UCshZ3rdoCLjDYuTR_RBubzw) • 👨‍👨‍👧 62,7K • 🕑 14:11 • 👁 12 620 • 📅 30 авг. 2017 )    
+• Особенности:  • Интересные фичи:   
+
+• ▶️ [Build A Vue.js App Using Local Storage Part 2](https://www.youtube.com/watch?v=72Gc3PlUQmY) ( 🧑 [Program With Erik](https://www.youtube.com/channel/UCshZ3rdoCLjDYuTR_RBubzw) • 👨‍👨‍👧 62,7K • 🕑 13:25 • 👁 7 759 • 📅 6 сент. 2017 )    
+• Особенности:  • Интересные фичи:   
+
+• ▶️ [Learn To Build A Vue.js Todo App With Local Storage Part 3](https://www.youtube.com/watch?v=Xh3tTYzDYuA) ( 🧑 [Program With Erik](https://www.youtube.com/channel/UCshZ3rdoCLjDYuTR_RBubzw) • 👨‍👨‍👧 62,7K • 🕑 11:30 • 👁 2 651 • 📅 13 сент. 2017 )    
+• Особенности:  • Интересные фичи:  
+
+• ▶️ [Build a Realtime Full-stack ToDo App in 15 Minutes with Vue, Vuetify, VueFire, and Firebase](https://www.youtube.com/watch?v=tkvQVt2sX7Y) • ( 🧑 [Diligent Dev](https://www.youtube.com/channel/UCLrTZVMYP_VsEyzxTAMcIcQ) • 👨‍👨‍👧 1,63K • 🕑 15:50 • 👁 3 858 • 📅 1 июн. 2020 )    
+• Особенности: Vue, Vuetify, VueFire, and Firebase  • Интересные фичи:  
+
+• ▶️ [Vue.js Todo App (playlist: **12 vids, ~6,5 hours**)](https://www.youtube.com/playlist?list=PLEhEHUEU3x5q-xB1On4CsLPts0-rZ9oos)  
+
+• ▶️ [№2 Создаем список задача (ToDo) на Vue, React, Svelte, Angular](https://www.youtube.com/watch?v=A8r4PSOIG5c) • ( 🧑 [Archakov Blog](https://www.youtube.com/channel/UCdldbhAwO16vjnDwACTs5gQ) • 👨‍👨‍👧 29,8K • 🕑 **4:22:33** • 👁 4 872 • 📅 12 авг. 2020 )   
+• Особенности: Vue, React, Svelte, Angular  • Интересные фичи:   
+
+• ▶️ [Full Stack Todo List Tutorial using Vue.js & AdonisJs](https://www.youtube.com/watch?v=dfEZlcPvez8) • ( 🧑 [freeCodeCamp.org](https://www.youtube.com/channel/UC8butISFwT-Wl7EV0hUK0BQ) • 👨‍👨‍👧 3190K • 🕑 **3:48:57** • 👁 45 034 • 📅 23 мая 2018 )    
+• Особенности: Vue.js, Full Stack, REST API, AdonisJs, register/login/auth,     • Интересные фичи:  
 
 **Angular**  
 [Angular 5 To Do List App Within 30 minutes](https://www.youtube.com/watch?v=jNCzuSryJHE)  
@@ -107,6 +133,15 @@
 [Пишем свой To-Do list с нуля на REACT JS](https://www.youtube.com/watch?v=rYvd7BkMmP8)  
 [Пишем список задач(todo app) на React](https://www.youtube.com/watch?v=CtxEmOfIUco)  
 [Разработка списка задача на ReactJS (ToDo) #1](https://www.youtube.com/watch?v=PGZ6HtgSeio)  
+[React & Redux #22 Список дел на Реакт и Редакс (ToDo Application: React & Redux. Part I)](https://www.youtube.com/watch?v=0kVenECLU_8)  
+[React & Redux #23 Список дел на Реакт и Редакс (ToDo Application: React & Redux. Part II)](https://www.youtube.com/watch?v=m5LIqjQSIwg)  
+[React & Redux #24 Список дел на Реакт и Редакс (ToDo Application: React & Redux. Part III)](https://www.youtube.com/watch?v=qwMBO2hVq9E)  
+[React Todo на React, Redux и Firebase #1](https://www.youtube.com/watch?v=MV5LOoxHRc4)  
+[React Todo на React, Redux и Firebase #2](https://www.youtube.com/watch?v=25rQGWBnjtI)  
+[React Todo на React, Redux и Firebase #3](https://www.youtube.com/watch?v=vN_7wcH-fiw)  
+[React Todo на React, Redux и Firebase #4](https://www.youtube.com/watch?v=6h2V510EUd4)  
+[React Todo на React, Redux и Firebase #5](https://www.youtube.com/watch?v=v0jiEgF7aO4)  
+[Building a React Todo App w/ Authentication - Redux & Firebase (playlist: 9 vids, ~10 hours)](https://www.youtube.com/playlist?list=PLoH-uUW2wEIQU3diUzrpFaFOcXM8z8gBc)  
 
 **Vanila JS**  
 [Awesome Todo List Using HTML & CSS & JavaScript (2020)](https://www.youtube.com/watch?v=SB9dPJxVhp0)  
@@ -146,9 +181,15 @@
 [Пишем приложение на голом JS с авторизацией без фреймворков](https://www.youtube.com/watch?v=KS2ngnRAKlg)  
 [Практика JavaScript — пишем туду лист на JavaScript | Уроки для новичков](https://www.youtube.com/watch?v=6A51fI5QoUM)  
 [Создаём свой To Do List на чистом JavaScript](https://www.youtube.com/watch?v=VEA6_-gjPUY)  
+[Создание приложения на JavaScript, Часть 1](https://www.youtube.com/watch?v=XByK_MG_T_M)  
 [Список дел | Todo list | vanilla javascript](https://www.youtube.com/watch?v=o2-PP3r8Wpw)  
 [Учим JavaScript 33. Создаем ToDo список дел](https://www.youtube.com/watch?v=742Yk1W41tc)  
+[Практика JavaScript. Задача #2. ToDo List.](https://www.youtube.com/watch?v=Ac0A2x7RxUw)  
+[Уроки JavaScript Практика #17 To Do приложение на js](https://www.youtube.com/watch?v=sB6a_JBArJg)  
 
+**Other Frameworks**  
+[Svelte v3 - Basics - Todo App](https://www.youtube.com/watch?v=0uTX5GfmhTo)  
+  
 **Blazor (.NET Core)**  
 [Youtube search: todo Blazor](https://www.youtube.com/results?search_query=todo+Blazor)  
 
@@ -157,8 +198,6 @@
 [Урок 17\. JavaScript. Все о LocalStorage](https://www.youtube.com/watch?v=3-bZ7gLVSzo)  
 [Todo List application in JavaScript 2020 || CRUD operation in Javascript || Uses of local storage](https://www.youtube.com/watch?v=aC6cp5D0bvA)  
 [Making a ToDo List app with Local Storage!](https://www.youtube.com/watch?v=Z43SXaDPo2s)  
-• ▶️ [Build a Realtime Full-stack ToDo App in 15 Minutes with Vue, Vuetify, VueFire, and Firebase](https://www.youtube.com/watch?v=tkvQVt2sX7Y) • ( 🧑 [Diligent Dev](https://www.youtube.com/channel/UCLrTZVMYP_VsEyzxTAMcIcQ) • 👨‍👨‍👧 1,63K • 🕑 15:50 • 👁 3 858 • 📅 1 июн. 2020 )    
-• Особенности: Vue, Vuetify, VueFire, and Firebase  • Интересные фичи:  
 
 **Drag & Drop**  
 [Drag & Drop With Vanilla JS](https://www.youtube.com/watch?v=C22hQKE_32c)  
@@ -178,7 +217,6 @@
 **OutLiners**  
 [SuperCool Outliner](https://codepen.io/181dev/pen/Dblvc)  
 [Outliner Alpha](https://codepen.io/patrickpang/pen/nHfDL)  
-
 
 **Android / Mobile**  
 [Android. Пишем приложение - список дел, с использованием архитектурных компонентов от Google.](https://www.youtube.com/watch?v=nxDKAwH5wG0)  
@@ -200,6 +238,19 @@
 [sourceforge.net : todo](https://sourceforge.net/directory/?q=todo)  
 [sourceforge.net : mindmap](https://sourceforge.net/directory/?q=mindmap)  
 [code-projects.org : js](https://code-projects.org/c/languages/project/jsprojects/)  
+
+**GitHub projects**
+[vuetify-todo-pwa](https://github.com/davidgaroro/vuetify-todo-pwa)
+
+### Малополезные, дублирующие туториалы (мусорка)
+~~[Build a todo list with VueJS in 15 minutes](https://www.youtube.com/watch?v=oYDRUHCytFk)~~  
+~~[Code your first VUE JS App | Coding for Beginners | To Do List](https://www.youtube.com/watch?v=EhrY9lB7rgU)~~  
+~~[Create A Todo List Using HTML, CSS And Vue js](https://www.youtube.com/watch?v=UXkDgSChp2Y)~~  
+~~[Creating To-Do List Application with Using Materialize CSS and Vue.js](https://www.youtube.com/watch?v=ncRaPE77eSg)~~  
+• ▶️ [Intro to Vue.js: Build a Todo App](https://www.youtube.com/watch?v=-X2hP9pOVss) • ( 🧑 [Coding Garden](https://www.youtube.com/channel/UCLNgu_OupwoeESgtab33CCw) • 👨‍👨‍👧 103K • 🕑 18:51 • 👁 22 704 • 📅 26 апр. 2018 ) • Особенности: Хорошая подача. Отлично для начального туториала • Интересные фичи: 1. Отметить все • [Github](https://github.com/CodingGarden/vue-todo)    
+~~[Vue.js Todo Task List App Tutorial](https://www.youtube.com/watch?v=W4qrvNHKtD8)~~  
+~~[(Arabic) Vue.js Tutorials - How To Create To-Do List](https://www.youtube.com/watch?v=OoDEFCkFOzE)~~  
+~~[Уроки Vue js практика - Task list](https://www.youtube.com/watch?v=EdzVypBkfZg)~~  
 
 
 
@@ -223,7 +274,10 @@
 - дата и время создания добавленных задач
 
 ### Будущие фичи
-- иерархический список
+- Вид: иерархический список
+- Вид: таблица
+- Вид: карточки
+- Вид: mindmap
 - Форматирование Markdown (список и заметки к задачам)
 - Undo / Redo
 - теги
@@ -246,3 +300,4 @@
 - Функции со сложной логикой, по возможности делить на более простые функции с понятными названиями, отражающими выполняемые действия/логику. 
 - для работы с итерируемыми объектами применять forEach, every, map, filter, reduce
 - не заниматься преждевременной оптимизацией
+- не погружаться в детали/украшательства на ранних стадиях разработки. Сначала - работающая программа, затем - полировка.
