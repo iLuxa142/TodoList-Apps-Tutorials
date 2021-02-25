@@ -6,12 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Todolist app 3 (v2)</title>
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" data-tilt data-tilt-scale="1.2">
         <div class="header">
             <h2>Todo List App</h2>
             <hr>
@@ -19,7 +18,7 @@
         </div>
         <div class="add_task">
             <div class="add_task__input">
-                <input type="text" v-model="newTask.title" @keyup.enter="addTask()" placeholder="Новая задача">
+                <input type="text" v-model="newTask.title" @keyup.enter="addTask()" placeholder="Заголовок">
                 <textarea v-model="newTask.desc" placeholder="Описание (необязательно)"></textarea>
             </div>
             <button class="add_task__btn" @click="addTask()">➕</button>
@@ -30,7 +29,6 @@
                 задач ({{checkedTasksCount}})</p>
         </div>
         <div class="stats">
-            <!-- Отображение одного массива по двум спискам с помощью v-if -->
             <h3 class="stats__title">Текущие задачи ({{doTasksCount}})</h3>
             <task v-for="(task, index) in taskList" :key="index" :data="task" :filter="filterText" v-if="!task.isDone"
                 @change-task-status="changeStatusTask(index)" @toggle-task-editing="toggleTaskEditing(index)">
@@ -45,10 +43,14 @@
             </div>
         </div>
         <hr>
-        <p>* - Редактирование заголовка/описания задачи - двойной клик по задаче</p>
-        {{filterText}}
+        <p>***</p>
+        <p>Редактирование title/desc задачи - двойной клик.</p>
+        <p>В описании к задаче слова заменяются 'важно' - '☝️', 'срочно' - '🕑'. </p>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="script.js"></script>
+    <script type="text/javascript" src="vanilla-tilt.js"></script>
 </body>
 
 </html>

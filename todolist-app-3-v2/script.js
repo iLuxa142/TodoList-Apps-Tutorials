@@ -9,16 +9,17 @@ Vue.component('task', {
             this.$emit('toggle-task-editing');
         },
 
-        searchСaseInsens(targetString) {
-            return targetString.toLowerCase().includes(this.filter.toLowerCase());
+        isFoundFilterStr() {
+            return this.data.title.toLowerCase().includes(this.filter.toLowerCase()) ||
+                this.data.desc.toLowerCase().includes(this.filter.toLowerCase());
         }
     },
     template: `
-    <div class="task" v-show="searchСaseInsens(data.title) || searchСaseInsens(data.desc)">
+    <div class="task" v-show="isFoundFilterStr()">
         <input type="checkbox" class="task__done" :checked="data.isDone" @change="changeTaskStatus()">&nbsp;&nbsp;
         <div v-if="!data.isEditing">
             <h3 class="task__title" @dblclick="toggleTaskEditing()">{{data.title}}</h3>
-            <p v-if="!data.isEditing" class="task__desc" @dblclick="toggleTaskEditing()"><span v-html="data.desc"></span></p>
+            <p class="task__desc" @dblclick="toggleTaskEditing()"><span v-html="data.desc"></span></p>
         </div>
         <div v-else class="add_task">
             <div class="add_task__input">
@@ -113,7 +114,6 @@ var vue = new Vue({
             // Хорошо что поддерживает форматирование, ссылки и тд. 
             // Но без фильтрации опасно выводить html, созданный пользоватлем (XSS, внедрение js кода). Доработать.
             // при пустом desc элемент для вывода <p> будет с min-height: 20px, чтобы можно было изменить мышью.
-
             if (this.newTask.desc) {
                 this.newTask.desc = this.$options.filters.emoji(this.newTask.desc);
                 this.newTask.desc = this.newTask.desc.split('\n').join('<br>');
