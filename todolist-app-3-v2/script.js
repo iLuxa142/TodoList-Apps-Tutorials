@@ -1,5 +1,5 @@
 Vue.component('task', {
-    props: ['data', 'filter'],
+    props: ['data'],
     methods: {
         changeTaskStatus() {
             this.$emit('change-task-status');
@@ -7,15 +7,10 @@ Vue.component('task', {
 
         toggleTaskEditing() {
             this.$emit('toggle-task-editing');
-        },
-
-        isFoundFilterStr() {
-            return this.data.title.toLowerCase().includes(this.filter.toLowerCase()) ||
-                this.data.desc.toLowerCase().includes(this.filter.toLowerCase());
         }
     },
     template: `
-    <div class="task" v-show="isFoundFilterStr()">
+    <div class="task">
         <input type="checkbox" class="task__done" :checked="data.isDone" @change="changeTaskStatus()">&nbsp;&nbsp;
         <div v-if="!data.isEditing">
             <h3 class="task__title" @dblclick="toggleTaskEditing()">{{data.title}}</h3>
@@ -74,9 +69,22 @@ var vue = new Vue({
 
         checkedTasksCount() {
             return this.taskList.filter(task => task.isDone).length;
+        },
+
+        filteredList() {
+            return this.taskList.filter(task => this.isFoundFilterStr(task));
         }
+
     },
     methods: {
+        isFoundFilterStr(task) {
+            const filter = this.filterText.toLowerCase();
+            const title = task.title.toLowerCase();
+            const desc = task.desc.toLowerCase();
+
+            return title.includes(filter) || desc.includes(filter);
+        },
+
         clearTaskInput() {
             this.newTask = { ...this.$options.data().newTask };
         },

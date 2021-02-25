@@ -28,20 +28,28 @@
             <p> <input type="checkbox" v-model="hideCompleteList"> - Скрыть список завершённых
                 задач ({{checkedTasksCount}})</p>
         </div>
-        <div class="stats">
+
+        <div class="stats" v-if="filterText == ''">
             <h3 class="stats__title">Текущие задачи ({{doTasksCount}})</h3>
-            <task v-for="(task, index) in taskList" :key="index" :data="task" :filter="filterText" v-if="!task.isDone"
+            <task v-for="(task, index) in taskList" :key="index" :data="task" v-if="!task.isDone"
                 @change-task-status="changeStatusTask(index)" @toggle-task-editing="toggleTaskEditing(index)">
             </task>
 
             <div v-show="!hideCompleteList">
                 <h3 class="stats__title">Завершённые задачи ({{checkedTasksCount}})</h3>
-                <task v-for="(task, index) in taskList" :key="index" :data="task" :filter="filterText"
-                    v-if="task.isDone" @change-task-status="changeStatusTask(index)"
-                    @toggle-task-editing="toggleTaskEditing(index)" class="done1">
+                <task v-for="(task, index) in taskList" :key="index" :data="task" v-if="task.isDone"
+                    @change-task-status="changeStatusTask(index)" @toggle-task-editing="toggleTaskEditing(index)"
+                    class="done1">
                 </task>
             </div>
         </div>
+        <div class="stats" v-else>
+            <h3 class="stats__title">Найденные задачи ({{filteredList.length}})</h3>
+            <task v-for="(task, index) in filteredList" :key="index" :data="task"
+                @change-task-status="changeStatusTask(index)" @toggle-task-editing="toggleTaskEditing(index)">
+            </task>
+        </div>
+
         <hr>
         <p>***</p>
         <p>Редактирование title/desc задачи - двойной клик.</p>
