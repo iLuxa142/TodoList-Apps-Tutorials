@@ -26,23 +26,27 @@
         </div>
         <div>
             Фильтр/поиск: <input type="text" v-model="filterText" placeholder="поисковый запрос">
+            <p> <input type="checkbox" v-model="hideCompleteList"> - Скрыть список завершённых
+                задач ({{checkedTasksCount}})</p>
         </div>
         <div class="stats">
             <!-- Отображение одного массива по двум спискам с помощью v-if -->
             <h3 class="stats__title">Текущие задачи ({{doTasksCount}})</h3>
             <task v-for="(task, index) in taskList" :key="index" :data="task" v-if="!task.isDone"
-                @change-task-status="changeStatusTask(index)" @edit-task-title="editTaskTitle(index)"
-                @edit-task-desc="editTaskDesc(index)">
+                @change-task-status="changeStatusTask(index)" @toggle-task-editing="toggleTaskEditing(index)">
             </task>
 
-            <h3 class="stats__title">Завершённые задачи ({{checkedTasksCount}})</h3>
-            <task v-for="(task, index) in taskList" :key="index" :data="task" v-if="task.isDone"
-                @change-task-status="changeStatusTask(index)" @edit-task-title="editTaskTitle(index)"
-                @edit-task-desc="editTaskDesc(index)" class="done1">
-            </task>
+            <div v-show="!hideCompleteList">
+                <h3 class="stats__title">Завершённые задачи ({{checkedTasksCount}})</h3>
+                <task v-for="(task, index) in taskList" :key="index" :data="task" v-if="task.isDone"
+                    @change-task-status="changeStatusTask(index)" @toggle-task-editing="toggleTaskEditing(index)"
+                    class="done1">
+                </task>
+            </div>
         </div>
+        <hr>
+        <p>* - Редактирование заголовка/описания задачи - двойной клик по задаче</p>
 
-        <p>* - Редактирование заголовка/описания задачи - двойной клик по нужной области</p>
     </div>
     <script src="script.js"></script>
 </body>

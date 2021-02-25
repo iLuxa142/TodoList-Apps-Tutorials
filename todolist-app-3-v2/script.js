@@ -5,20 +5,23 @@ Vue.component('task', {
             this.$emit('change-task-status');
         },
 
-        editTaskTitle() {
-            this.$emit('edit-task-title');
+        toggleTaskEditing() {
+            this.$emit('toggle-task-editing');
         },
-
-        editTaskDesc() {
-            this.$emit('edit-task-desc');
-        }
     },
     template: `
     <div class="task">
-        <input type="checkbox" class="task__done" :checked="data.isDone" @change="changeTaskStatus()">
-        <div>
-            <h3 class="task__title" @dblclick="editTaskTitle()">{{data.title}}</h3>
-            <p class="task__desc" @dblclick="editTaskDesc()"><span v-html="data.desc"></span></p>
+        <input type="checkbox" class="task__done" :checked="data.isDone" @change="changeTaskStatus()">&nbsp;&nbsp;
+        <div v-if="!data.isEditing">
+            <h3 class="task__title" @dblclick="toggleTaskEditing()">{{data.title}}</h3>
+            <p v-if="!data.isEditing" class="task__desc" @dblclick="toggleTaskEditing()"><span v-html="data.desc"></span></p>
+        </div>
+        <div v-else class="add_task">
+            <div class="add_task__input">
+                <input type="text" v-model="data.title" @keyup.enter="toggleTaskEditing()">
+                <textarea v-model="data.desc"></textarea>
+            </div>
+            <button class="add_task__btn" @click="toggleTaskEditing()">✅</button>
         </div>
     </div>
     `
@@ -29,23 +32,27 @@ var vue = new Vue({
     data() {
         return {
             filterText: '',
-            newTask: { title: '', desc: '', isDone: false },
+            hideCompleteList: false,
+            newTask: { title: '', desc: '', isDone: false, isEditing: false },
 
             taskList: [
                 {
                     title: 'Доделать проект Х к 30.03.2021',
                     desc: 'Позвонить Х, <br>закрыть <i>сделку</i>',
-                    isDone: false
+                    isDone: false,
+                    isEditing: false
                 },
                 {
                     title: 'Доделать проект У к 30.04.2021',
                     desc: 'Запустить <b>сайт</b> <a href="https://yandex.ru" target="_blank">Yandex</a>',
-                    isDone: false
+                    isDone: false,
+                    isEditing: false
                 },
                 {
                     title: 'Доделать проект Z к 30.05.2021',
                     desc: '<span style="color: red">Купить Х</span>',
-                    isDone: true
+                    isDone: true,
+                    isEditing: false
                 }
             ]
         }
@@ -68,7 +75,7 @@ var vue = new Vue({
             // Object.assign(this.newTask, this.$options.data().newTask);
 
             // Вариант 3 - 
-            this.newTask = { title: '', desc: '', isDone: false };
+            this.newTask = { title: '', desc: '', isDone: false, isEditing: false };
 
             // Вариант 4 - 
             // return { title: '', desc: '', isDone: false }
@@ -85,25 +92,21 @@ var vue = new Vue({
             }
         },
 
-        editTaskTitle(id) {
+        toggleTaskEditing(id) {
             if (!this.taskList[id]) return;
 
-            const newTaskTitle = prompt("Enter new task title: ", this.taskList[id].title);
+            // Если заканчивается редактирование, то преобразовать переводы строки в <br>
+            if (this.taskList[id].isEditing) {
+                this.taskList[id].desc = this.taskList[id].desc.split('\n').join('<br>');
+            }
 
+            this.taskList[id].isEditing = !this.taskList[id].isEditing;
+
+            /* Вариант с модальным окном prompt
+            const newTaskTitle = prompt("Enter new task title: ", this.taskList[id].title);
             if (newTaskTitle) {
                 this.taskList[id].title = newTaskTitle;
-            }
-        },
-
-        editTaskDesc(id) {
-            if (!this.taskList[id]) return;
-
-            // вариант редактирования через prompt только однострочного desc
-            const newTaskDesc = prompt("Enter new task desc: ", this.taskList[id].desc);
-
-            if (newTaskDesc) {
-                this.taskList[id].desc = newTaskDesc;
-            }
+            } */
         },
 
         addTask() {
