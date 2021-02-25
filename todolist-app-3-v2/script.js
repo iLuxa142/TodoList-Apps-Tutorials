@@ -10,7 +10,7 @@ Vue.component('task', {
         }
     },
     template: `
-    <div class="task">
+    <div class="task" :class="{done: data.isDone}">
         <input type="checkbox" class="task__done" :checked="data.isDone" @change="changeTaskStatus()">&nbsp;&nbsp;
         <div v-if="!data.isEditing">
             <h3 class="task__title" @dblclick="toggleTaskEditing()">{{data.title}}</h3>
@@ -74,7 +74,6 @@ var vue = new Vue({
         filteredList() {
             return this.taskList.filter(task => this.isFoundFilterStr(task));
         }
-
     },
     methods: {
         isFoundFilterStr(task) {

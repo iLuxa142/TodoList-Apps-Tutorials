@@ -86,7 +86,7 @@ body {
   border-radius: 4px;
   background-color: #2f485811;
 }
-.done1 h3, .done1 p {
+.done h3, .done p {
   text-decoration: line-through;
   color: grey;
 }

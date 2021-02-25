@@ -38,8 +38,7 @@
             <div v-show="!hideCompleteList">
                 <h3 class="stats__title">Завершённые задачи ({{checkedTasksCount}})</h3>
                 <task v-for="(task, index) in taskList" :key="index" :data="task" v-if="task.isDone"
-                    @change-task-status="changeStatusTask(index)" @toggle-task-editing="toggleTaskEditing(index)"
-                    class="done1">
+                    @change-task-status="changeStatusTask(index)" @toggle-task-editing="toggleTaskEditing(index)">
                 </task>
             </div>
         </div>
