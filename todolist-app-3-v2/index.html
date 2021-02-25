@@ -19,7 +19,7 @@
         </div>
         <div class="add_task">
             <div class="add_task__input">
-                <input type="text" v-model="newTask.title" placeholder="Новая задача">
+                <input type="text" v-model="newTask.title" @keyup.enter="addTask()" placeholder="Новая задача">
                 <textarea v-model="newTask.desc" placeholder="Описание (необязательно)"></textarea>
             </div>
             <button class="add_task__btn" @click="addTask()">➕</button>
@@ -32,21 +32,21 @@
         <div class="stats">
             <!-- Отображение одного массива по двум спискам с помощью v-if -->
             <h3 class="stats__title">Текущие задачи ({{doTasksCount}})</h3>
-            <task v-for="(task, index) in taskList" :key="index" :data="task" v-if="!task.isDone"
+            <task v-for="(task, index) in taskList" :key="index" :data="task" :filter="filterText" v-if="!task.isDone"
                 @change-task-status="changeStatusTask(index)" @toggle-task-editing="toggleTaskEditing(index)">
             </task>
 
             <div v-show="!hideCompleteList">
                 <h3 class="stats__title">Завершённые задачи ({{checkedTasksCount}})</h3>
-                <task v-for="(task, index) in taskList" :key="index" :data="task" v-if="task.isDone"
-                    @change-task-status="changeStatusTask(index)" @toggle-task-editing="toggleTaskEditing(index)"
-                    class="done1">
+                <task v-for="(task, index) in taskList" :key="index" :data="task" :filter="filterText"
+                    v-if="task.isDone" @change-task-status="changeStatusTask(index)"
+                    @toggle-task-editing="toggleTaskEditing(index)" class="done1">
                 </task>
             </div>
         </div>
         <hr>
         <p>* - Редактирование заголовка/описания задачи - двойной клик по задаче</p>
-
+        {{filterText}}
     </div>
     <script src="script.js"></script>
 </body>

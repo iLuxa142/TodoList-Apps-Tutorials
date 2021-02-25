@@ -1,5 +1,5 @@
 Vue.component('task', {
-    props: ['data'],
+    props: ['data', 'filter'],
     methods: {
         changeTaskStatus() {
             this.$emit('change-task-status');
@@ -8,9 +8,13 @@ Vue.component('task', {
         toggleTaskEditing() {
             this.$emit('toggle-task-editing');
         },
+
+        searchСaseInsens(targetString) {
+            return targetString.toLowerCase().includes(this.filter.toLowerCase());
+        }
     },
     template: `
-    <div class="task">
+    <div class="task" v-show="searchСaseInsens(data.title) || searchСaseInsens(data.desc)">
         <input type="checkbox" class="task__done" :checked="data.isDone" @change="changeTaskStatus()">&nbsp;&nbsp;
         <div v-if="!data.isEditing">
             <h3 class="task__title" @dblclick="toggleTaskEditing()">{{data.title}}</h3>
@@ -57,6 +61,11 @@ var vue = new Vue({
             ]
         }
     },
+    filters: {
+        emoji(value) {
+            return value.replace('важно', '☝️').replace('срочно', '🕑');
+        }
+    },
     computed: {
         doTasksCount() {
             return this.taskList.filter(task => !task.isDone).length;
@@ -67,23 +76,8 @@ var vue = new Vue({
         }
     },
     methods: {
-        resetTaskInput() {
-            // Вариант 1 - сбрасывает все данные
-            // Object.assign(this.$data, this.$options.data());
-
-            // Вариант 2 - не работает как нужно
-            // Object.assign(this.newTask, this.$options.data().newTask);
-
-            // Вариант 3 - 
-            this.newTask = { title: '', desc: '', isDone: false, isEditing: false };
-
-            // Вариант 4 - 
-            // return { title: '', desc: '', isDone: false }
-
-            // Вариант 5 - у меня с this.$options, заработало при двух вариантах:
-            // this.newTask = this.$options.data().newTask;
-            // или
-            // this.newTask = Object.assign({}, this.$options.data().newTask);
+        clearTaskInput() {
+            this.newTask = { ...this.$options.data().newTask };
         },
 
         changeStatusTask(id) {
@@ -95,14 +89,16 @@ var vue = new Vue({
         toggleTaskEditing(id) {
             if (!this.taskList[id]) return;
 
-            // Если заканчивается редактирование, то преобразовать переводы строки в <br>
-            if (this.taskList[id].isEditing) {
+            // Если заканчивается редактирование, то заменить ключевые слова на значки
+            // + преобразовать переводы строки в <br>
+            if (this.taskList[id].isEditing && this.taskList[id].desc) {
+                this.taskList[id].desc = this.$options.filters.emoji(this.taskList[id].desc);
                 this.taskList[id].desc = this.taskList[id].desc.split('\n').join('<br>');
             }
 
             this.taskList[id].isEditing = !this.taskList[id].isEditing;
 
-            /* Вариант с модальным окном prompt
+            /* Вариант с модальным окном prompt (в будущем заменить на кастомное)
             const newTaskTitle = prompt("Enter new task title: ", this.taskList[id].title);
             if (newTaskTitle) {
                 this.taskList[id].title = newTaskTitle;
@@ -110,18 +106,21 @@ var vue = new Vue({
         },
 
         addTask() {
-            if (this.newTask.title) {
-                console.log(this.newTask);
+            if (!this.newTask.title) return;
 
-                // преобразовать desc для многострочного вывода в <span v-html="data.desc"></span>
-                // Хорошо что поддерживает форматирование, ссылки и тд. 
-                // Но без фильтрации опасно выводить html, созданный пользоватлем (XSS, внедрение js кода). Доработать.
-                // при пустом desc элемент для вывода <p> будет с min-height: 20px, чтобы можно было изменить, кликнув
+            // заменить ключевые слова на значки
+            // А также преобразовать desc для многострочного вывода в <span v-html="data.desc"></span>
+            // Хорошо что поддерживает форматирование, ссылки и тд. 
+            // Но без фильтрации опасно выводить html, созданный пользоватлем (XSS, внедрение js кода). Доработать.
+            // при пустом desc элемент для вывода <p> будет с min-height: 20px, чтобы можно было изменить мышью.
+
+            if (this.newTask.desc) {
+                this.newTask.desc = this.$options.filters.emoji(this.newTask.desc);
                 this.newTask.desc = this.newTask.desc.split('\n').join('<br>');
-
-                this.taskList.push(this.newTask);
-                this.resetTaskInput();
             }
+
+            this.taskList.push({ ...this.newTask });
+            this.clearTaskInput();
         }
     }
 });
