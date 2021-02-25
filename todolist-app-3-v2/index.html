@@ -29,14 +29,13 @@
         </div>
         <div class="stats">
             <!-- Отображение одного массива по двум спискам с помощью v-if -->
-            <h3 class="stats__title">Текущие задачи:</h3>
+            <h3 class="stats__title">Текущие задачи ({{doTasksCount}})</h3>
             <task v-for="(task, index) in taskList" :key="index" :data="task" v-if="!task.isDone"
                 @change-task-status="changeStatusTask(index)" @edit-task-title="editTaskTitle(index)"
                 @edit-task-desc="editTaskDesc(index)">
-
             </task>
 
-            <h3 class="stats__title">Завершённые задачи:</h3>
+            <h3 class="stats__title">Завершённые задачи ({{checkedTasksCount}})</h3>
             <task v-for="(task, index) in taskList" :key="index" :data="task" v-if="task.isDone"
                 @change-task-status="changeStatusTask(index)" @edit-task-title="editTaskTitle(index)"
                 @edit-task-desc="editTaskDesc(index)" class="done1">
