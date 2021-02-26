@@ -61,8 +61,7 @@ var vue = new Vue({
     filters: {
         strReplace(value) {
             // заменяет только первое вхождение. Позже сделать замену всех вхождений
-            return value.replace('важно', '☝️')
-                .replace('срочно', '🕑');
+            return value.replace('важно', '☝️').replace('срочно', '🕑');
         }
     },
     computed: {
@@ -104,7 +103,7 @@ var vue = new Vue({
         toggleTaskEditing(task) {
             if (!task) return;
 
-            // Если заканчивается редактирование, то 
+            // Если редактирование закончено, то 
             // Произвести опциональные замены в desc (emoji)
             if (task.isEditing && task.desc) {
                 task.desc = this.$options.filters.strReplace(task.desc);
