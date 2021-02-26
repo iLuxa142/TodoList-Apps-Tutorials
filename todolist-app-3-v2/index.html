@@ -25,6 +25,7 @@
         </div>
         <div>
             Фильтр/поиск: <input type="text" v-model="filterText" placeholder="поисковый запрос">
+            <button @click="filterText=''">очистить</button>
             <p> <input type="checkbox" v-model="hideCompleteList"> - Скрыть список завершённых
                 задач ({{checkedTasksCount}})</p>
         </div>
