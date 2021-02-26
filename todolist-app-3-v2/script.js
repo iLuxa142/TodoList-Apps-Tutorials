@@ -14,7 +14,7 @@ Vue.component('task', {
         <input type="checkbox" class="task__done" :checked="data.isDone" @change="changeTaskStatus()">&nbsp;&nbsp;
         <div v-if="!data.isEditing">
             <h3 class="task__title" @dblclick="toggleTaskEditing()">{{data.title}}</h3>
-            <p class="task__desc" @dblclick="toggleTaskEditing()"><span v-html="data.desc"></span></p>
+            <p class="task__desc" @dblclick="toggleTaskEditing()">{{data.desc}}</p>
         </div>
         <div v-else class="add_task">
             <div class="add_task__input">
@@ -33,24 +33,25 @@ var vue = new Vue({
         return {
             filterText: '',
             hideCompleteList: false,
+            isCheckAllFiltered: false,
             newTask: { title: '', desc: '', isDone: false, isEditing: false },
 
             taskList: [
                 {
                     title: 'Доделать проект Х к 30.03.2021',
-                    desc: 'Позвонить Х, <br>закрыть <i>сделку</i>',
+                    desc: 'Позвонить Х, закрыть сделку',
                     isDone: false,
                     isEditing: false
                 },
                 {
                     title: 'Доделать проект У к 30.04.2021',
-                    desc: 'Запустить <b>сайт</b> <a href="https://yandex.ru" target="_blank">Yandex</a>',
+                    desc: 'Запустить сайт Yandex',
                     isDone: false,
                     isEditing: false
                 },
                 {
                     title: 'Доделать проект Z к 30.05.2021',
-                    desc: '<span style="color: red">Купить Х</span>',
+                    desc: 'Купить Х',
                     isDone: true,
                     isEditing: false
                 }
@@ -58,8 +59,10 @@ var vue = new Vue({
         }
     },
     filters: {
-        emoji(value) {
-            return value.replace('важно', '☝️').replace('срочно', '🕑');
+        strReplace(value) {
+            // заменяет только первое вхождение. Позже сделать замену всех вхождений
+            return value.replace('важно', '☝️')
+                .replace('срочно', '🕑');
         }
     },
     computed: {
@@ -72,39 +75,42 @@ var vue = new Vue({
         },
 
         filteredList() {
-            return this.taskList.filter(task => this.isFoundFilterStr(task));
+            const filter = this.filterText.toLowerCase();
+
+            return this.taskList.filter(
+                task => {
+                    return task.title.toLowerCase().includes(filter) ||
+                        task.desc.toLowerCase().includes(filter)
+                }
+            );
         }
     },
     methods: {
-        isFoundFilterStr(task) {
-            const filter = this.filterText.toLowerCase();
-            const title = task.title.toLowerCase();
-            const desc = task.desc.toLowerCase();
-
-            return title.includes(filter) || desc.includes(filter);
+        toggleCheckFiltered() {
+            this.filteredList.forEach(element => element.isDone = !this.isCheckAllFiltered);
+            this.isCheckAllFiltered = !this.isCheckAllFiltered;
         },
 
         clearTaskInput() {
             this.newTask = { ...this.$options.data().newTask };
         },
 
-        changeStatusTask(id) {
-            if (this.taskList[id]) {
-                this.taskList[id].isDone = !this.taskList[id].isDone;
+        changeStatusTask(task) {
+            if (task) {
+                task.isDone = !task.isDone;
             }
         },
 
-        toggleTaskEditing(id) {
-            if (!this.taskList[id]) return;
+        toggleTaskEditing(task) {
+            if (!task) return;
 
-            // Если заканчивается редактирование, то заменить ключевые слова на значки
-            // + преобразовать переводы строки в <br>
-            if (this.taskList[id].isEditing && this.taskList[id].desc) {
-                this.taskList[id].desc = this.$options.filters.emoji(this.taskList[id].desc);
-                this.taskList[id].desc = this.taskList[id].desc.split('\n').join('<br>');
+            // Если заканчивается редактирование, то 
+            // Произвести опциональные замены в desc (emoji)
+            if (task.isEditing && task.desc) {
+                task.desc = this.$options.filters.strReplace(task.desc);
             }
 
-            this.taskList[id].isEditing = !this.taskList[id].isEditing;
+            task.isEditing = !task.isEditing;
 
             /* Вариант с модальным окном prompt (в будущем заменить на кастомное)
             const newTaskTitle = prompt("Enter new task title: ", this.taskList[id].title);
@@ -116,14 +122,9 @@ var vue = new Vue({
         addTask() {
             if (!this.newTask.title) return;
 
-            // заменить ключевые слова на значки
-            // А также преобразовать desc для многострочного вывода в <span v-html="data.desc"></span>
-            // Хорошо что поддерживает форматирование, ссылки и тд. 
-            // Но без фильтрации опасно выводить html, созданный пользоватлем (XSS, внедрение js кода). Доработать.
-            // при пустом desc элемент для вывода <p> будет с min-height: 20px, чтобы можно было изменить мышью.
+            // Произвести опциональные замены в desc (emoji)
             if (this.newTask.desc) {
-                this.newTask.desc = this.$options.filters.emoji(this.newTask.desc);
-                this.newTask.desc = this.newTask.desc.split('\n').join('<br>');
+                this.newTask.desc = this.$options.filters.strReplace(this.newTask.desc);
             }
 
             this.taskList.push({ ...this.newTask });
