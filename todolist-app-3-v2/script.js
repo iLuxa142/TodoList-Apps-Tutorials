@@ -1,3 +1,10 @@
+Vue.component('task-list', {
+    template: '#task-list-template',
+    props: {
+        data: {}
+    }
+});
+
 Vue.component('task', {
     template: '#task-template',
     props: {
@@ -25,24 +32,48 @@ var vue = new Vue({
             isCheckAllFiltered: false,
             newTask: { title: '', desc: '', isDone: false, isEditing: false },
 
-            taskList: [
+            taskLists: [
                 {
-                    title: 'Доделать проект Х к 30.03.2021',
-                    desc: 'Позвонить Х, закрыть сделку',
-                    isDone: false,
-                    isEditing: false
+                    listName: "Текущие задачи",
+                    isCollapse: false,
+                    tasks: [
+                        {
+                            title: 'Доделать проект Х к 30.03.2021',
+                            desc: 'Позвонить Х, закрыть сделку',
+                            isDone: false,
+                            isEditing: false
+                        },
+                        {
+                            title: 'Доделать проект У к 30.04.2021',
+                            desc: 'Запустить сайт Yandex',
+                            isDone: false,
+                            isEditing: false
+                        }
+                    ]
                 },
                 {
-                    title: 'Доделать проект У к 30.04.2021',
-                    desc: 'Запустить сайт Yandex',
-                    isDone: false,
-                    isEditing: false
+                    listName: "Завершённые задачи",
+                    isCollapse: false,
+                    tasks: [
+                        {
+                            title: 'Доделать проект Z к 30.05.2021',
+                            desc: 'Купить Х',
+                            isDone: true,
+                            isEditing: false
+                        }
+                    ]
                 },
                 {
-                    title: 'Доделать проект Z к 30.05.2021',
-                    desc: 'Купить Х',
-                    isDone: true,
-                    isEditing: false
+                    listName: "Удалённые задачи",
+                    isCollapse: false,
+                    tasks: [
+                        {
+                            title: 'Задача 1',
+                            desc: 'Описание ...',
+                            isDone: false,
+                            isEditing: false
+                        }
+                    ]
                 }
             ]
         }
