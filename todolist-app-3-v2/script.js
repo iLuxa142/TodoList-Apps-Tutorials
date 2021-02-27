@@ -28,8 +28,6 @@ var vue = new Vue({
     data() {
         return {
             filterText: '',
-            hideCompleteList: false,
-            isCheckAllFiltered: false,
             newTask: { title: '', desc: '', isDone: false, isEditing: false },
 
             taskLists: [
@@ -79,6 +77,7 @@ var vue = new Vue({
         }
     },
     computed: {
+        /*
         doTasksCount() {
             return this.taskList.filter(task => !task.isDone).length;
         },
@@ -94,20 +93,16 @@ var vue = new Vue({
                 task.title.toLowerCase().includes(filter) ||
                 task.desc.toLowerCase().includes(filter));
         }
+        */
     },
     methods: {
-        toggleCheckFiltered() {
-            this.filteredList.forEach(element => element.isDone = !this.isCheckAllFiltered);
-            this.isCheckAllFiltered = !this.isCheckAllFiltered;
-        },
-
         clearTaskInput() {
             this.newTask = { ...this.$options.data().newTask };
         },
 
         addTask() {
             if (this.newTask.title) {
-                this.taskList.push({ ...this.newTask });
+                this.taskLists[0].tasks.push({ ...this.newTask });
                 this.clearTaskInput();
             }
         }
