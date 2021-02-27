@@ -1,30 +1,19 @@
 Vue.component('task', {
-    props: ['data'],
+    template: '#task-template',
+    props: {
+        data: {}
+    },
     methods: {
         changeTaskStatus() {
-            this.$emit('change-task-status');
+            if (this.data)
+                this.data.isDone = !this.data.isDone;
         },
 
         toggleTaskEditing() {
-            this.$emit('toggle-task-editing');
+            if (this.data)
+                this.data.isEditing = !this.data.isEditing;
         }
-    },
-    template: `
-    <div class="task" :class="{done: data.isDone}">
-        <input type="checkbox" class="task__done" :checked="data.isDone" @change="changeTaskStatus()">&nbsp;&nbsp;
-        <div v-if="!data.isEditing">
-            <h3 class="task__title" @dblclick="toggleTaskEditing()">{{data.title}}</h3>
-            <p class="task__desc" @dblclick="toggleTaskEditing()">{{data.desc}}</p>
-        </div>
-        <div v-else class="add_task">
-            <div class="add_task__input">
-                <input type="text" v-model="data.title" @keyup.enter="toggleTaskEditing()">
-                <textarea v-model="data.desc"></textarea>
-            </div>
-            <button class="add_task__btn" @click="toggleTaskEditing()">✅</button>
-        </div>
-    </div>
-    `
+    }
 });
 
 var vue = new Vue({
@@ -58,12 +47,6 @@ var vue = new Vue({
             ]
         }
     },
-    filters: {
-        strReplace(value) {
-            // заменяет только первое вхождение. Позже сделать замену всех вхождений
-            return value.replace('важно', '☝️').replace('срочно', '🕑');
-        }
-    },
     computed: {
         doTasksCount() {
             return this.taskList.filter(task => !task.isDone).length;
@@ -76,12 +59,9 @@ var vue = new Vue({
         filteredList() {
             const filter = this.filterText.toLowerCase();
 
-            return this.taskList.filter(
-                task => {
-                    return task.title.toLowerCase().includes(filter) ||
-                        task.desc.toLowerCase().includes(filter)
-                }
-            );
+            return this.taskList.filter(task =>
+                task.title.toLowerCase().includes(filter) ||
+                task.desc.toLowerCase().includes(filter));
         }
     },
     methods: {
@@ -94,40 +74,11 @@ var vue = new Vue({
             this.newTask = { ...this.$options.data().newTask };
         },
 
-        changeStatusTask(task) {
-            if (task) {
-                task.isDone = !task.isDone;
-            }
-        },
-
-        toggleTaskEditing(task) {
-            if (!task) return;
-
-            // Если редактирование закончено, то 
-            // Произвести опциональные замены в desc (emoji)
-            if (task.isEditing && task.desc) {
-                task.desc = this.$options.filters.strReplace(task.desc);
-            }
-
-            task.isEditing = !task.isEditing;
-
-            /* Вариант с модальным окном prompt (в будущем заменить на кастомное)
-            const newTaskTitle = prompt("Enter new task title: ", this.taskList[id].title);
-            if (newTaskTitle) {
-                this.taskList[id].title = newTaskTitle;
-            } */
-        },
-
         addTask() {
-            if (!this.newTask.title) return;
-
-            // Произвести опциональные замены в desc (emoji)
-            if (this.newTask.desc) {
-                this.newTask.desc = this.$options.filters.strReplace(this.newTask.desc);
+            if (this.newTask.title) {
+                this.taskList.push({ ...this.newTask });
+                this.clearTaskInput();
             }
-
-            this.taskList.push({ ...this.newTask });
-            this.clearTaskInput();
         }
     }
 });

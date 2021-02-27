@@ -32,14 +32,12 @@
 
         <div class="stats" v-if="!filterText">
             <h3 class="stats__title">Текущие задачи ({{doTasksCount}})</h3>
-            <task v-for="(task, index) in taskList" :key="index" :data="task" v-if="!task.isDone"
-                @change-task-status="changeStatusTask(task)" @toggle-task-editing="toggleTaskEditing(task)">
+            <task v-for="(task, index) in taskList" :key="index" :data="task" v-if="!task.isDone">
             </task>
 
             <div v-show="!hideCompleteList">
                 <h3 class="stats__title">Завершённые задачи ({{checkedTasksCount}})</h3>
-                <task v-for="(task, index) in taskList" :key="index" :data="task" v-if="task.isDone"
-                    @change-task-status="changeStatusTask(task)" @toggle-task-editing="toggleTaskEditing(task)">
+                <task v-for="(task, index) in taskList" :key="index" :data="task" v-if="task.isDone">
                 </task>
             </div>
         </div>
@@ -48,8 +46,7 @@
             <h3 class="stats__title"><input type="checkbox" :checked="isCheckAllFiltered"
                     @change="toggleCheckFiltered()">
                 Найденные задачи ({{filteredList.length}})</h3>
-            <task v-for="(task, index) in filteredList" :key="index" :data="task"
-                @change-task-status="changeStatusTask(task)" @toggle-task-editing="toggleTaskEditing(task)">
+            <task v-for="(task, index) in filteredList" :key="index" :data="task">
             </task>
         </div>
 
@@ -58,6 +55,28 @@
         <p>Редактирование title/desc задачи - двойной клик.</p>
         <p>В описании к задаче слова заменяются: 'важно' на '☝️', 'срочно' на '🕑'. </p>
     </div>
+
+    <!--Шаблон для списка задач-->
+    <template id="task-list-template">
+    </template>
+
+    <!--Шаблон для задачи-->
+    <template id="task-template">
+        <div class="task" :class="{done: data.isDone}">
+            <input type="checkbox" class="task__done" :checked="data.isDone" @change="changeTaskStatus()">&nbsp;&nbsp;
+            <div v-if="!data.isEditing">
+                <h3 class="task__title" @dblclick="toggleTaskEditing()">{{data.title}}</h3>
+                <p class="task__desc" @dblclick="toggleTaskEditing()">{{data.desc}}</p>
+            </div>
+            <div v-else class="add_task">
+                <div class="add_task__input">
+                    <input type="text" v-model="data.title" @keyup.enter="toggleTaskEditing()">
+                    <textarea v-model="data.desc"></textarea>
+                </div>
+                <button class="add_task__btn" @click="toggleTaskEditing()">✅</button>
+            </div>
+        </div>
+    </template>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="script.js"></script>
