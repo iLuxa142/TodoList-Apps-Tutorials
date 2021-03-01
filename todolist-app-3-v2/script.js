@@ -116,9 +116,11 @@ Vue.component('task-list', {
 
         changeTaskStatus(listIndex, taskIndex) {
             let targetTask = this.taskLists[listIndex].tasks[taskIndex];
-            console.log(this.taskLists[listIndex].tasks[taskIndex].isDone);
 
             if (!targetTask) return;
+
+            // Вариант сортировки array.sort
+            this.taskLists[listIndex].tasks.sort((a, b) => a.isDone - b.isDone);
         },
 
         toggleTaskEditing(task) {
