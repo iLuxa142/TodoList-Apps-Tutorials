@@ -87,6 +87,8 @@ Vue.component('task-list', {
             const filter = this.filtertext.toLowerCase();
 
             let filteredList = [];
+
+            // да-да, знаю-знаю
             for (let list of this.taskLists) {
                 for (let task of list.tasks) {
                     if (task.title.toLowerCase().includes(filter) || task.desc.toLowerCase().includes(filter))
@@ -95,12 +97,6 @@ Vue.component('task-list', {
             }
 
             return filteredList;
-
-            // this.taskLists.filter(list =>
-            //     list.tasks.filter(task =>
-            //         task.title.toLowerCase().includes(filter) ||
-            //         task.desc.toLowerCase().includes(filter))
-            //);
         }
     },
 
@@ -152,15 +148,15 @@ Vue.component('task-list', {
         },
 
         toggleTaskAdding(listIndex) {
-            const currList = this.taskLists[listIndex];
-            const isCurrListAdding = currList.isAddingTask;
+            const isCurrListAdding = this.taskLists[listIndex].isAddingTask;
 
             this.clearTaskInput();
 
             // закрыть форму добавления задачи, если она возможно открыта другом списке
-            this.taskLists.forEach(tasklist => tasklist.isAddingTask = false);
+            this.taskLists = this.taskLists.map(tasklist => ({ ...tasklist, isAddingTask: false }));
 
             // Если в текущем списке форма не была открытой, то открыть 
+            const currList = this.taskLists[listIndex];
             if (isCurrListAdding == currList.isAddingTask) {
                 currList.isAddingTask = !currList.isAddingTask;
             }
