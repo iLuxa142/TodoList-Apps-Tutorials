@@ -1,39 +1,24 @@
 Vue.component('task-list', {
     template: '#task-list-template',
     props: {
-        tasklist: {}
-    }
-});
-
-Vue.component('task', {
-    template: '#task-template',
-    props: {
-        task: {}
+        filtertext: '',
     },
-    methods: {
-        changeTaskStatus() {
-            if (this.task)
-                this.task.isDone = !this.task.isDone;
-        },
-
-        toggleTaskEditing() {
-            if (this.task)
-                this.task.isEditing = !this.task.isEditing;
-        }
-    }
-});
-
-var vue = new Vue({
-    el: '#app',
     data() {
         return {
-            filterText: '',
             newTask: { title: '', desc: '', isDone: false, isEditing: false },
+
+            newList: {
+                listName: '',
+                isCollapse: false,
+                isAddingTask: false,
+                tasks: []
+            },
 
             taskLists: [
                 {
-                    listName: "Inbox",
+                    listName: 'Inbox',
                     isCollapse: false,
+                    isAddingTask: false,
                     tasks: [
                         {
                             title: 'Задача 1',
@@ -50,8 +35,9 @@ var vue = new Vue({
                     ]
                 },
                 {
-                    listName: "Проект Y",
+                    listName: 'Проект Y',
                     isCollapse: false,
+                    isAddingTask: false,
                     tasks: [
                         {
                             title: 'Купить материалы',
@@ -62,8 +48,9 @@ var vue = new Vue({
                     ]
                 },
                 {
-                    listName: "Хобби",
+                    listName: 'Хобби',
                     isCollapse: false,
+                    isAddingTask: false,
                     tasks: [
                         {
                             title: 'Сыграть партию в Го',
@@ -74,8 +61,9 @@ var vue = new Vue({
                     ]
                 },
                 {
-                    listName: "Архив",
+                    listName: 'Архив',
                     isCollapse: false,
+                    isAddingTask: false,
                     tasks: [
                         {
                             title: 'Задача 6',
@@ -88,16 +76,72 @@ var vue = new Vue({
             ]
         }
     },
+    methods: {
+        addList() {
+            if (this.newList.listName) {
+                this.taskLists.unshift({ ...this.newList });
+                this.newList = { ...this.$options.data().newList };
+            }
+        },
+
+        addTask(list) {
+            if (this.newTask.title) {
+                list.tasks.unshift({ ...this.newTask });
+                this.clearTaskInput();
+            }
+        },
+
+        deleteList(index) {
+            if (!this.taskLists[index]) return;
+
+            const tasksCount = this.taskLists[index].tasks.length;
+            const answer = confirm('Вы точно хотите удалить список "' + this.taskLists[index].listName +
+                '" содержащий: ' + tasksCount + ' задач?');
+
+            if (answer) {
+                this.taskLists.splice(index, 1);
+            }
+        },
+
+        changeTaskStatus(task) {
+            if (task)
+                task.isDone = !task.isDone;
+        },
+
+        toggleTaskEditing(task) {
+            if (task)
+                task.isEditing = !task.isEditing;
+        },
+
+        toggleTaskAdding(list) {
+            const isCurrListAdding = list.isAddingTask;
+
+            this.clearTaskInput();
+
+            // закрыть форму добавления задачи, если она возможно открыта другом списке
+            this.taskLists.forEach(tasklist => tasklist.isAddingTask = false);
+
+            // Если в текущем списке форма не была открытой, то открыть 
+            if (isCurrListAdding == list.isAddingTask)
+                list.isAddingTask = !list.isAddingTask;
+        },
+
+        clearTaskInput() {
+            this.newTask = { ...this.$options.data().newTask };
+        },
+    }
+});
+
+
+var vue = new Vue({
+    el: '#app',
+    data() {
+        return {
+            filterText: '',
+        }
+    },
     computed: {
         /*
-        doTasksCount() {
-            return this.taskList.filter(task => !task.isDone).length;
-        },
-
-        checkedTasksCount() {
-            return this.taskList.filter(task => task.isDone).length;
-        },
-
         filteredList() {
             const filter = this.filterText.toLowerCase();
 
@@ -111,16 +155,5 @@ var vue = new Vue({
         clearFilterText() {
             this.filterText = '';
         },
-
-        clearTaskInput() {
-            this.newTask = { ...this.$options.data().newTask };
-        },
-
-        addTask() {
-            if (this.newTask.title) {
-                this.taskLists[0].tasks.push({ ...this.newTask });
-                this.clearTaskInput();
-            }
-        }
     }
 });
