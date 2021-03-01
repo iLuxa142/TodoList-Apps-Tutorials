@@ -14,8 +14,6 @@
         <div class="header">
             <h2>Todo List App</h2>
             <hr>
-
-
             Фильтр/поиск: <input type="text" v-model="filterText" placeholder="поисковый запрос">
             <button @click="clearFilterText">очистить</button>
         </div>
@@ -24,8 +22,7 @@
         </task-list>
 
         <hr>
-        <p>***</p>
-        <p>Редактирование title/desc задачи - двойной клик.</p>
+        <p>* Редактирование title/desc задачи - двойной клик.</p>
     </div>
 
     <!--Шаблон для списка задач-->
@@ -35,36 +32,36 @@
             <div>
                 <h5>Добавить список:</h5>
                 <div>
-                    <input type="text" v-model="newList.listName" @keyup.enter="addList()"
-                        placeholder="Название списка">
-                    <button @click="addList()">add list</button>
+                    <input type="text" v-model="newList.listName" @keyup.enter="addList" placeholder="Название списка">
+                    <button @click="addList">add list</button>
                 </div>
 
             </div>
 
             <!--Вывод списков-->
-            <div v-for="(list, index) in taskLists" :key="index">
+            <div v-for="(list, listIndex) in taskLists" :key="listIndex">
                 <h3 class="stats__title">{{list.listName}} ({{list.tasks.length}})
                     <input type="checkbox" v-model="list.isCollapse">
-                    <button @click="toggleTaskAdding(list)">add task</button>
-                    <button @click="deleteList(index)">delete list</button>
+                    <button @click="toggleTaskAdding(listIndex)">add task</button>
+                    <button @click="deleteList(listIndex)">delete list</button>
                 </h3>
 
                 <!-- добавить новую задачу в список -->
-                <div class="add_task" v-show="list.isAddingTask">
+                <div class="add_task" v-if="list.isAddingTask">
                     <div class="add_task__input">
-                        <input type="text" v-model="newTask.title" @keyup.enter="addTask(list)" placeholder="Заголовок">
+                        <input type="text" id="inputtitle" ref="inputtitle" onload="alert('asdasd');"
+                            v-model="newTask.title" @keyup.enter="addTask(listIndex)" placeholder="Заголовок">
                         <textarea v-model="newTask.desc" placeholder="Описание (необязательно)"></textarea>
                     </div>
-                    <button class="add_task__btn" @click="addTask(list)">➕</button>
+                    <button class="add_task__btn" @click="addTask(listIndex)">➕</button>
                 </div>
 
                 <!-- вывод задач списка -->
-                <div v-show="!list.isCollapse">
-                    <div v-for="(task, index) in list.tasks" :key="index">
+                <div v-if="!list.isCollapse">
+                    <div v-for="(task, taskIndex) in list.tasks" :key="task.id">
                         <div class="task" :class="{done: task.isDone}">
-                            <input type="checkbox" class="task__done" :checked="task.isDone"
-                                @change="changeTaskStatus(task)">&nbsp;&nbsp;
+                            <input type="checkbox" class="task__done" v-model="task.isDone"
+                                @change="changeTaskStatus(listIndex, taskIndex)">&nbsp;&nbsp;
                             <div v-if="!task.isEditing">
                                 <h3 class="task__title" @dblclick="toggleTaskEditing(task)">{{task.title}}</h3>
                                 <p class="task__desc" @dblclick="toggleTaskEditing(task)">{{task.desc}}</p>
@@ -78,7 +75,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
