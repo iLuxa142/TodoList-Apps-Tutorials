@@ -1,24 +1,24 @@
 Vue.component('task-list', {
     template: '#task-list-template',
     props: {
-        data: {}
+        tasklist: {}
     }
 });
 
 Vue.component('task', {
     template: '#task-template',
     props: {
-        data: {}
+        task: {}
     },
     methods: {
         changeTaskStatus() {
-            if (this.data)
-                this.data.isDone = !this.data.isDone;
+            if (this.task)
+                this.task.isDone = !this.task.isDone;
         },
 
         toggleTaskEditing() {
-            if (this.data)
-                this.data.isEditing = !this.data.isEditing;
+            if (this.task)
+                this.task.isEditing = !this.task.isEditing;
         }
     }
 });
@@ -32,41 +32,53 @@ var vue = new Vue({
 
             taskLists: [
                 {
-                    listName: "Текущие задачи",
+                    listName: "Inbox",
                     isCollapse: false,
                     tasks: [
                         {
-                            title: 'Доделать проект Х к 30.03.2021',
-                            desc: 'Позвонить Х, закрыть сделку',
+                            title: 'Задача 1',
+                            desc: 'Описание 1',
                             isDone: false,
                             isEditing: false
                         },
                         {
-                            title: 'Доделать проект У к 30.04.2021',
-                            desc: 'Запустить сайт Yandex',
+                            title: 'Задача 2',
+                            desc: 'Описание 2',
                             isDone: false,
                             isEditing: false
-                        }
+                        },
                     ]
                 },
                 {
-                    listName: "Завершённые задачи",
+                    listName: "Проект Y",
                     isCollapse: false,
                     tasks: [
                         {
-                            title: 'Доделать проект Z к 30.05.2021',
-                            desc: 'Купить Х',
+                            title: 'Купить материалы',
+                            desc: 'контакты поставщика: ...',
                             isDone: true,
                             isEditing: false
                         }
                     ]
                 },
                 {
-                    listName: "Удалённые задачи",
+                    listName: "Хобби",
                     isCollapse: false,
                     tasks: [
                         {
-                            title: 'Задача 1',
+                            title: 'Сыграть партию в Го',
+                            desc: 'использовать стратегию Х',
+                            isDone: true,
+                            isEditing: false
+                        }
+                    ]
+                },
+                {
+                    listName: "Архив",
+                    isCollapse: false,
+                    tasks: [
+                        {
+                            title: 'Задача 6',
                             desc: 'Описание ...',
                             isDone: false,
                             isEditing: false
@@ -96,6 +108,10 @@ var vue = new Vue({
         */
     },
     methods: {
+        clearFilterText() {
+            this.filterText = '';
+        },
+
         clearTaskInput() {
             this.newTask = { ...this.$options.data().newTask };
         },

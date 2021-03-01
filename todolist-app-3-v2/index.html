@@ -18,18 +18,18 @@
         </div>
         <div class="add_task">
             <div class="add_task__input">
-                <input type="text" v-model="newTask.title" @keyup.enter="addTask()" placeholder="Заголовок">
+                <input type="text" v-model="newTask.title" @keyup.enter="addTask" placeholder="Заголовок">
                 <textarea v-model="newTask.desc" placeholder="Описание (необязательно)"></textarea>
             </div>
-            <button class="add_task__btn" @click="addTask()">➕</button>
+            <button class="add_task__btn" @click="addTask">➕</button>
         </div>
         <div>
             Фильтр/поиск: <input type="text" v-model="filterText" placeholder="поисковый запрос">
-            <button @click="filterText=''">очистить</button>
+            <button @click="clearFilterText">очистить</button>
         </div>
 
-        <task-list v-for="(list, index) in taskLists" :key="index" :data="list">
-            <task v-for="(task, index) in list.tasks" :key="index" :data="task">
+        <task-list v-for="(list, index) in taskLists" :key="index" :tasklist="list">
+            <task v-for="(task, index) in list.tasks" :key="index" :task="task">
             </task>
         </task-list>
 
@@ -41,10 +41,10 @@
     <!--Шаблон для списка задач-->
     <template id="task-list-template">
         <div>
-            <h3 class="stats__title">{{data.listName}} ({{data.tasks.length}})
-                <input type="checkbox" v-model="data.isCollapse">
+            <h3 class="stats__title">{{tasklist.listName}} ({{tasklist.tasks.length}})
+                <input type="checkbox" v-model="tasklist.isCollapse">
             </h3>
-            <div v-show="!data.isCollapse">
+            <div v-show="!tasklist.isCollapse">
                 <slot></slot>
             </div>
         </div>
@@ -52,18 +52,18 @@
 
     <!--Шаблон для задачи-->
     <template id="task-template">
-        <div class="task" :class="{done: data.isDone}">
-            <input type="checkbox" class="task__done" :checked="data.isDone" @change="changeTaskStatus()">&nbsp;&nbsp;
-            <div v-if="!data.isEditing">
-                <h3 class="task__title" @dblclick="toggleTaskEditing()">{{data.title}}</h3>
-                <p class="task__desc" @dblclick="toggleTaskEditing()">{{data.desc}}</p>
+        <div class="task" :class="{done: task.isDone}">
+            <input type="checkbox" class="task__done" :checked="task.isDone" @change="changeTaskStatus">&nbsp;&nbsp;
+            <div v-if="!task.isEditing">
+                <h3 class="task__title" @dblclick="toggleTaskEditing">{{task.title}}</h3>
+                <p class="task__desc" @dblclick="toggleTaskEditing">{{task.desc}}</p>
             </div>
             <div v-else class="add_task">
                 <div class="add_task__input">
-                    <input type="text" v-model="data.title" @keyup.enter="toggleTaskEditing()">
-                    <textarea v-model="data.desc"></textarea>
+                    <input type="text" v-model="task.title" @keyup.enter="toggleTaskEditing">
+                    <textarea v-model="task.desc"></textarea>
                 </div>
-                <button class="add_task__btn" @click="toggleTaskEditing()">✅</button>
+                <button class="add_task__btn" @click="toggleTaskEditing">✅</button>
             </div>
         </div>
     </template>
