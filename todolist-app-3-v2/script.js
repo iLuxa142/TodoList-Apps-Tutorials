@@ -82,6 +82,28 @@ Vue.component('task-list', {
             ]
         }
     },
+    computed: {
+        filteredList() {
+            const filter = this.filtertext.toLowerCase();
+
+            let filteredList = [];
+            for (let list of this.taskLists) {
+                for (let task of list.tasks) {
+                    if (task.title.toLowerCase().includes(filter) || task.desc.toLowerCase().includes(filter))
+                        filteredList.push(task);
+                }
+            }
+
+            return filteredList;
+
+            // this.taskLists.filter(list =>
+            //     list.tasks.filter(task =>
+            //         task.title.toLowerCase().includes(filter) ||
+            //         task.desc.toLowerCase().includes(filter))
+            //);
+        }
+    },
+
 
     methods: {
         addList() {
@@ -173,17 +195,7 @@ let vue = new Vue({
             filterText: '',
         }
     },
-    computed: {
-        /*
-        filteredList() {
-            const filter = this.filterText.toLowerCase();
 
-            return this.taskList.filter(task =>
-                task.title.toLowerCase().includes(filter) ||
-                task.desc.toLowerCase().includes(filter));
-        }
-        */
-    },
     methods: {
         clearFilterText() {
             this.filterText = '';
