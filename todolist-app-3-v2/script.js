@@ -190,6 +190,8 @@ Vue.component('task-list', {
         },
 
         changeListOrder(listIndex, direction) {
+            if (!this.taskLists[listIndex]) return;
+
             // не передвигать за границы массива списков (0..length)
             if (direction == 'up' && listIndex == 0) return;
             if (direction == 'down' && listIndex == this.taskLists.length - 1) return;
@@ -207,10 +209,15 @@ Vue.component('task-list', {
         },
 
         changeTaskOrder(listIndex, taskIndex, direction) {
+            if (!this.taskLists[listIndex] && !this.taskLists[listIndex].tasks[taskIndex]) return;
+
             // не передвигать за границы массива списков (0..length)
             if (direction == 'up' && taskIndex == 0) return;
             if (direction == 'down' && taskIndex == this.taskLists[listIndex].tasks.length - 1) return;
             if (direction != 'up' && direction != 'down') return; // direction unknown
+
+            // не передвигать завершённые
+            if (this.taskLists[listIndex].tasks[taskIndex].isDone) return;
 
             // вырезать
             let movedTask = this.taskLists[listIndex].tasks.splice(taskIndex, 1);
