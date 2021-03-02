@@ -131,17 +131,23 @@ Vue.component('task-list', {
         },
 
         changeTaskStatus(listIndex, taskIndex) {
-            if (!this.taskLists[listIndex].tasks[taskIndex]) return;
+            if (!this.taskLists[listIndex] && !this.taskLists[listIndex].tasks[taskIndex]) return;
 
             // Варианты сортировки задач по статусу завершённости
             // Вариант вырезать отмеченный и вставить в конец списка
+            const isDone = this.taskLists[listIndex].tasks[taskIndex].isDone;
             const checkTask = this.taskLists[listIndex].tasks.splice(taskIndex, 1);
-            this.taskLists[listIndex].tasks.push(...checkTask);
+
+            if (isDone) {
+                this.taskLists[listIndex].tasks.push(...checkTask); // завершённые в конец списка
+            } else {
+                this.taskLists[listIndex].tasks.unshift(...checkTask); // вновь открытые в начало списка
+            }
 
             // Вариант сортировки array.sort // более дорогой метод
             // this.taskLists[listIndex].tasks.sort((a, b) => a.isDone - b.isDone);
 
-            // вариант через filter'
+            // Вариант сортировки filter
             // const doTask = this.taskLists[listIndex].tasks.filter(task => !task.isDone);
             // const doneTask = this.taskLists[listIndex].tasks.filter(task => task.isDone);
             // const newList = doTask.concat(...doneTask);
@@ -149,10 +155,10 @@ Vue.component('task-list', {
             // Vue не отслеживает прямое присвоение по индексу (this.taskLists[listIndex] = newList)
         },
 
-        toggleTaskEditing(task) {
-            if (!task) return;
+        toggleTaskEditing(listIndex, taskIndex) {
+            if (!this.taskLists[listIndex] && !this.taskLists[listIndex].tasks[taskIndex]) return;
 
-            task.isEditing = !task.isEditing;
+            this.taskLists[listIndex].tasks[taskIndex].isEditing = !this.taskLists[listIndex].tasks[taskIndex].isEditing;
         },
 
         activateTaskAdding(listIndex) {
@@ -211,13 +217,14 @@ Vue.component('task-list', {
         changeTaskOrder(listIndex, taskIndex, direction) {
             if (!this.taskLists[listIndex] && !this.taskLists[listIndex].tasks[taskIndex]) return;
 
-            // не передвигать за границы массива списков (0..length)
-            if (direction == 'up' && taskIndex == 0) return;
-            if (direction == 'down' && taskIndex == this.taskLists[listIndex].tasks.length - 1) return;
+            // не передвигать если:
+            if (direction == 'up' && taskIndex == 0) return; // первый в списке
+            if (direction == 'down' && taskIndex == this.taskLists[listIndex].tasks.length - 1) return; // последний в списке
             if (direction != 'up' && direction != 'down') return; // direction unknown
+            if (this.taskLists[listIndex].tasks[taskIndex].isDone) return; // завершённый
+            if (direction == 'down' && this.taskLists[listIndex].tasks[taskIndex + 1].isDone) return; // при движении вниз следующий (ниже) таск завершённый
 
-            // не передвигать завершённые
-            if (this.taskLists[listIndex].tasks[taskIndex].isDone) return;
+            // Да когда уже можно передвигать!?!?!
 
             // вырезать
             let movedTask = this.taskLists[listIndex].tasks.splice(taskIndex, 1);

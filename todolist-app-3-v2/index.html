@@ -67,9 +67,10 @@
                                     <input type="checkbox" class="task__done" v-model="task.isDone"
                                         @change="changeTaskStatus(listIndex, taskIndex)">&nbsp;&nbsp;
                                     <div v-if="!task.isEditing">
-                                        <h3 class="task__title" @dblclick="toggleTaskEditing(task)">{{task.title}}
+                                        <h3 class="task__title" @dblclick="toggleTaskEditing(listIndex, taskIndex)">
+                                            {{task.title}}
                                         </h3>
-                                        <p class="task__desc" @dblclick="toggleTaskEditing(task)">
+                                        <p class="task__desc" @dblclick="toggleTaskEditing(listIndex, taskIndex)">
                                             <button @click="changeTaskOrder(listIndex, taskIndex, 'up')">▲</button>
                                             <button @click="changeTaskOrder(listIndex, taskIndex, 'down')">▼</button>
                                             {{task.desc}}
@@ -79,10 +80,11 @@
                                     <div v-else class="add_task">
                                         <div class="add_task__input">
                                             <input type="text" v-model="task.title"
-                                                @keyup.enter="toggleTaskEditing(task)">
+                                                @keyup.enter="toggleTaskEditing(listIndex, taskIndex)">
                                             <textarea v-model="task.desc"></textarea>
                                         </div>
-                                        <button class="add_task__btn" @click="toggleTaskEditing(task)">✅</button>
+                                        <button class="add_task__btn"
+                                            @click="toggleTaskEditing(listIndex, taskIndex)">✅</button>
                                     </div>
                                 </div>
                             </div>
