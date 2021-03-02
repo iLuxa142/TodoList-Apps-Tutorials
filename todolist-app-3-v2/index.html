@@ -39,11 +39,10 @@
 
             <!--если строка фильтра пуста, то вывод списков -->
             <div v-if="!filtertext">
-
                 <div v-for="(list, listIndex) in taskLists" :key="listIndex">
                     <h3 class="stats__title">
-                        <button @click="moveListOrder(listIndex, 'up')">⬆</button>
-                        <button @click="moveListOrder(listIndex, 'down')">⬇</button>
+                        <button @click="changeListOrder(listIndex, 'up')">▲</button>
+                        <button @click="changeListOrder(listIndex, 'down')">▼</button>
                         {{list.listName}} ({{list.tasks.length}})
                         <input type="checkbox" v-model="list.isCollapse">
                         <button @click="activateTaskAdding(listIndex)">add task</button>
@@ -62,27 +61,35 @@
 
                     <!-- вывод задач списка -->
                     <div v-if="!list.isCollapse">
-                        <div v-for="(task, taskIndex) in list.tasks" :key="task.id">
-                            <div class="task" :class="{done: task.isDone}">
-                                <input type="checkbox" class="task__done" v-model="task.isDone"
-                                    @change="changeTaskStatus(listIndex, taskIndex)">&nbsp;&nbsp;
-                                <div v-if="!task.isEditing">
-                                    <h3 class="task__title" @dblclick="toggleTaskEditing(task)">{{task.title}}</h3>
-                                    <p class="task__desc" @dblclick="toggleTaskEditing(task)">{{task.desc}}</p>
-                                </div>
-                                <div v-else class="add_task">
-                                    <div class="add_task__input">
-                                        <input type="text" v-model="task.title" @keyup.enter="toggleTaskEditing(task)">
-                                        <textarea v-model="task.desc"></textarea>
+                        <transition-group name="flip-tasks" tag="div">
+                            <div v-for="(task, taskIndex) in list.tasks" :key="task.id">
+                                <div class="task" :class="{done: task.isDone}">
+                                    <input type="checkbox" class="task__done" v-model="task.isDone"
+                                        @change="changeTaskStatus(listIndex, taskIndex)">&nbsp;&nbsp;
+                                    <div v-if="!task.isEditing">
+                                        <h3 class="task__title" @dblclick="toggleTaskEditing(task)">{{task.title}}
+                                        </h3>
+                                        <p class="task__desc" @dblclick="toggleTaskEditing(task)">
+                                            <button @click="changeTaskOrder(listIndex, taskIndex, 'up')">▲</button>
+                                            <button @click="changeTaskOrder(listIndex, taskIndex, 'down')">▼</button>
+                                            {{task.desc}}
+                                        </p>
+
                                     </div>
-                                    <button class="add_task__btn" @click="toggleTaskEditing(task)">✅</button>
+                                    <div v-else class="add_task">
+                                        <div class="add_task__input">
+                                            <input type="text" v-model="task.title"
+                                                @keyup.enter="toggleTaskEditing(task)">
+                                            <textarea v-model="task.desc"></textarea>
+                                        </div>
+                                        <button class="add_task__btn" @click="toggleTaskEditing(task)">✅</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </transition-group> <!-- анимация перемещения тасков -->
                     </div>
 
                 </div>
-
             </div>
             <!--КОНЕЦ вывода списков -->
 

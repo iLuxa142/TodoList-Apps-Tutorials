@@ -189,7 +189,7 @@ Vue.component('task-list', {
             // Нормальный вариант... найти позже
         },
 
-        moveListOrder(listIndex, direction) {
+        changeListOrder(listIndex, direction) {
             // не передвигать за границы массива списков (0..length)
             if (direction == 'up' && listIndex == 0) return;
             if (direction == 'down' && listIndex == this.taskLists.length - 1) return;
@@ -203,6 +203,23 @@ Vue.component('task-list', {
                 this.taskLists.splice(listIndex - 1, 0, ...movedList);
             } else {
                 this.taskLists.splice(listIndex + 1, 0, ...movedList);
+            }
+        },
+
+        changeTaskOrder(listIndex, taskIndex, direction) {
+            // не передвигать за границы массива списков (0..length)
+            if (direction == 'up' && taskIndex == 0) return;
+            if (direction == 'down' && taskIndex == this.taskLists[listIndex].tasks.length - 1) return;
+            if (direction != 'up' && direction != 'down') return; // direction unknown
+
+            // вырезать
+            let movedTask = this.taskLists[listIndex].tasks.splice(taskIndex, 1);
+
+            // вставить
+            if (direction == 'up') {
+                this.taskLists[listIndex].tasks.splice(taskIndex - 1, 0, ...movedTask);
+            } else {
+                this.taskLists[listIndex].tasks.splice(taskIndex + 1, 0, ...movedTask);
             }
         }
     }

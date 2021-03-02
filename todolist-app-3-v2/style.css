@@ -94,3 +94,9 @@ hr {
   color: grey;
   background-color: grey;
 }
+.flip-lists-move {
+  transition: transform 1s;
+}
+.flip-tasks-move {
+  transition: transform 0.5s;
+}
