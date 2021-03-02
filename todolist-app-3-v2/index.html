@@ -52,8 +52,9 @@
                     <!-- добавить новую задачу в список -->
                     <div class="add_task" v-if="list.isAddingTask">
                         <div class="add_task__input">
-                            <input type="text" id="inputtitle" ref="inputtitle" onload="alert('asdasd');"
-                                v-model="newTask.title" @keyup.enter="addTask(listIndex)" placeholder="Заголовок">
+                            <input type="text" id="inputtitle" ref="inputtitle" v-model="newTask.title"
+                                @keyup.enter="addTask(listIndex)" @keyup.esc="activateTaskAdding(listIndex)"
+                                placeholder="Заголовок">
                             <textarea v-model="newTask.desc" placeholder="Описание (необязательно)"></textarea>
                         </div>
                         <button class="add_task__btn" @click="addTask(listIndex)">➕</button>
@@ -68,10 +69,11 @@
                                         @change="changeTaskStatus(listIndex, taskIndex)">&nbsp;&nbsp;
                                     <div v-if="!task.isEditing">
                                         <h3 class="task__title" @dblclick="toggleTaskEditing(listIndex, taskIndex)">
+                                            <button @click="changeTaskOrder(listIndex, taskIndex, 'up')">▲</button>
                                             {{task.title}}
                                         </h3>
                                         <p class="task__desc" @dblclick="toggleTaskEditing(listIndex, taskIndex)">
-                                            <button @click="changeTaskOrder(listIndex, taskIndex, 'up')">▲</button>
+
                                             <button @click="changeTaskOrder(listIndex, taskIndex, 'down')">▼</button>
                                             {{task.desc}}
                                         </p>
