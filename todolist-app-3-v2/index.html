@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div id="app" data-tilt>
+    <div id="app">
         <div class="header">
             <h2>Todo List App</h2>
             <hr>
@@ -41,9 +41,12 @@
             <div v-if="!filtertext">
 
                 <div v-for="(list, listIndex) in taskLists" :key="listIndex">
-                    <h3 class="stats__title">{{list.listName}} ({{list.tasks.length}})
+                    <h3 class="stats__title">
+                        <button @click="moveListOrder(listIndex, 'up')">⬆</button>
+                        <button @click="moveListOrder(listIndex, 'down')">⬇</button>
+                        {{list.listName}} ({{list.tasks.length}})
                         <input type="checkbox" v-model="list.isCollapse">
-                        <button @click="toggleTaskAdding(listIndex)">add task</button>
+                        <button @click="activateTaskAdding(listIndex)">add task</button>
                         <button @click="deleteList(listIndex)">delete list</button>
                     </h3>
 
@@ -87,11 +90,10 @@
             <div v-else>
                 <div v-for="(task, taskIndex) in filteredList" :key="task.id">
                     <div class="task" :class="{done: task.isDone}">
-                        <input type="checkbox" class="task__done" v-model="task.isDone"
-                            @change="changeTaskStatus(listIndex, taskIndex)">&nbsp;&nbsp;
+                        <input type="checkbox" class="task__done" v-model="task.isDone">&nbsp;&nbsp;
                         <div>
-                            <h3 class="task__title" @dblclick="toggleTaskEditing(task)">{{task.title}}</h3>
-                            <p class="task__desc" @dblclick="toggleTaskEditing(task)">{{task.desc}}</p>
+                            <h3 class="task__title">{{task.title}}</h3>
+                            <p class="task__desc">{{task.desc}}</p>
                         </div>
                     </div>
                 </div>

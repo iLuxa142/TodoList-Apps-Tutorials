@@ -88,19 +88,17 @@ Vue.component('task-list', {
 
             let filteredList = [];
 
-            // да-да, знаю-знаю
             for (let list of this.taskLists) {
-                for (let task of list.tasks) {
-                    if (task.title.toLowerCase().includes(filter) || task.desc.toLowerCase().includes(filter))
-                        filteredList.push(task);
-                }
+                let filterTasks = list.tasks.filter(task =>
+                    task.title.toLowerCase().includes(filter) ||
+                    task.desc.toLowerCase().includes(filter));
+
+                filteredList.push(...filterTasks);
             }
 
             return filteredList;
         }
     },
-
-
     methods: {
         addList() {
             if (!this.newList.listName) return;
@@ -147,7 +145,7 @@ Vue.component('task-list', {
             task.isEditing = !task.isEditing;
         },
 
-        toggleTaskAdding(listIndex) {
+        activateTaskAdding(listIndex) {
             const isCurrListAdding = this.taskLists[listIndex].isAddingTask;
 
             this.clearTaskInput();
@@ -179,6 +177,23 @@ Vue.component('task-list', {
             //setTimeout(() => this.$refs['inputtitle'].focus(), 100);
 
             // Нормальный вариант... найти позже
+        },
+
+        moveListOrder(listIndex, direction) {
+            // не передвигать за границы массива списков (0..length)
+            if (listIndex == 0 && direction == 'up') return;
+            if (listIndex == this.taskLists.length - 1 && direction == 'down') return;
+
+            console.log(listIndex);
+
+            let movedList = this.taskLists.splice(listIndex, 1);
+            if (direction == 'up') {
+                this.taskLists.splice(listIndex - 1, 0, ...movedList);
+            }
+
+            if (direction == 'down') {
+                this.taskLists.splice(listIndex + 1, 0, ...movedList);
+            }
         }
     }
 });
