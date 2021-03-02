@@ -86,9 +86,9 @@
             </div>
             <!--КОНЕЦ вывода списков -->
 
-            <!--вывод списка отфильтрованных задач-->
+            <!-- если строка фильтра содержит текст (запрос), то вывод списка отфильтрованных задач-->
             <div v-else>
-                <div v-for="(task, taskIndex) in filteredList" :key="task.id">
+                <div v-for="task in filteredList" :key="task.id">
                     <div class="task" :class="{done: task.isDone}">
                         <input type="checkbox" class="task__done" v-model="task.isDone">&nbsp;&nbsp;
                         <div>

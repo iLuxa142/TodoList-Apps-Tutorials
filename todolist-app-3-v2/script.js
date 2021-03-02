@@ -131,12 +131,22 @@ Vue.component('task-list', {
         },
 
         changeTaskStatus(listIndex, taskIndex) {
-            let targetTask = this.taskLists[listIndex].tasks[taskIndex];
+            if (!this.taskLists[listIndex].tasks[taskIndex]) return;
 
-            if (!targetTask) return;
+            // Варианты сортировки задач по статусу завершённости
+            // Вариант вырезать отмеченный и вставить в конец списка
+            const checkTask = this.taskLists[listIndex].tasks.splice(taskIndex, 1);
+            this.taskLists[listIndex].tasks.push(...checkTask);
 
-            // Вариант сортировки array.sort
-            this.taskLists[listIndex].tasks.sort((a, b) => a.isDone - b.isDone);
+            // Вариант сортировки array.sort // более дорогой метод
+            // this.taskLists[listIndex].tasks.sort((a, b) => a.isDone - b.isDone);
+
+            // вариант через filter'
+            // const doTask = this.taskLists[listIndex].tasks.filter(task => !task.isDone);
+            // const doneTask = this.taskLists[listIndex].tasks.filter(task => task.isDone);
+            // const newList = doTask.concat(...doneTask);
+            // Как правильно присвоить newList в this.taskLists[listIndex] ?
+            // Vue не отслеживает прямое присвоение по индексу (this.taskLists[listIndex] = newList)
         },
 
         toggleTaskEditing(task) {
@@ -181,17 +191,17 @@ Vue.component('task-list', {
 
         moveListOrder(listIndex, direction) {
             // не передвигать за границы массива списков (0..length)
-            if (listIndex == 0 && direction == 'up') return;
-            if (listIndex == this.taskLists.length - 1 && direction == 'down') return;
+            if (direction == 'up' && listIndex == 0) return;
+            if (direction == 'down' && listIndex == this.taskLists.length - 1) return;
+            if (direction != 'up' && direction != 'down') return; // direction unknown
 
-            console.log(listIndex);
-
+            // вырезать
             let movedList = this.taskLists.splice(listIndex, 1);
+
+            // вставить
             if (direction == 'up') {
                 this.taskLists.splice(listIndex - 1, 0, ...movedList);
-            }
-
-            if (direction == 'down') {
+            } else {
                 this.taskLists.splice(listIndex + 1, 0, ...movedList);
             }
         }
