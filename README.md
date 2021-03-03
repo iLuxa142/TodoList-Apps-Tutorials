@@ -2,35 +2,43 @@
 
 ## В процессе:
 
-• • > [16/02] 🔶 **Todolist app 3 (v2)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/todolist-app-3-v2/todolist-app-3-v2) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist-app-3-v2/)  
-• • > [новые фичи: 1. Список завершённых задач. 2. Счётчики задач для списков. 3. Опция скрытия завершённых задач. 4. Редактирование названия и описания уже созданных задач (через promt или input/textarea). 5. Многострочное описание/desc задачи. 6. Фильтр/поиск по задачам.]  
+• • > 🔶 **Todolist app 4 (v2)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/todolist-app-4-v2/todolist-app-4-v2) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist-app-4-v2/)  
+• • > [новые фичи: ]   
 •  
+• • > 🔶 **Todolist app 4 (original)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist-app-4) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist-app-4/)  
+•  
+• ▶️ [Build Todo List App in Vue JS + Vuex](https://www.youtube.com/watch?v=xrkWxxdgBi4) • ( 🧑 [neecoder x](https://www.youtube.com/channel/UCtL_snE3VQQN_lAMefQYhMA) • 👨‍👨‍👧 1,5K • 🕑 17:21 • 👁 2 844 • 📅 12 июн. 2020 )  
+• Особенности: vue, vuex, bootstrap, vue-cli, babel, export/import .vue components, vuex: state, mutations, actions, modules  
+• Интересные фичи:  1. Редактирование заголовка задачи на месте через input (v-if, v-else h3/input)  
 
 ---
 
   
 ## Готово:
-  
-• • > [16/02] 🔶 **Todolist app 3 (original)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist%20app%203) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist%20app%203/)  
+
+• • > 🔶 **Todolist app 3 (v2)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist-app-3-v2) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist-app-3-v2/)  
+• • > [новые фичи: 1. Завершённые задачи передвигаются вниз списка. 2. Счётчики задач для списков. 3. Редактирование названия и описания уже созданных задач (через promt и/или input/textarea). 4. Фильтр/поиск по задачам. 5. Добавление/удаление списков. 6. Смена порядка списков и задач.]   
+•  
+• • > 🔶 **Todolist app 3 (original)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist-app-3) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist-app-3/)  
 •  
 • ▶️ [Пишем список задач(todo list) на Vue.js](https://www.youtube.com/watch?v=JkYOYtIAwR0)   • ( 🧑 [Лукьянов Артём](https://www.youtube.com/channel/UCO8KyfLYPUU5NbfvOktKAQg) • 👨‍👨‍👧 1,1K • 🕑 27:05 • 👁 7 411 • 📅 28 апр 2019 )    
-• Особенности: Vue, Vue.component.   • Интересные фичи:  1\. Поле описания/description для задачи. 
+• Особенности: Vue, Vue.component.   • Интересные фичи:  1\. Поле описания/description для задачи.  
 
 ---
-• • > [15/02-18/02] 🔶 **Todolist app 2 (v2)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist%20app%202%20(v2)) | [Mindmap Code](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist%20app%202%20(v2)/Mindmap_Code.png) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist%20app%202%20(v2))  
+• • > 🔶 **Todolist app 2 (v2)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist-app-2-v2) | [Mindmap Code](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist-app-2-v2/Mindmap_Code.png) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist-app-2-v2)  
 • • > [новые фичи: 1. Фон выполненной задачи помечается серым. 2. Счётчик всех и выполненных задач. 3. Подтверждение удаления. 4. Удаление всех выполненных/отмеченных задач.]  
 •  
-• • > [14/02] 🔶 **Todolist app 2 (original)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist%20app%202) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist%20app%202/)  
+• • > 🔶 **Todolist app 2 (original)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist-app-2) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist-app-2/)  
 •  
 • ▶️ [[VUE.JS] TODO APP](https://www.youtube.com/watch?v=L58tyEkpWLE) • ( 🧑 [Edward Lance Lorilla LAB](https://www.youtube.com/channel/UCWc48sSzqPLUOfNCy9sxUug) • 👨‍👨‍👧 3,61K • 🕑 10:55 • 👁 1 718 • 📅 6 окт 2016 )  
 • Особенности: Vue 1.0.12  • Интересные фичи: 1\. Кнопка "Clear List". 2\. Кнопка "удаление задачи (Х)" появляется только при наведении мышью на строку задачи. 3\. Общий чекбокс, отмечающий все задачи  
 
 ---
 
-• • > [14/02] 🔶 **Todolist app 1 (v2)**   :  [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist%20app%201%20(v2)) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist%20app%201%20(v2)/index.html)   
+• • > 🔶 **Todolist app 1 (v2)**   :  [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist-app-1-v2) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist-app-1-v2/index.html)   
 • • > [новые фичи: 1. Корзина (удаление, восстановление). 2. Дата/время добавления задач.]  
 •  
-• • > [13/02] 🔶 **Todolist app 1 (original)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist%20app%201) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist%20app%201/index.html)  
+• • > 🔶 **Todolist app 1 (original)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist-app-1) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist-app-1/index.html)  
 •  
 • ▶️ [ПРИЛОЖЕНИЕ на Vue 3 Делаем ToDo List с нуля на практике [2021]](https://www.youtube.com/watch?v=27Vhe78OsCg) • ( 🧑 [Анна Блок](https://www.youtube.com/channel/UCn5wduCq2Mus0v85QZn9IaA) • 👨‍👨‍👧 53,4K • 🕑 30:12 • 👁 11 094 • 📅 2 фев 2021 )  
 • Особенности: Vue 3; Отлично для начального туториала
@@ -50,12 +58,17 @@
 • ▶️ [Vue js #14 Vue Todo list часть #2 localStorage, props, $emit](https://www.youtube.com/watch?v=EIfsUCrqaK4) • ( 🧑 [Mario Dev](https://www.youtube.com/channel/UCkK0zr_EquhaXZfChS3iiyw) • 👨‍👨‍👧 1,28K • 🕑 18:49 • 👁 643 • 📅 3 мая 2020 )    
 • Особенности: Хорошо объясняет/комментирует; Отлично для начального туториала; • Интересные фичи:  localStorage
 
+• ▶️ [Learn To Build A Vue.js Todo App With Local Storage Part 1](https://www.youtube.com/watch?v=pF590TdMKO4) ( 🧑 [Program With Erik](https://www.youtube.com/channel/UCshZ3rdoCLjDYuTR_RBubzw) • 👨‍👨‍👧 62,7K • 🕑 14:11 • 👁 12 620 • 📅 30 авг. 2017 )    
+• Особенности:  • Интересные фичи:   
+
+• ▶️ [Build A Vue.js App Using Local Storage Part 2](https://www.youtube.com/watch?v=72Gc3PlUQmY) ( 🧑 [Program With Erik](https://www.youtube.com/channel/UCshZ3rdoCLjDYuTR_RBubzw) • 👨‍👨‍👧 62,7K • 🕑 13:25 • 👁 7 759 • 📅 6 сент. 2017 )    
+• Особенности:  • Интересные фичи:   
+
+• ▶️ [Learn To Build A Vue.js Todo App With Local Storage Part 3](https://www.youtube.com/watch?v=Xh3tTYzDYuA) ( 🧑 [Program With Erik](https://www.youtube.com/channel/UCshZ3rdoCLjDYuTR_RBubzw) • 👨‍👨‍👧 62,7K • 🕑 11:30 • 👁 2 651 • 📅 13 сент. 2017 )    
+• Особенности:  • Интересные фичи:  
+
 • ▶️ [Todo app (список задач) на Vue 3 + Composition API / Vue практика](https://www.youtube.com/watch?v=mqsXRxWvR3o) • ( 🧑 [Лукьянов Артём](https://www.youtube.com/channel/UCO8KyfLYPUU5NbfvOktKAQg) • 👨‍👨‍👧 1,1K • 🕑 25:46 • 👁 3 132 • 📅 7 окт. 2020 )  
 • Особенности: Vue 3 + Composition API; хорошее объяснение/комментарии  • Интересные фичи:  
-
-• ▶️ [Build Todo List App in Vue JS + Vuex](https://www.youtube.com/watch?v=xrkWxxdgBi4) • ( 🧑 [neecoder x](https://www.youtube.com/channel/UCtL_snE3VQQN_lAMefQYhMA) • 👨‍👨‍👧 1,5K • 🕑 17:21 • 👁 2 844 • 📅 12 июн. 2020 )  
-• Особенности: vue, vuex, bootstrap, vue-cli, babel, export/import .vue components, vuex: state, mutations, actions, modules  
-• Интересные фичи:  1. Редактирование заголовка задачи на месте через input (v-if, v-else h3/input)  
 
 • ▶️ [How to create a To-Do List Web App with Vue JS](https://www.youtube.com/watch?v=KGsIQQXWSR4) • ( 🧑 [Webnoob](https://www.youtube.com/channel/UCVI6tv5boZ62bSsd8k9eM7Q) • 👨‍👨‍👧 4,46K • 🕑 26:06 • 👁 3 982 • 📅 12 апр. 2019 )  
 • Особенности: стиль Wunderlist, .vue components  • Интересные фичи: 1. Favorite status  
@@ -73,15 +86,6 @@
 
 • ▶️ [Vuetify: Create an App with Vue JS - in 30 MINUTES!](https://www.youtube.com/watch?v=CjXgoYo86yY) • ( 🧑 [Make Apps with Danny](https://www.youtube.com/channel/UC6eR_ndNgaTeE5t2Ud4ZiHw) • 👨‍👨‍👧 8,14K • 🕑 38:54 • 👁 20 713 • 📅 21 окт. 2020 )    
 • Особенности: 🔥🔥🔥🔥🔥 Vuetify (Material Framework)  • Интересные фичи:   
-
-• ▶️ [Learn To Build A Vue.js Todo App With Local Storage Part 1](https://www.youtube.com/watch?v=pF590TdMKO4) ( 🧑 [Program With Erik](https://www.youtube.com/channel/UCshZ3rdoCLjDYuTR_RBubzw) • 👨‍👨‍👧 62,7K • 🕑 14:11 • 👁 12 620 • 📅 30 авг. 2017 )    
-• Особенности:  • Интересные фичи:   
-
-• ▶️ [Build A Vue.js App Using Local Storage Part 2](https://www.youtube.com/watch?v=72Gc3PlUQmY) ( 🧑 [Program With Erik](https://www.youtube.com/channel/UCshZ3rdoCLjDYuTR_RBubzw) • 👨‍👨‍👧 62,7K • 🕑 13:25 • 👁 7 759 • 📅 6 сент. 2017 )    
-• Особенности:  • Интересные фичи:   
-
-• ▶️ [Learn To Build A Vue.js Todo App With Local Storage Part 3](https://www.youtube.com/watch?v=Xh3tTYzDYuA) ( 🧑 [Program With Erik](https://www.youtube.com/channel/UCshZ3rdoCLjDYuTR_RBubzw) • 👨‍👨‍👧 62,7K • 🕑 11:30 • 👁 2 651 • 📅 13 сент. 2017 )    
-• Особенности:  • Интересные фичи:  
 
 • ▶️ [Build a Realtime Full-stack ToDo App in 15 Minutes with Vue, Vuetify, VueFire, and Firebase](https://www.youtube.com/watch?v=tkvQVt2sX7Y) • ( 🧑 [Diligent Dev](https://www.youtube.com/channel/UCLrTZVMYP_VsEyzxTAMcIcQ) • 👨‍👨‍👧 1,63K • 🕑 15:50 • 👁 3 858 • 📅 1 июн. 2020 )    
 • Особенности: Vue, Vuetify, VueFire, and Firebase  • Интересные фичи:  
@@ -276,6 +280,12 @@
 - Редактирование заголовка и/или описания уже созданных задач (через promt или input/textarea)
 - Многострочное описание/desc задачи
 - Фильтр/поиск по задачам
+- Завершённые задачи передвигаются вниз списка
+- Счётчики задач для списков
+- Редактирование названия и описания уже созданных задач (через promt и/или input/textarea)
+- Фильтр/поиск по задачам
+- Добавление/удаление списков
+- Смена порядка списков и задач
 
 ### Будущие фичи
 - Вид: иерархический список
