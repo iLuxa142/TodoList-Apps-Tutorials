@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Todolist app 3 (v2)</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="header">
+            <h2>Todo List App</h2>
+            <hr>
+            Фильтр/поиск: <input type="text" v-model="filterText" placeholder="поисковый запрос">
+            <button @click="clearFilterText">очистить</button>
+        </div>
+        <hr>
+        <task-list :filtertext="filterText">
+        </task-list>
+
+        <hr>
+        <p>* Редактирование title/desc задачи - двойной клик.</p>
+    </div>
+
+    <!--Шаблон для списка задач-->
+    <template id="task-list-template">
+        <div>
+            <!--Добавление нового списка-->
+            <div>
+                <h5>Добавить список:</h5>
+                <div>
+                    <input type="text" v-model="newList.listName" @keyup.enter="addList" placeholder="Название списка">
+                    <button @click="addList">add list</button>
+                </div>
+            </div>
+
+            <!--если строка фильтра пуста, то вывод списков -->
+            <div v-if="!filtertext">
+                <div v-for="(list, listIndex) in taskLists" :key="listIndex">
+                    <h3 class="stats__title">
+                        <button @click="changeListOrder(listIndex, 'up')">▲</button>
+                        <button @click="changeListOrder(listIndex, 'down')">▼</button>
+                        {{list.listName}} ({{list.tasks.length}})
+                        <input type="checkbox" v-model="list.isCollapse">
+                        <button @click="activateTaskAdding(listIndex)">add task</button>
+                        <button @click="deleteList(listIndex)">delete list</button>
+                    </h3>
+
+                    <!-- добавить новую задачу в список -->
+                    <div class="add_task" v-if="list.isAddingTask">
+                        <div class="add_task__input">
+                            <input type="text" id="inputtitle" ref="inputtitle" v-model="newTask.title"
+                                @keyup.enter="addTask(listIndex)" @keyup.esc="activateTaskAdding(listIndex)"
+                                placeholder="Заголовок">
+                            <textarea v-model="newTask.desc" placeholder="Описание (необязательно)"></textarea>
+                        </div>
+                        <button class="add_task__btn" @click="addTask(listIndex)">➕</button>
+                    </div>
+
+                    <!-- вывод задач списка -->
+                    <div v-if="!list.isCollapse">
+                        <transition-group name="flip-tasks" tag="div">
+                            <div v-for="(task, taskIndex) in list.tasks" :key="task.id">
+                                <div class="task" :class="{done: task.isDone}">
+                                    <input type="checkbox" class="task__done" v-model="task.isDone"
+                                        @change="changeTaskStatus(listIndex, taskIndex)">&nbsp;&nbsp;
+                                    <div v-if="!task.isEditing">
+                                        <h3 class="task__title" @dblclick="toggleTaskEditing(listIndex, taskIndex)">
+                                            <button @click="changeTaskOrder(listIndex, taskIndex, 'up')">▲</button>
+                                            {{task.title}}
+                                        </h3>
+                                        <p class="task__desc" @dblclick="toggleTaskEditing(listIndex, taskIndex)">
+
+                                            <button @click="changeTaskOrder(listIndex, taskIndex, 'down')">▼</button>
+                                            {{task.desc}}
+                                        </p>
+
+                                    </div>
+                                    <div v-else class="add_task">
+                                        <div class="add_task__input">
+                                            <input type="text" v-model="task.title"
+                                                @keyup.enter="toggleTaskEditing(listIndex, taskIndex)">
+                                            <textarea v-model="task.desc"></textarea>
+                                        </div>
+                                        <button class="add_task__btn"
+                                            @click="toggleTaskEditing(listIndex, taskIndex)">✅</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </transition-group> <!-- анимация перемещения тасков -->
+                    </div>
+
+                </div>
+            </div>
+            <!--КОНЕЦ вывода списков -->
+
+            <!-- если строка фильтра содержит текст (запрос), то вывод списка отфильтрованных задач-->
+            <div v-else>
+                <div v-for="task in filteredList" :key="task.id">
+                    <div class="task" :class="{done: task.isDone}">
+                        <input type="checkbox" class="task__done" v-model="task.isDone">&nbsp;&nbsp;
+                        <div>
+                            <h3 class="task__title">{{task.title}}</h3>
+                            <p class="task__desc">{{task.desc}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Конец вывода списка отфильтрованных задач-->
+
+        </div>
+    </template>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="script.js"></script>
+    <script type="text/javascript" src="vanilla-tilt.js"></script>
+</body>
+
+</html>
