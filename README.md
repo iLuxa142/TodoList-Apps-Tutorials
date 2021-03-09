@@ -8,7 +8,7 @@
 • • > 🔶 **Todolist app 4 (original)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist-app-4) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist-app-4/)  
 •  
 • ▶️ [Build Todo List App in Vue JS + Vuex](https://www.youtube.com/watch?v=xrkWxxdgBi4) • ( 🧑 [neecoder x](https://www.youtube.com/channel/UCtL_snE3VQQN_lAMefQYhMA) • 👨‍👨‍👧 1,5K • 🕑 17:21 • 👁 2 844 • 📅 12 июн. 2020 )  
-• Особенности: vue, vuex, bootstrap, vue-cli, babel, export/import .vue components, vuex: state, mutations, actions, modules  
+• Особенности: vue-cli, export/import components (.vue), vuex (state, mutations, actions, modules), bootstrap, babel  
 • Интересные фичи:  1. Редактирование заголовка задачи на месте через input (v-if, v-else h3/input)  
 
 ---
@@ -16,6 +16,15 @@
   
 ## Готово:
 
+
+
+• • > 🔶 **Todolist app 5 (original)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist-app-5) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist-app-5/)  
+•  
+• ▶️ [Разбор задачи на собеседование по VueJS (создание SPA)](https://www.youtube.com/watch?v=Ez5_CITkg24)   • ( 🧑 [Владилен Минин](https://www.youtube.com/channel/UCg8ss4xW9jASrqWGP30jXiw) • 👨‍👨‍👧 136K • 🕑 1:20:17 • 👁 37 425 • 📅 30 апр. 2019 )     
+• Особенности: Vue-cli, npm, Vuex, router, materialize, localStorage.    
+• Интересные фичи: 1. Дата/срок задачи. 2. Статус задачи (active, completed, outdated) с фильтрацией. 3. Вывод части description. 4. Редактирование. 5. Теги.    
+
+---
 • • > 🔶 **Todolist app 3 (v2)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist-app-3-v2) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist-app-3-v2/)  
 • • > [новые фичи: 1. Завершённые задачи передвигаются вниз списка. 2. Счётчики задач для списков. 3. Редактирование названия и описания уже созданных задач (через promt и/или input/textarea). 4. Фильтр/поиск по задачам. 5. Добавление/удаление списков. 6. Смена порядка списков и задач.]   
 •  
