@@ -18,11 +18,11 @@
 
 
 
-• • > 🔶 **Todolist app 5 (original)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist-app-5) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist-app-5/)  
+• • > 🔶 **Todolist app 5 (original)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist-app-5) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist-app-5/dist/#/)  
 •  
 • ▶️ [Разбор задачи на собеседование по VueJS (создание SPA)](https://www.youtube.com/watch?v=Ez5_CITkg24)   • ( 🧑 [Владилен Минин](https://www.youtube.com/channel/UCg8ss4xW9jASrqWGP30jXiw) • 👨‍👨‍👧 136K • 🕑 1:20:17 • 👁 37 425 • 📅 30 апр. 2019 )     
 • Особенности: Vue-cli, npm, Vuex, router, materialize, localStorage.    
-• Интересные фичи: 1. Дата/срок задачи. 2. Статус задачи (active, completed, outdated) с фильтрацией. 3. Вывод части description. 4. Редактирование. 5. Теги.    
+• Интересные фичи: 1. Дата/срок задачи. 2. Статус (active, completed, outdated) с фильтрацией. 3. Теги. 4. Вывод части description. 5. Редактирование задачи на отдельной странице.  
 
 ---
 • • > 🔶 **Todolist app 3 (v2)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist-app-3-v2) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist-app-3-v2/)  
