@@ -2,20 +2,13 @@
 
 ## В процессе:
 
-• • > 🔶 **Todolist app 4 (v2)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/todolist-app-4-v2/todolist-app-4-v2) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist-app-4-v2/)  
+• • > 🔶 **Todolist app 5 (v2)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist-app-5-v2) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist-app-5-v2/dist/#/)  
 • • > [новые фичи: ]   
 •  
-• • > 🔶 **Todolist app 4 (original)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist-app-4) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist-app-4/)  
-•  
-• ▶️ [Build Todo List App in Vue JS + Vuex](https://www.youtube.com/watch?v=xrkWxxdgBi4) • ( 🧑 [neecoder x](https://www.youtube.com/channel/UCtL_snE3VQQN_lAMefQYhMA) • 👨‍👨‍👧 1,5K • 🕑 17:21 • 👁 2 844 • 📅 12 июн. 2020 )  
-• Особенности: vue-cli, export/import components (.vue), vuex (state, mutations, actions, modules), bootstrap, babel  
-• Интересные фичи:  1. Редактирование заголовка задачи на месте через input (v-if, v-else h3/input)  
 
 ---
-
   
 ## Готово:
-
 
 
 • • > 🔶 **Todolist app 5 (original)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist-app-5) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist-app-5/dist/#/)  
@@ -23,6 +16,13 @@
 • ▶️ [Разбор задачи на собеседование по VueJS (создание SPA)](https://www.youtube.com/watch?v=Ez5_CITkg24)   • ( 🧑 [Владилен Минин](https://www.youtube.com/channel/UCg8ss4xW9jASrqWGP30jXiw) • 👨‍👨‍👧 136K • 🕑 1:20:17 • 👁 37 425 • 📅 30 апр. 2019 )     
 • Особенности: Vue-cli, npm, Vuex, router, materialize, localStorage.    
 • Интересные фичи: 1. Дата/срок задачи. 2. Статус (active, completed, outdated) с фильтрацией. 3. Теги. 4. Вывод части description. 5. Редактирование задачи на отдельной странице.  
+
+---
+• • > 🔶 **Todolist app 4 (original)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist-app-4) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist-app-4/dist/index.html)  
+•  
+• ▶️ [Build Todo List App in Vue JS + Vuex](https://www.youtube.com/watch?v=xrkWxxdgBi4) • ( 🧑 [neecoder x](https://www.youtube.com/channel/UCtL_snE3VQQN_lAMefQYhMA) • 👨‍👨‍👧 1,5K • 🕑 17:21 • 👁 2 844 • 📅 12 июн. 2020 )  
+• Особенности: vue-cli, export/import components (.vue), vuex (state, mutations, actions, modules), bootstrap, babel  
+• Интересные фичи:  1. Редактирование заголовка задачи на месте через input (v-if, v-else h3/input)  
 
 ---
 • • > 🔶 **Todolist app 3 (v2)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist-app-3-v2) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist-app-3-v2/)  
@@ -43,7 +43,6 @@
 • Особенности: Vue 1.0.12  • Интересные фичи: 1\. Кнопка "Clear List". 2\. Кнопка "удаление задачи (Х)" появляется только при наведении мышью на строку задачи. 3\. Общий чекбокс, отмечающий все задачи  
 
 ---
-
 • • > 🔶 **Todolist app 1 (v2)**   :  [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist-app-1-v2) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist-app-1-v2/index.html)   
 • • > [новые фичи: 1. Корзина (удаление, восстановление). 2. Дата/время добавления задач.]  
 •  
@@ -53,8 +52,8 @@
 • Особенности: Vue 3; Отлично для начального туториала
 
 ---
-  
-### Структура (workflow) подпроектов:  
+
+### Структура подпроектов:  
 1. Todolist app N - оригинальный код из пройденного туториала  
 2. Todolist app N (v2) - доработка кода (см. чеклист нач. кодера) + пара новых фич + фича от заказчика + Code Review
 
@@ -130,31 +129,37 @@
 [Build A Todo App With REACT | React Project For Beginners (FULL).](https://www.youtube.com/watch?v=pCA4qpQDZD8)  
 [Build To Do App with React JS + Hooks + Redux](https://www.youtube.com/watch?v=xwkbWUOGfws)  
 [Build a Todo App with React Js | Using React Hooks](https://www.youtube.com/watch?v=9zcMnJI3B7M)  
+[Building a React Todo App w/ Authentication - Redux & Firebase (playlist: 9 vids, ~10 hours)](https://www.youtube.com/playlist?list=PLoH-uUW2wEIQU3diUzrpFaFOcXM8z8gBc)  
 [Building a Todo List with React Hooks useState](https://www.youtube.com/watch?v=cAZ-fOd1RpA)  
+[Building a todolist with React (playlist)](https://www.youtube.com/playlist?list=PL1xmoAWnCP4-jEE1qK5OGS05UoZVup8Ix)  
 [Code your first React app | Beginner React app | To Do List](https://www.youtube.com/watch?v=e_ZibOe77yo)  
+[CodeLibrary #1 - Пишем приложение на React, Redux и Firebase](https://www.youtube.com/watch?v=ZxAeAjBBAtA)  
 [Coding a Todo List in React.js - Part 15](https://www.youtube.com/watch?v=I6IY2TqnPDA)  
 [Complete React Tutorial (& Redux) #23 - Todo App (part 1)](https://www.youtube.com/watch?v=3qk6yQWKVoQ)  
+[Creating a Todo List App in React using Typescript (Part 1)](https://www.youtube.com/watch?v=ODvirqIC09A) 
 [How to Build a TODO app with React + Firebase (LIVE)](https://www.youtube.com/watch?v=VqgTr-nd7Cg)  
 [How to make an app - React Native Tutorial - Create a Todo App in 25 minutes](https://www.youtube.com/watch?v=xb8uTN3qiUI)  
-[React - Simple To Do List](https://www.youtube.com/watch?v=2Uz-7Wf0YNY)  
-[React Project using Material UI Free Code: Create ToDo List App in React in Hindi in 2020 #45](https://www.youtube.com/watch?v=C3d7p-Y_7P8)  
-[React Todo List App Tutorial - Beginner React JS Project Using Hooks](https://www.youtube.com/watch?v=E1E08i2UJGI)  
-[React for Beginners - Build a Todo-List App](https://www.youtube.com/watch?v=nUl5QLkVdvU)  
-[To Do App in React (Adding, Editing and Deleting items) | Deploy in Github for freeTutorial](https://www.youtube.com/watch?v=N8kYlimhuLw)  
-[ПИШЕМ ПРОСТОЙ TODO LIST НА REACT ЗА 10 МИНУТ](https://www.youtube.com/watch?v=Tw475nS2MtQ)  
-[Пишем TodoList на React](https://www.youtube.com/watch?v=0VvUE8yP5u8)  
-[Пишем свой To-Do list с нуля на REACT JS](https://www.youtube.com/watch?v=rYvd7BkMmP8)  
-[Пишем список задач(todo app) на React](https://www.youtube.com/watch?v=CtxEmOfIUco)  
-[Разработка списка задача на ReactJS (ToDo) #1](https://www.youtube.com/watch?v=PGZ6HtgSeio)  
 [React & Redux #22 Список дел на Реакт и Редакс (ToDo Application: React & Redux. Part I)](https://www.youtube.com/watch?v=0kVenECLU_8)  
 [React & Redux #23 Список дел на Реакт и Редакс (ToDo Application: React & Redux. Part II)](https://www.youtube.com/watch?v=m5LIqjQSIwg)  
 [React & Redux #24 Список дел на Реакт и Редакс (ToDo Application: React & Redux. Part III)](https://www.youtube.com/watch?v=qwMBO2hVq9E)  
+[React - Simple To Do List](https://www.youtube.com/watch?v=2Uz-7Wf0YNY)  
+[React Project using Material UI Free Code: Create ToDo List App in React in Hindi in 2020 #45](https://www.youtube.com/watch?v=C3d7p-Y_7P8)  
+[React Todo List App Tutorial - Beginner React JS Project Using Hooks](https://www.youtube.com/watch?v=E1E08i2UJGI)  
 [React Todo на React, Redux и Firebase #1](https://www.youtube.com/watch?v=MV5LOoxHRc4)  
 [React Todo на React, Redux и Firebase #2](https://www.youtube.com/watch?v=25rQGWBnjtI)  
 [React Todo на React, Redux и Firebase #3](https://www.youtube.com/watch?v=vN_7wcH-fiw)  
 [React Todo на React, Redux и Firebase #4](https://www.youtube.com/watch?v=6h2V510EUd4)  
 [React Todo на React, Redux и Firebase #5](https://www.youtube.com/watch?v=v0jiEgF7aO4)  
-[Building a React Todo App w/ Authentication - Redux & Firebase (playlist: 9 vids, ~10 hours)](https://www.youtube.com/playlist?list=PLoH-uUW2wEIQU3diUzrpFaFOcXM8z8gBc)  
+[React for Beginners - Build a Todo-List App](https://www.youtube.com/watch?v=nUl5QLkVdvU)  
+[To Do App in React (Adding, Editing and Deleting items) | Deploy in Github for freeTutorial](https://www.youtube.com/watch?v=N8kYlimhuLw)  
+[Todo List React App | Part 1](https://www.youtube.com/watch?v=TZ933D_RB8E)  
+[Todo List React App | Part 2](https://www.youtube.com/watch?v=BkSco__Jpx8)  
+[Todo List with React, Node, and Express - Part 1](https://www.youtube.com/watch?v=UssANbORcZE)  
+[ПИШЕМ ПРОСТОЙ TODO LIST НА REACT ЗА 10 МИНУТ](https://www.youtube.com/watch?v=Tw475nS2MtQ)  
+[Пишем TodoList на React](https://www.youtube.com/watch?v=0VvUE8yP5u8)  
+[Пишем свой To-Do list с нуля на REACT JS](https://www.youtube.com/watch?v=rYvd7BkMmP8)  
+[Пишем список задач(todo app) на React](https://www.youtube.com/watch?v=CtxEmOfIUco)  
+[Разработка списка задача на ReactJS (ToDo) #1](https://www.youtube.com/watch?v=PGZ6HtgSeio)  
 
 **Vanila JS**  
 [Awesome Todo List Using HTML & CSS & JavaScript (2020)](https://www.youtube.com/watch?v=SB9dPJxVhp0)  
@@ -172,6 +177,7 @@
 [JavaScript Tutorial TO-DO List App](https://www.youtube.com/watch?v=kRbAuj_CgnI)  
 [Learn to code a to-do list app in JavaScript - Part 1](https://www.youtube.com/watch?v=2wCpkOk2uCg)  
 [Let's make a TO DO LIST using Javascript](https://www.youtube.com/watch?v=jrV6eI8AALU)  
+[Making a ToDo List app with Local Storage!](https://www.youtube.com/watch?v=Z43SXaDPo2s)  
 [Minimal To-do List using HTML CSS & Javascript | CodingNepal](https://www.youtube.com/watch?v=0v7DYB1lyL8)  
 [Reactive Todo App in Vanilla JS | Intermediate Tutorial](https://www.youtube.com/watch?v=CVplZomqfAk)  
 [To Do List App in JavaScript beginners](https://www.youtube.com/watch?v=b8sUhU_eq3g)  
@@ -183,6 +189,7 @@
 [ToDo List на JavaScript](https://www.youtube.com/watch?v=YV3-mqsJ-NY)  
 [ToDo Today Web App - Reviewing and Making Tutorial - Vanilla JavaScript Project - YouTube](https://www.youtube.com/watch?v=RaVi6gDYO-0)  
 [Todo App With Vanilla JS | Separate list for every user | Using Firebase Auth & Firebase Firestore](https://www.youtube.com/watch?v=nz-f37qpADQ)  
+[Todo List application in JavaScript 2020 || CRUD operation in Javascript || Uses of local storage](https://www.youtube.com/watch?v=aC6cp5D0bvA)  
 [Todo List App in JavaScript | JavaScript Project | How to create a todo list in Vanilla JavaScript.](https://www.youtube.com/watch?v=ZHITga0AAK4)  
 [Todo List App using HTML CSS & JavaScript | Todo List in JavaScript](https://www.youtube.com/watch?v=ykuD2QOZkhc)  
 [Todo List Using HTML & CSS & JavaScript](https://www.youtube.com/watch?v=Gp2bUX7_WIg)  
@@ -205,12 +212,6 @@
   
 **Blazor (.NET Core)**  
 [Youtube search: todo Blazor](https://www.youtube.com/results?search_query=todo+Blazor)  
-
-**Хранилище (LocalStorage, DB, indexdb)**  
-[Локальное хранилище localStorage Списка дел | LocalStorage ToDo List](https://www.youtube.com/watch?v=Wr1z_rFU5ZE)  
-[Урок 17\. JavaScript. Все о LocalStorage](https://www.youtube.com/watch?v=3-bZ7gLVSzo)  
-[Todo List application in JavaScript 2020 || CRUD operation in Javascript || Uses of local storage](https://www.youtube.com/watch?v=aC6cp5D0bvA)  
-[Making a ToDo List app with Local Storage!](https://www.youtube.com/watch?v=Z43SXaDPo2s)  
 
 **Drag & Drop**  
 [Drag & Drop With Vanilla JS](https://www.youtube.com/watch?v=C22hQKE_32c)  
@@ -295,6 +296,10 @@
 - Фильтр/поиск по задачам
 - Добавление/удаление списков
 - Смена порядка списков и задач
+- Дата/срок задачи
+- Статус (активна/завершена, просрочена)
+- Теги (через плагин materialize)
+- Сохранение в локальное хранилище (local storage)
 
 ### Будущие фичи
 - Вид: иерархический список
