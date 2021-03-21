@@ -27,12 +27,16 @@
           <th>Date</th>
           <th>Description</th>
           <th>Status</th>
-          <th>Open</th>
+          <th>Edit</th>
           <th>Delete</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(task, index) of displayTasks" :key="task.id">
+        <tr
+          v-for="(task, index) of displayTasks"
+          :key="task.id"
+          @dblclick="$router.push('/task/' + task.id)"
+        >
           <td>{{ index + 1 }}</td>
           <td>{{ task.title }}</td>
           <td>{{ new Date(task.date).toLocaleDateString() }}</td>
@@ -46,7 +50,7 @@
               class="btn btn-small"
               :to="'/task/' + task.id"
             >
-              Open
+              Edit
             </router-link>
           </td>
           <td>
