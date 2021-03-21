@@ -32,11 +32,13 @@ export default {
       return this.$store.getters.taskById(+this.$route.params.id);
     }
   },
-  data: () => ({
-    desc: '',
-    chips: null,
-    date: null
-  }),
+  data() {
+    return {
+      desc: '',
+      chips: null,
+      date: null
+    }
+  },
   mounted() {
     this.desc = this.task.desc;
     this.chips = M.Chips.init(this.$refs.chips, {

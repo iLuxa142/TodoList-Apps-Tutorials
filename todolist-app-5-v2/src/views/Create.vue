@@ -30,12 +30,14 @@
 <script>
 export default {
   name: 'create',
-  data: () => ({
-    desc: '',
-    title: '',
-    chips: null,
-    date: null
-  }),
+  data() {
+    return {
+      desc: '',
+      title: '',
+      chips: null,
+      date: null
+    }
+  },
   mounted() {
     this.chips = M.Chips.init(this.$refs.chips, {
       placeholder: 'Task tags'

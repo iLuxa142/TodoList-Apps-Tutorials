@@ -49,9 +49,11 @@
 
 <script>
 export default {
-  data: () => ({
-    filter: null,
-  }),
+  data() {
+    return {
+      filter: null
+    }
+  },
   computed: {
     tasks() {
       return this.$store.getters.tasks;
