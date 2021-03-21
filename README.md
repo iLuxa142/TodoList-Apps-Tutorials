@@ -3,7 +3,7 @@
 ## В процессе:
 
 • • > 🔶 **Todolist app 5 (v2)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist-app-5-v2) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist-app-5-v2/dist/#/)  
-• • > [новые фичи: ]   
+• • > [новые фичи: 1. Списки задач. 2. Сортировки по полям. 3. Поиск/фильтрация. 4. Вид списков: карточки. 5. Markdown notes. 6. Порядок задач, списков, карточек через drag & drop?]  
 •  
 
 ---
@@ -209,6 +209,9 @@
 
 **Other Frameworks**  
 [Svelte v3 - Basics - Todo App](https://www.youtube.com/watch?v=0uTX5GfmhTo)  
+  
+**Node.JS**  
+[Youtube search: node js](https://www.youtube.com/results?search_query=node+js)  
   
 **Blazor (.NET Core)**  
 [Youtube search: todo Blazor](https://www.youtube.com/results?search_query=todo+Blazor)  
