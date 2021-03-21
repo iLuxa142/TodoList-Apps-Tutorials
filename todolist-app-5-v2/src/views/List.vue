@@ -56,6 +56,7 @@ export default {
     tasks() {
       return this.$store.getters.tasks;
     },
+    
     displayTasks() {
       return this.tasks.filter(t => {
         if (!this.filter) {

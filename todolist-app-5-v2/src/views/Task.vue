@@ -43,14 +43,14 @@ export default {
       placeholder: 'Task tags',
       data: this.task.tags,
     });
+
     this.date = M.Datepicker.init(this.$refs.datepicker, {
       format: 'dd.mm.yyyy',
       defaultDate: new Date(this.task.date),
       setDefaultDate: true
     });
-    setTimeout(() => {
-      M.updateTextFields()
-    }, 0)
+
+    setTimeout(() => {M.updateTextFields()}, 0);
   },
   methods: {
     submitHandler() {
@@ -61,6 +61,7 @@ export default {
       });
       this.$router.push('/list');
     },
+
     completeTask() {
       this.$store.dispatch('completeTask', this.task.id);
       this.$router.push('/list');
