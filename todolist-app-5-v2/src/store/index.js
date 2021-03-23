@@ -22,13 +22,13 @@ export default createStore({
       localStorage.setItem('tasks', JSON.stringify(state.tasks));
     },
 
-    updateTask(state, {id, desc, date}) {
+    updateTask(state, {id, title, desc, date}) {
       const tasks = state.tasks.concat();
       const idx = tasks.findIndex(t => t.id === id);
       const task = tasks[idx];
 
       const status = new Date(date) > new Date() ? 'active' : 'outdated';
-      tasks[idx] = {...task, date, desc, status };
+      tasks[idx] = {...task, date, title, desc, status };
       state.tasks = tasks;
 
       localStorage.setItem('tasks', JSON.stringify(state.tasks));
