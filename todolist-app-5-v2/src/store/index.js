@@ -3,8 +3,8 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     tasks: JSON.parse(localStorage.getItem('tasks') || '[]').map(task => {
-      if (new Date(task.date) < new Date()) {
-        task.status = 'outdated';
+      if (task.status == "active" && new Date(task.date) < new Date()  ) {
+        task.status = "outdated";
       }
 
       return task;
@@ -22,21 +22,26 @@ export default createStore({
       localStorage.setItem('tasks', JSON.stringify(state.tasks));
     },
 
-    updateTask(state, {id, title, desc, date}) {
+    updateTask(state, {title, desc, id, status, tags, date }) {
       const tasks = state.tasks.concat();
       const idx = tasks.findIndex(t => t.id === id);
       const task = tasks[idx];
 
-      const status = new Date(date) > new Date() ? 'active' : 'outdated';
-      tasks[idx] = {...task, date, title, desc, status };
+      tasks[idx] = {...task, title, desc, status, tags, date };
       state.tasks = tasks;
 
       localStorage.setItem('tasks', JSON.stringify(state.tasks));
     },
 
-    completeTask(state, id) {
+    changeComplete(state, id) {
       const idx = state.tasks.findIndex(t => t.id === id);
-      state.tasks[idx].status = 'completed';
+      
+      if (state.tasks[idx].status == "completed")      {
+        state.tasks[idx].status = "active";
+      } else {
+        state.tasks[idx].status = "completed";
+      }
+     
       localStorage.setItem('tasks', JSON.stringify(state.tasks));
     }
   },
@@ -53,8 +58,8 @@ export default createStore({
       commit('updateTask', task);
     },
     
-    completeTask({commit}, id) {
-      commit('completeTask', id);
+    changeComplete({commit}, id) {
+      commit('changeComplete', id);
     }
   },
   getters: {

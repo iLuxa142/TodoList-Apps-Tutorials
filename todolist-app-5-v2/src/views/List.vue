@@ -11,8 +11,6 @@
         />
         <label for="title">Enter task title and press enter key</label>
       </div>
-
-      <hr />
       <h3>List</h3>
 
       <span>Filter by status:</span>
@@ -29,13 +27,14 @@
         Completed
       </button>
     </div>
-    <table v-if="tasks.length">
+    <table v-if="tasks.length" class="tasks">
       <thead>
         <tr>
           <th><i class="tiny material-icons">check</i></th>
           <th>Title</th>
-          <th>Date</th>
           <th>Description</th>
+          <th>Tags</th>
+          <th>Date</th>
           <th>Status</th>
           <th>Edit</th>
           <th>Delete</th>
@@ -53,15 +52,20 @@
                 type="checkbox"
                 class="filled-in"
                 :checked="task.status == 'completed'"
+                @click="changeComplete(task.id)"
               />
               <span></span>
             </label>
           </td>
           <td>{{ task.title }}</td>
-          <td>{{ new Date(task.date).toLocaleDateString() }}</td>
+
           <td>
             <div class="text">{{ task.desc }}</div>
           </td>
+          <td>
+            {{ task.tags.length }}
+          </td>
+          <td>{{ new Date(task.date).toLocaleDateString() }}</td>
           <td>{{ task.status }}</td>
           <td>
             <router-link
@@ -74,7 +78,7 @@
           </td>
           <td>
             <button class="btn btn-small red" @click="deleteTask(task.id)">
-              del
+              X
             </button>
           </td>
         </tr>
@@ -115,6 +119,10 @@ export default {
     deleteTask(id) {
       this.$store.dispatch("deleteTask", id);
     },
+
+    changeComplete(id) {
+      this.$store.dispatch("changeComplete", id);
+    },
   },
   computed: {
     tasks() {
@@ -140,6 +148,9 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 400px;
+}
+.tasks tr:hover {
+  background-color: lightgreen;
 }
 button {
   margin-left: 5px;

@@ -1,12 +1,12 @@
 <template>
   <div class="row">
     <div v-if="task" class="col s6 offset-s3">
-      <h1>{{ task.title }}</h1>
+      <h4>{{ task.title }}</h4>
 
       <form @submit.prevent="submitHandler">
         <div class="input-field">
           <input id="title" type="text" v-model="title" />
-          <label for="title">Title</label>
+          <label for="title">New title</label>
         </div>
 
         <div class="chips" ref="chips"></div>
@@ -25,14 +25,21 @@
 
         <input type="text" ref="datepicker" />
 
-        <div v-if="task.status !== 'completed'">
-          <button class="btn" type="submit" style="margin-right: 1rem">
-            Update
-          </button>
-          <button class="btn blue" type="button" @click="completeTask">
-            Complete task
-          </button>
+        <div class="switch">
+          <label>
+            active
+            <input type="checkbox" v-model="isCompleted" />
+            <span class="lever"></span>
+            completed
+          </label>
         </div>
+        <hr />
+        <button class="btn" type="submit" style="margin-right: 1rem">
+          Update
+        </button>
+        <button class="btn red" type="button" @click="$router.push('/list')">
+          Cancel
+        </button>
       </form>
     </div>
     <h5 v-else>Task not found!</h5>
@@ -52,6 +59,7 @@ export default {
       desc: "",
       chips: null,
       date: null,
+      isCompleted: true,
     };
   },
   mounted() {
@@ -69,23 +77,34 @@ export default {
       setDefaultDate: true,
     });
 
+    if (this.task.status == "completed") {
+      this.isCompleted = true;
+    } else {
+      this.isCompleted = false;
+    }
+
     setTimeout(() => {
       M.updateTextFields();
     }, 0);
   },
   methods: {
     submitHandler() {
+      let newStatus = "active";
+      if (new Date(this.date.date) < new Date()) {
+        newStatus = "outdated";
+      }
+      if (this.isCompleted) {
+        newStatus = "completed";
+      }
+
       this.$store.dispatch("updateTask", {
-        id: this.task.id,
         title: this.title,
         desc: this.desc,
+        id: this.task.id,
+        status: newStatus,
+        tags: this.chips.chipsData,
         date: this.date.date,
       });
-      this.$router.push("/list");
-    },
-
-    completeTask() {
-      this.$store.dispatch("completeTask", this.task.id);
       this.$router.push("/list");
     },
   },
