@@ -10,6 +10,12 @@
   
 ## Готово:
 
+• • > 🔶 **Todolist app 6 (original)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist-app-6) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist-app-6/dist/index.html)  
+•  
+• ▶️ [Vue js #13 Vue Todo list часть #1 создаем список дел](https://www.youtube.com/watch?v=S4KhAjN25rs) • ( 🧑 [Mario Dev](https://www.youtube.com/channel/UCkK0zr_EquhaXZfChS3iiyw) • 👨‍👨‍👧 1,28K • 🕑 26:08 • 👁 1 167 • 📅 25 апр. 2020 )    
+• Особенности: Хорошо объясняет/комментирует; Отлично для начального туториала; Saas • Интересные фичи:  
+• ▶️ [Vue js #14 Vue Todo list часть #2 localStorage, props, $emit](https://www.youtube.com/watch?v=EIfsUCrqaK4) • ( 🧑 [Mario Dev](https://www.youtube.com/channel/UCkK0zr_EquhaXZfChS3iiyw) • 👨‍👨‍👧 1,28K • 🕑 18:49 • 👁 643 • 📅 3 мая 2020 )    
+• Особенности: Хорошо объясняет/комментирует; Отлично для начального туториала; • Интересные фичи:  localStorage
 
 • • > 🔶 **Todolist app 5 (original)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist-app-5) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist-app-5/dist/#/)  
 •  
@@ -60,20 +66,6 @@
 ### Видеоинструкции:
 
 **Vue**  
-• ▶️ [Vue js #13 Vue Todo list часть #1 создаем список дел](https://www.youtube.com/watch?v=S4KhAjN25rs) • ( 🧑 [Mario Dev](https://www.youtube.com/channel/UCkK0zr_EquhaXZfChS3iiyw) • 👨‍👨‍👧 1,28K • 🕑 26:08 • 👁 1 167 • 📅 25 апр. 2020 )    
-• Особенности: Хорошо объясняет/комментирует; Отлично для начального туториала; Saas • Интересные фичи:  
-
-• ▶️ [Vue js #14 Vue Todo list часть #2 localStorage, props, $emit](https://www.youtube.com/watch?v=EIfsUCrqaK4) • ( 🧑 [Mario Dev](https://www.youtube.com/channel/UCkK0zr_EquhaXZfChS3iiyw) • 👨‍👨‍👧 1,28K • 🕑 18:49 • 👁 643 • 📅 3 мая 2020 )    
-• Особенности: Хорошо объясняет/комментирует; Отлично для начального туториала; • Интересные фичи:  localStorage
-
-• ▶️ [Learn To Build A Vue.js Todo App With Local Storage Part 1](https://www.youtube.com/watch?v=pF590TdMKO4) ( 🧑 [Program With Erik](https://www.youtube.com/channel/UCshZ3rdoCLjDYuTR_RBubzw) • 👨‍👨‍👧 62,7K • 🕑 14:11 • 👁 12 620 • 📅 30 авг. 2017 )    
-• Особенности:  • Интересные фичи:   
-
-• ▶️ [Build A Vue.js App Using Local Storage Part 2](https://www.youtube.com/watch?v=72Gc3PlUQmY) ( 🧑 [Program With Erik](https://www.youtube.com/channel/UCshZ3rdoCLjDYuTR_RBubzw) • 👨‍👨‍👧 62,7K • 🕑 13:25 • 👁 7 759 • 📅 6 сент. 2017 )    
-• Особенности:  • Интересные фичи:   
-
-• ▶️ [Learn To Build A Vue.js Todo App With Local Storage Part 3](https://www.youtube.com/watch?v=Xh3tTYzDYuA) ( 🧑 [Program With Erik](https://www.youtube.com/channel/UCshZ3rdoCLjDYuTR_RBubzw) • 👨‍👨‍👧 62,7K • 🕑 11:30 • 👁 2 651 • 📅 13 сент. 2017 )    
-• Особенности:  • Интересные фичи:  
 
 • ▶️ [Todo app (список задач) на Vue 3 + Composition API / Vue практика](https://www.youtube.com/watch?v=mqsXRxWvR3o) • ( 🧑 [Лукьянов Артём](https://www.youtube.com/channel/UCO8KyfLYPUU5NbfvOktKAQg) • 👨‍👨‍👧 1,1K • 🕑 25:46 • 👁 3 132 • 📅 7 окт. 2020 )  
 • Особенности: Vue 3 + Composition API; хорошее объяснение/комментарии  • Интересные фичи:  
@@ -264,11 +256,13 @@
 ~~[Code your first VUE JS App | Coding for Beginners | To Do List](https://www.youtube.com/watch?v=EhrY9lB7rgU)~~  
 ~~[Create A Todo List Using HTML, CSS And Vue js](https://www.youtube.com/watch?v=UXkDgSChp2Y)~~  
 ~~[Creating To-Do List Application with Using Materialize CSS and Vue.js](https://www.youtube.com/watch?v=ncRaPE77eSg)~~  
-• ▶️ [Intro to Vue.js: Build a Todo App](https://www.youtube.com/watch?v=-X2hP9pOVss) • ( 🧑 [Coding Garden](https://www.youtube.com/channel/UCLNgu_OupwoeESgtab33CCw) • 👨‍👨‍👧 103K • 🕑 18:51 • 👁 22 704 • 📅 26 апр. 2018 ) • Особенности: Хорошая подача. Отлично для начального туториала • Интересные фичи: 1. Отметить все • [Github](https://github.com/CodingGarden/vue-todo)    
+~~• ▶️ [Intro to Vue.js: Build a Todo App](https://www.youtube.com/watch?v=-X2hP9pOVss) • ( 🧑 [Coding Garden](https://www.youtube.com/channel/UCLNgu_OupwoeESgtab33CCw) • 👨‍👨‍👧 103K • 🕑 18:51 • 👁 22 704 • 📅 26 апр. 2018 ) • Особенности: Хорошая подача. Отлично для начального туториала • Интересные фичи: 1. Отметить все • [Github](https://github.com/CodingGarden/vue-todo)    ~~  
 ~~[Vue.js Todo Task List App Tutorial](https://www.youtube.com/watch?v=W4qrvNHKtD8)~~  
 ~~[(Arabic) Vue.js Tutorials - How To Create To-Do List](https://www.youtube.com/watch?v=OoDEFCkFOzE)~~  
 ~~[Уроки Vue js практика - Task list](https://www.youtube.com/watch?v=EdzVypBkfZg)~~  
-
+~~• ▶️ [Learn To Build A Vue.js Todo App With Local Storage Part 1](https://www.youtube.com/watch?v=pF590TdMKO4) ( 🧑 [Program With Erik](https://www.youtube.com/channel/UCshZ3rdoCLjDYuTR_RBubzw) • 👨‍👨‍👧 62,7K • 🕑 14:11 • 👁 12 620 • 📅 30 авг. 2017 )~~    
+~~• ▶️ [Build A Vue.js App Using Local Storage Part 2](https://www.youtube.com/watch?v=72Gc3PlUQmY) ( 🧑 [Program With Erik](https://www.youtube.com/channel/UCshZ3rdoCLjDYuTR_RBubzw) • 👨‍👨‍👧 62,7K • 🕑 13:25 • 👁 7 759 • 📅 6 сент. 2017 )~~   
+~~• ▶️ [Learn To Build A Vue.js Todo App With Local Storage Part 3](https://www.youtube.com/watch?v=Xh3tTYzDYuA) ( 🧑 [Program With Erik](https://www.youtube.com/channel/UCshZ3rdoCLjDYuTR_RBubzw) • 👨‍👨‍👧 62,7K • 🕑 11:30 • 👁 2 651 • 📅 13 сент. 2017 )~~   
 
 
 ### Шаблоны:  
