@@ -67,6 +67,7 @@ export default {
         desc: this.desc,
         id: Date.now(),
         status: "active",
+        isCompleted: "false",
         tags: this.chips.chipsData,
         date: this.date.date,
       };

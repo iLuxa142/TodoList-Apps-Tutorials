@@ -10,6 +10,7 @@
         </div>
 
         <div class="chips" ref="chips"></div>
+
         <div class="input-field">
           <textarea
             style="min-height: 150px"
@@ -34,11 +35,12 @@
           </label>
         </div>
         <hr />
-        <button class="btn" type="submit" style="margin-right: 1rem">
-          Update
-        </button>
-        <button class="btn red" type="button" @click="$router.push('/list')">
+        <button class="btn" type="submit">Update</button>
+        <button class="btn grey" type="button" @click="$router.push('/')">
           Cancel
+        </button>
+        <button class="btn red" type="button" @click="deleteTask">
+          X Delete
         </button>
       </form>
     </div>
@@ -59,7 +61,7 @@ export default {
       desc: "",
       chips: null,
       date: null,
-      isCompleted: true,
+      isCompleted: false,
     };
   },
   mounted() {
@@ -77,11 +79,7 @@ export default {
       setDefaultDate: true,
     });
 
-    if (this.task.status == "completed") {
-      this.isCompleted = true;
-    } else {
-      this.isCompleted = false;
-    }
+    this.isCompleted = this.task.isCompleted;
 
     setTimeout(() => {
       M.updateTextFields();
@@ -89,23 +87,27 @@ export default {
   },
   methods: {
     submitHandler() {
-      let newStatus = "active";
-      if (new Date(this.date.date) < new Date()) {
-        newStatus = "outdated";
-      }
-      if (this.isCompleted) {
-        newStatus = "completed";
-      }
+      let newStatus = this.isCompleted
+        ? "completed"
+        : new Date(this.date.date) < new Date()
+        ? "outdated"
+        : "active";
 
       this.$store.dispatch("updateTask", {
         title: this.title,
         desc: this.desc,
         id: this.task.id,
         status: newStatus,
+        isCompleted: this.isCompleted,
         tags: this.chips.chipsData,
         date: this.date.date,
       });
-      this.$router.push("/list");
+      this.$router.push("/");
+    },
+
+    deleteTask() {
+      this.$store.dispatch("deleteTask", this.task.id);
+      this.$router.push("/");
     },
   },
   unmounted() {
@@ -121,4 +123,7 @@ export default {
 </script>
 
 <style>
+button {
+  margin-right: 1rem;
+}
 </style>

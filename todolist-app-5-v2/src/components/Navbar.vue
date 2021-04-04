@@ -3,14 +3,12 @@
     <div class="nav-wrapper">
       <ul class="right">
         <li>
-          <router-link to="/" exact active-class="active">
+          <router-link to="/create" exact active-class="active">
             <i class="small material-icons" title="create task">add_box</i>
           </router-link>
         </li>
         <li>
-          <router-link to="/list" active-class="active">
-            Tasks list
-          </router-link>
+          <router-link to="/" active-class="active"> Tasks list </router-link>
         </li>
       </ul>
     </div>

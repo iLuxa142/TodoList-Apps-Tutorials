@@ -18,29 +18,36 @@ export default createStore({
 
     deleteTask(state,id) {
       const idx = state.tasks.findIndex(t => t.id === id);
+      if (idx == -1) return;
+
       state.tasks.splice(idx,1);
       localStorage.setItem('tasks', JSON.stringify(state.tasks));
     },
 
-    updateTask(state, {title, desc, id, status, tags, date }) {
+    updateTask(state, {title, desc, id, status, isCompleted, tags, date }) {
       const tasks = state.tasks.concat();
       const idx = tasks.findIndex(t => t.id === id);
+      if (idx == -1) return;
+
       const task = tasks[idx];
 
-      tasks[idx] = {...task, title, desc, status, tags, date };
+      tasks[idx] = {...task, title, desc, status, isCompleted, tags, date };
       state.tasks = tasks;
 
       localStorage.setItem('tasks', JSON.stringify(state.tasks));
     },
 
-    changeComplete(state, id) {
+    toggleCompleteStatus(state, id) {
       const idx = state.tasks.findIndex(t => t.id === id);
+      if (idx == -1) return;
       
       if (state.tasks[idx].status == "completed")      {
-        state.tasks[idx].status = "active";
+        state.tasks[idx].status = (new Date(state.tasks[idx].date) < new Date()) ? "outdated" : "active";
       } else {
         state.tasks[idx].status = "completed";
       }
+
+      state.tasks[idx].isCompleted = !state.tasks[idx].isCompleted;
      
       localStorage.setItem('tasks', JSON.stringify(state.tasks));
     }
@@ -58,8 +65,8 @@ export default createStore({
       commit('updateTask', task);
     },
     
-    changeComplete({commit}, id) {
-      commit('changeComplete', id);
+    toggleCompleteStatus({commit}, id) {
+      commit('toggleCompleteStatus', id);
     }
   },
   getters: {
