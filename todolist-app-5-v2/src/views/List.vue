@@ -60,6 +60,7 @@ export default {
       const task = {
         title: this.addTaskTitle,
         desc: "",
+        notesMD: "",
         id: Date.now(),
         status: "active",
         isCompleted: false,

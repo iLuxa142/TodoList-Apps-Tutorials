@@ -24,14 +24,14 @@ export default createStore({
       localStorage.setItem('tasks', JSON.stringify(state.tasks));
     },
 
-    updateTask(state, {title, desc, id, status, isCompleted, tags, date }) {
+    updateTask(state, {id, title, desc, notesMD, status, isCompleted, tags, date }) {
       const tasks = state.tasks.concat();
       const idx = tasks.findIndex(t => t.id === id);
       if (idx == -1) return;
 
       const task = tasks[idx];
 
-      tasks[idx] = {...task, title, desc, status, isCompleted, tags, date };
+      tasks[idx] = {...task, title, desc, notesMD, status, isCompleted, tags, date };
       state.tasks = tasks;
 
       localStorage.setItem('tasks', JSON.stringify(state.tasks));

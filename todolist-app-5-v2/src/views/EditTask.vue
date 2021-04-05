@@ -6,7 +6,7 @@
       <form @submit.prevent="submitHandler">
         <div class="input-field">
           <input id="title" type="text" v-model="title" />
-          <label for="title">New title</label>
+          <label for="title">Title</label>
         </div>
 
         <div class="chips" ref="chips"></div>
@@ -16,13 +16,32 @@
             style="min-height: 150px"
             v-model="desc"
             id="desc"
+            ref="desc"
             class="materialize-textarea"
+            data-length="1000"
           ></textarea>
           <label for="desc">Description</label>
-          <span class="character-counter" style="float: right; font-size: 12px">
-            {{ desc.length }}/1024
-          </span>
         </div>
+
+        <ul ref="tabs" class="tabs">
+          <li class="tab">
+            <a class="active" href="#test-swipe-1">Notes (Markdown)</a>
+          </li>
+          <li class="tab"><a href="#test-swipe-2">Preview</a></li>
+        </ul>
+        <div id="test-swipe-1">
+          <div class="input-field">
+            <textarea
+              v-model="notesMD"
+              id="notes"
+              ref="notes"
+              class="materialize-textarea"
+              data-length="1000"
+            ></textarea>
+            <label for="notes">Notes</label>
+          </div>
+        </div>
+        <div id="test-swipe-2" :key="notesMD" v-markdown>{{ notesMD }}</div>
 
         <input type="text" ref="datepicker" />
 
@@ -59,6 +78,7 @@ export default {
     return {
       title: "",
       desc: "",
+      notesMD: "",
       chips: null,
       date: null,
       isCompleted: false,
@@ -67,6 +87,7 @@ export default {
   mounted() {
     this.title = this.task.title;
     this.desc = this.task.desc;
+    this.notesMD = this.task.notesMD;
 
     this.chips = M.Chips.init(this.$refs.chips, {
       placeholder: "Task tags",
@@ -81,8 +102,18 @@ export default {
 
     this.isCompleted = this.task.isCompleted;
 
+    this.tabs = M.Tabs.init(this.$refs.tabs, {
+      duration: 200,
+      swipeable: false,
+    });
+
+    // M.updateTextFields();
     setTimeout(() => {
       M.updateTextFields();
+      M.CharacterCounter.init(this.$refs.desc);
+      M.CharacterCounter.init(this.$refs.notes);
+      M.textareaAutoResize(this.$refs.desc);
+      M.textareaAutoResize(this.$refs.notes);
     }, 0);
   },
   methods: {
@@ -94,9 +125,10 @@ export default {
         : "active";
 
       this.$store.dispatch("updateTask", {
+        id: this.task.id,
         title: this.title,
         desc: this.desc,
-        id: this.task.id,
+        notesMD: this.notesMD,
         status: newStatus,
         isCompleted: this.isCompleted,
         tags: this.chips.chipsData,
@@ -111,12 +143,16 @@ export default {
     },
   },
   unmounted() {
-    if (this.date && this.date.destroy) {
-      this.date.destroy;
+    if (this.date) {
+      this.date.destroy();
     }
 
-    if (this.chips && this.chips.destroy) {
-      this.chips.destroy;
+    if (this.chips) {
+      this.chips.destroy();
+    }
+
+    if (this.tabs) {
+      this.tabs.destroy();
     }
   },
 };
