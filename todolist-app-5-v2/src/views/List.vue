@@ -1,7 +1,9 @@
 <template>
   <div>
     <div class="row">
-      <div class="input-field col l6">
+      <h3>List</h3>
+
+      <div class="col l6">
         <span>Quick add task:</span>
         <div class="input-field">
           <input
@@ -13,32 +15,41 @@
           <label for="title">Enter task title and press enter key</label>
         </div>
 
-        <h3>List</h3>
-        <span>Filter by status:</span>
-        <button class="btn btn-small" @click="changeFilter('')">
-          All (no filter)
-        </button>
-        <button class="btn btn-small" @click="changeFilter('active')">
-          Active
-        </button>
-        <button class="btn btn-small" @click="changeFilter('outdated')">
-          Outdated
-        </button>
-        <button class="btn btn-small" @click="changeFilter('completed')">
-          Completed
-        </button>
+        <span>Toggle view style: </span>
+        <a class="waves-effect waves-light btn" @click="toggleView">
+          <i class="material-icons left">view_list</i>
+          <i class="material-icons left">&sol; &nbsp; view_module</i>
+        </a>
+      </div>
 
+      <div class="col l6">
         <p>
-          Toggle view style:
-          <a class="waves-effect waves-light btn" @click="toggleView">
-            <i class="material-icons left">view_list</i>
-            <i class="material-icons left">&sol; &nbsp; view_module</i>
-          </a>
+          <span>Filter by status:</span>
+          <button class="btn btn-small" @click="changeFilter('')">All</button>
+          <button class="btn btn-small" @click="changeFilter('active')">
+            Active
+          </button>
+          <button class="btn btn-small" @click="changeFilter('outdated')">
+            Outdated
+          </button>
+          <button class="btn btn-small" @click="changeFilter('completed')">
+            Completed
+          </button>
         </p>
+        <div>
+          <span>Filter by text (in title or description):</span>
+          <div class="input-field">
+            <input id="filter" type="text" v-model="filterText" />
+            <label for="filter">Enter text for search/filter</label>
+          </div>
+        </div>
       </div>
     </div>
-
-    <Tasks :filter="filter" :view-style="isCardsView" />
+    <Tasks
+      :filter-status="filterStatus"
+      :filter-text="filterText"
+      :view-style="isCardsView"
+    />
   </div>
 </template>
 
@@ -48,7 +59,8 @@ export default {
   data() {
     return {
       addTaskTitle: "",
-      filter: null,
+      filterStatus: "",
+      filterText: "",
       isCardsView: false,
     };
   },
@@ -73,7 +85,7 @@ export default {
     },
 
     changeFilter(filter) {
-      this.filter = filter;
+      this.filterStatus = filter;
     },
 
     toggleView() {

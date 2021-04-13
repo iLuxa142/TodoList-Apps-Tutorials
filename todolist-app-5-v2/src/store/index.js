@@ -41,7 +41,7 @@ export default createStore({
       const idx = state.tasks.findIndex(t => t.id === id);
       if (idx == -1) return;
       
-      if (state.tasks[idx].status == "completed")      {
+      if (state.tasks[idx].status == "completed") {
         state.tasks[idx].status = (new Date(state.tasks[idx].date) < new Date()) ? "outdated" : "active";
       } else {
         state.tasks[idx].status = "completed";

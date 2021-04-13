@@ -2,14 +2,14 @@
   <div class="row">
     <div v-if="tasks.length">
       <div v-if="viewStyle">
+        <!-- Cards View -->
         <div
           class="card col l3"
           style="margin: 5px"
-          v-for="task of displayTasks"
+          v-for="task of filteredTasks"
           :key="task.id"
           @dblclick="$router.push('/task/' + task.id)"
         >
-          <!-- Cards View -->
           <div class="card-content">
             <span class="card-title activator grey-text text-darken-4">
               <label>
@@ -73,18 +73,22 @@
           <thead>
             <tr>
               <th><i class="tiny material-icons">check</i></th>
-              <th>Title</th>
-              <th>Description</th>
+              <th><a href="#" @click="setSortBy('title', $event)">Title</a></th>
+              <th>
+                <a href="#" @click="setSortBy('desc', $event)">Description</a>
+              </th>
               <th>Tags</th>
-              <th>Date</th>
-              <th>Status</th>
+              <th><a href="#" @click="setSortBy('date', $event)">Date</a></th>
+              <th>
+                <a href="#" @click="setSortBy('status', $event)">Status</a>
+              </th>
               <th>Edit</th>
               <th>Delete</th>
             </tr>
           </thead>
           <tbody>
             <tr
-              v-for="task of displayTasks"
+              v-for="task of sortedTasks"
               :key="task.id"
               @dblclick="$router.push('/task/' + task.id)"
             >
@@ -140,23 +144,71 @@ export default {
       default: false,
     },
 
-    filter: {
+    filterStatus: {
       type: String,
       default: "",
     },
+
+    filterText: {
+      type: String,
+      default: "",
+    },
+  },
+  data() {
+    return {
+      sortBy: "title",
+      sortOrderAsc: true, // ascending or descending
+    };
   },
   computed: {
     tasks() {
       return this.$store.getters.tasks;
     },
 
-    displayTasks() {
+    filteredTasks() {
       return this.tasks.filter((t) => {
-        if (!this.filter) {
-          return true;
+        return (
+          (this.filterStatus != "" ? this.filterStatus == t.status : true) &&
+          (this.filterText != ""
+            ? t.title.includes(this.filterText) ||
+              t.desc.includes(this.filterText)
+            : true)
+        );
+      });
+    },
+
+    sortedTasks() {
+      return this.filteredTasks.sort((a, b) => {
+        var a1, b1;
+
+        switch (this.sortBy) {
+          case "title":
+            a1 = a.title;
+            b1 = b.title;
+            break;
+          case "desc":
+            a1 = a.desc;
+            b1 = b.desc;
+            break;
+          case "date":
+            a1 = a.date;
+            b1 = b.date;
+            break;
+          case "status":
+            a1 = a.status;
+            b1 = b.status;
+            break;
+          case "":
+            return 0;
         }
 
-        return t.status === this.filter;
+        if (a1 == b1) {
+          return 0;
+        } else if (a1 < b1) {
+          return this.sortOrderAsc ? 1 : -1;
+        } else if (a1 > b1) {
+          return this.sortOrderAsc ? -1 : 1;
+        }
       });
     },
   },
@@ -167,6 +219,22 @@ export default {
 
     toggleCompleteStatus(id) {
       this.$store.dispatch("toggleCompleteStatus", id);
+    },
+
+    setSortBy(colum, event) {
+      const columStr = event.target.innerText;
+      const lastSymbol = columStr[columStr.length - 1];
+
+      if (lastSymbol == "↓") {
+        event.target.innerText = columStr.slice(0, -1) + "↑";
+      } else if (lastSymbol == "↑") {
+        event.target.innerText = columStr.slice(0, -1) + "↓";
+      } else {
+        event.target.innerText = columStr + "↓";
+      }
+
+      this.sortOrderAsc = colum == this.sortBy ? !this.sortOrderAsc : true;
+      this.sortBy = colum;
     },
   },
 };
