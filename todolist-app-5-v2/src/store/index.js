@@ -8,7 +8,11 @@ export default createStore({
       }
 
       return task;
-    })
+    }),
+    lists: [
+            { id: 1, listName: "List 1", tasks: [1,5,6]},
+            { id: 2, listName: "List 2", tasks: [2,3,4]},
+           ]
   },
   mutations: {
     createTask(state, task) {
