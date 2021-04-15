@@ -39,10 +39,10 @@
               class="btn btn-small"
               :to="'/task/' + task.id"
             >
-              Edit
+              <i class="small material-icons">edit</i>
             </router-link>
             <button class="btn btn-small red" @click="deleteTask(task.id)">
-              X
+              <i class="small material-icons">delete</i>
             </button>
           </div>
           <div class="card-reveal">
@@ -82,8 +82,7 @@
               <th>
                 <a href="#" @click="setSortBy('status', $event)">Status</a>
               </th>
-              <th>Edit</th>
-              <th>Delete</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -119,12 +118,10 @@
                   class="btn btn-small"
                   :to="'/task/' + task.id"
                 >
-                  Edit
+                  <i class="small material-icons">edit</i>
                 </router-link>
-              </td>
-              <td>
                 <button class="btn btn-small red" @click="deleteTask(task.id)">
-                  X
+                  <i class="small material-icons">delete</i>
                 </button>
               </td>
             </tr>
