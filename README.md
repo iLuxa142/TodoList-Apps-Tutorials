@@ -3,7 +3,7 @@
 ## В процессе:
 
 • • > 🔶 **Todolist app 5 (v2)** : [Code](https://github.com/iLuxa142/TodoList-Apps-Tutorials/tree/master/todolist-app-5-v2) | [Demo](https://iluxa142.github.io/TodoList-Apps-Tutorials/todolist-app-5-v2/dist/#/)  
-• • > [новые фичи: 1. Списки задач. 2. Сортировки по полям. 3. Поиск/фильтрация. 4. Вид списков: карточки. 5. Markdown notes. 6. Порядок задач, списков, карточек через drag & drop?]  
+• • > [новые фичи: 1. Списки задач. 2. Сортировки по полям. 3. Поиск/фильтрация. 4. Вид списков: карточки. 5. Markdown notes. 6. Порядок списков через drag & drop?]  
 •  
 
 ---
@@ -188,6 +188,9 @@
 [Todolist with Vanilla JavaScript & Local Storage - Speed Coding - YouTube](https://www.youtube.com/watch?v=utg5nhC3cq8)  
 [Vanilla JS todo App](https://www.youtube.com/watch?v=77bdtx2gxPk)  
 [Vanilla JavaScript Todo App - YouTube (playlist)](https://www.youtube.com/playlist?list=PL2dKqfImstaTpcGL3Fb109V4Bg4XKy8mQ)  
+[Интенсив JS: Todo приложение 1-й день](https://www.youtube.com/watch?v=_9hYl7_cplA)  
+[Интенсив JS: Todo приложение 2-й день](https://www.youtube.com/watch?v=ApTTIm4ht3E)  
+[Интенсив JS: Todo приложение 3-й день](https://www.youtube.com/watch?v=SAzMzSNLRoE)  
 [Как просто создать to do list на JavaScript [GeekBrains]](https://www.youtube.com/watch?v=rLNxhkmVdE8)  
 [Пишем на javascript простой todo list](https://www.youtube.com/watch?v=IG5NVbebBaY)  
 [Пишем приложение на голом JS с авторизацией без фреймворков](https://www.youtube.com/watch?v=KS2ngnRAKlg)  
