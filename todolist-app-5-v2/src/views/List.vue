@@ -3,8 +3,10 @@
     <div v-if="list">
       <div class="row">
         <h3>
-          <i class="small material-icons">{{ list.icon }}</i> {{ list.title }}
+          <i class="small material-icons">{{ list.icon }}</i>
+          {{ list.title }}
           <span v-if="$route.name != 'all-tasks'">
+            [{{ list.tasks.length }}]
             <button class="btn btn-small" @click="renameList">
               <i class="small material-icons">edit</i>
             </button>
@@ -37,17 +39,11 @@
 
         <div class="col l6">
           <p>
-            <strong>Filter by status:</strong>
-            <button class="btn btn-small" @click="changeFilter('')">All</button>
-            <button class="btn btn-small" @click="changeFilter('active')">
-              Active
-            </button>
-            <button class="btn btn-small" @click="changeFilter('outdated')">
-              Outdated
-            </button>
-            <button class="btn btn-small" @click="changeFilter('completed')">
-              Completed
-            </button>
+            <strong>Filter by status: </strong>
+            <a href="#" @click.prevent="changeFilter('')">All</a> |
+            <a href="#" @click.prevent="changeFilter('active')">Active</a> |
+            <a href="#" @click.prevent="changeFilter('outdated')">Outdated</a> |
+            <a href="#" @click.prevent="changeFilter('completed')">Completed</a>
           </p>
           <div>
             <strong>Filter by text (in title or description):</strong>
@@ -57,6 +53,8 @@
             </div>
           </div>
         </div>
+
+        <strong>{{ currentFilters }}</strong>
       </div>
       <Tasks
         :filter-status="filterStatus"
@@ -87,6 +85,14 @@ export default {
       if (this.$route.name == "all-tasks")
         return { title: "All Tasks", icon: "format_list_bulleted" };
       else return this.$store.getters.listById(this.$route.params.id);
+    },
+
+    currentFilters() {
+      return this.filterStatus || this.filterText
+        ? `Current filters: ${this.filterStatus || "all"} ${
+            !this.filterText ? "" : "+ text: " + this.filterText
+          }`
+        : "";
     },
   },
   methods: {
@@ -141,6 +147,7 @@ export default {
         )
       ) {
         this.$store.dispatch("deleteList", this.$route.params.id);
+        this.resetFilters();
         this.$router.push("/all-tasks/");
         M.toast({ html: "List deleted!", displayLength: 2000 });
       }
@@ -148,6 +155,11 @@ export default {
 
     changeFilter(filter) {
       this.filterStatus = filter;
+    },
+
+    resetFilters() {
+      this.filterStatus = "";
+      this.filterText = "";
     },
 
     toggleView() {
@@ -159,6 +171,6 @@ export default {
 
 <style>
 button {
-  margin-left: 5px;
+  margin: 0px 3px;
 }
 </style>

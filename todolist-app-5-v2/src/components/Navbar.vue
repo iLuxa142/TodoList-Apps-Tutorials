@@ -25,8 +25,8 @@
           active-class="active"
           class="listtitle"
         >
-          <i class="small material-icons">{{ list.icon }}</i>
-          {{ list.title }}
+          <i class="material-icons">{{ list.icon }}</i>
+          [{{ list.tasks.length }}] {{ list.title }}
         </router-link>
       </li>
       <li><div class="divider"></div></li>
@@ -41,14 +41,14 @@
       <li>
         <div class="input-field" style="margin: 0px 10px">
           <input
-            id="listtitle"
-            ref="listtitle"
+            id="newtitle"
+            ref="newtitle"
             type="text"
             data-length="30"
             v-model="addListTitle"
             @keyup.enter="createList"
           />
-          <label for="listtitle">Title (maximum of 30 characters)</label>
+          <label for="newtitle">Title (maximum of 30 characters)</label>
           <a class="waves-effect waves-light btn-small" @click="createList"
             >add</a
           >
@@ -80,7 +80,7 @@ export default {
 
     setTimeout(() => {
       M.updateTextFields();
-      M.CharacterCounter.init(this.$refs.listtitle);
+      M.CharacterCounter.init(this.$refs.newtitle);
     }, 0);
   },
   unmounted() {
@@ -94,6 +94,7 @@ export default {
       this.sidenav = M.Sidenav.getInstance(elem);
       this.sidenav.open();
     },
+
     createList() {
       if (this.addListTitle.trim() == "" || this.addListTitle.length > 30)
         return;
@@ -113,12 +114,16 @@ export default {
 
 <style>
 nav {
-  padding: 0 2rem;
+  padding: 0px 10px;
 }
 .listtitle {
+  padding: 0px 16px !important;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 300px;
+}
+.material-icons {
+  margin-right: 5px !important;
 }
 </style>
