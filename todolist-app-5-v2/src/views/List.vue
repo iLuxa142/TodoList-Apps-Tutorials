@@ -4,21 +4,28 @@
       <div class="row">
         <h3>
           <i class="small material-icons">{{ list.icon }}</i> {{ list.title }}
-          <button class="btn btn-small" @click="renameList">
-            <i class="small material-icons">edit</i>
-          </button>
+          <span v-if="$route.name != 'all-tasks'">
+            <button class="btn btn-small" @click="renameList">
+              <i class="small material-icons">edit</i>
+            </button>
+            <button class="btn btn-small red" @click="deleteList">
+              <i class="small material-icons">delete</i>
+            </button>
+          </span>
         </h3>
 
-        <div class="col l6" v-if="$route.name != 'all-tasks'">
-          <strong>Quick add task:</strong>
-          <div class="input-field">
-            <input
-              id="title"
-              type="text"
-              v-model="addTaskTitle"
-              @keyup.enter="quickAddTask"
-            />
-            <label for="title">Enter task title and press enter key</label>
+        <div class="col l6">
+          <div v-if="$route.name != 'all-tasks'">
+            <strong>Quick add task:</strong>
+            <div class="input-field">
+              <input
+                id="title"
+                type="text"
+                v-model="addTaskTitle"
+                @keyup.enter="quickAddTask"
+              />
+              <label for="title">Enter task title and press enter key</label>
+            </div>
           </div>
 
           <strong>Toggle view style: </strong>
@@ -103,14 +110,40 @@ export default {
     },
 
     renameList() {
-      const newTitle = prompt("Enter new title:", this.list.title);
+      const newTitle = prompt(
+        "Enter new title (maximum of 30 characters):",
+        this.list.title
+      );
 
-      if (newTitle === this.list.title || newTitle.trim() === "") return;
+      if (newTitle.length > 30) {
+        alert("You input " + newTitle.length + " characters. Maximum - 30.");
+      }
+
+      if (
+        newTitle === this.list.title ||
+        newTitle.trim() === "" ||
+        newTitle.length > 30
+      ) {
+        return;
+      }
 
       this.$store.dispatch("renameList", {
         id: this.$route.params.id,
         title: newTitle,
       });
+    },
+
+    deleteList() {
+      if (
+        confirm(
+          "Do you really want to delete this list? \
+        \nTasks will remain in the general list (All tasks)."
+        )
+      ) {
+        this.$store.dispatch("deleteList", this.$route.params.id);
+        this.$router.push("/all-tasks/");
+        M.toast({ html: "List deleted!", displayLength: 2000 });
+      }
     },
 
     changeFilter(filter) {

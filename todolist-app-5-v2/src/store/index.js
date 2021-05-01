@@ -72,6 +72,14 @@ export default createStore({
       localStorage.setItem('lists', JSON.stringify(state.lists));
     },
 
+    deleteList(state, id) {
+      const idx = state.lists.findIndex(l => l.id == id);
+      if (idx == -1) return;
+
+      state.lists.splice(idx,1);
+      localStorage.setItem('lists', JSON.stringify(state.lists));
+    },
+
     toggleCompleteStatus(state, id) {
       const idx = state.tasks.findIndex(t => t.id === id);
       if (idx == -1) return;
@@ -105,7 +113,11 @@ export default createStore({
 
     renameList({commit}, {id, title}) {
       commit('renameList', {id, title});
-    },  
+    },
+
+    deleteList({commit}, id) {
+      commit('deleteList', id);
+    },
     
     toggleCompleteStatus({commit}, id) {
       commit('toggleCompleteStatus', id);
