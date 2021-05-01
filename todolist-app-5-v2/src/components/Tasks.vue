@@ -223,6 +223,7 @@ export default {
   methods: {
     deleteTask(taskId) {
       this.$store.dispatch("deleteTask", taskId);
+      M.toast({ html: "Task deleted!", displayLength: 2000 });
     },
 
     toggleCompleteStatus(id) {

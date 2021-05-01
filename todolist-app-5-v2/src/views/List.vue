@@ -4,6 +4,9 @@
       <div class="row">
         <h3>
           <i class="small material-icons">{{ list.icon }}</i> {{ list.title }}
+          <button class="btn btn-small" @click="renameList">
+            <i class="small material-icons">edit</i>
+          </button>
         </h3>
 
         <div class="col l6" v-if="$route.name != 'all-tasks'">
@@ -97,6 +100,17 @@ export default {
         task,
       });
       this.addTaskTitle = "";
+    },
+
+    renameList() {
+      const newTitle = prompt("Enter new title:", this.list.title);
+
+      if (newTitle === this.list.title || newTitle.trim() === "") return;
+
+      this.$store.dispatch("renameList", {
+        id: this.$route.params.id,
+        title: newTitle,
+      });
     },
 
     changeFilter(filter) {

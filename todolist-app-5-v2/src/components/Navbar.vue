@@ -76,7 +76,6 @@ export default {
     document.addEventListener("DOMContentLoaded", function () {
       var elem = document.querySelector(".sidenav");
       this.sidenav = M.Sidenav.init(elem);
-      console.log(this.sidenav);
     });
 
     setTimeout(() => {
@@ -93,16 +92,15 @@ export default {
     openSidenav() {
       var elem = document.querySelector(".sidenav");
       this.sidenav = M.Sidenav.getInstance(elem);
-      console.log(this.sidenav);
       this.sidenav.open();
     },
     createList() {
-      if (this.addListTitle == "" || this.addListTitle.length > 30) return;
+      if (this.addListTitle.trim() == "" || this.addListTitle.length > 30)
+        return;
 
       const list = {
         id: Date.now(),
         title: this.addListTitle,
-        icon: "fiber_new",
         tasks: [],
       };
 

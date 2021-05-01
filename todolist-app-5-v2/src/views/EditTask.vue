@@ -138,6 +138,7 @@ export default {
     deleteTask() {
       this.$store.dispatch("deleteTask", this.task.id);
       this.$router.go(-1);
+      M.toast({ html: "Task deleted!", displayLength: 2000 });
     },
   },
   unmounted() {

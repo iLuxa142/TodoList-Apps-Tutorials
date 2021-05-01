@@ -10,10 +10,13 @@ export default createStore({
       return task;
     }),
     lists: JSON.parse(localStorage.getItem('lists') || '[]'),
+
+    icons: ["fiber_new", "monetization_on", "work", "assignment", "favorite", "add_shopping_cart"],
+
     // lists: [
     //         { id: 1, title: "List 1", icon: "fiber_new", tasks: [1617574933864]},
     //         { id: 2, title: "Finance", icon: "monetization_on", tasks: [1618331961444]},
-    //         { id: 3, title: "Work", icon: "work", tasks: [1617575867688]},
+    //         { id: 3, title: "Work", icon: "work", tasks: [1617575867688, 1617574935120, 1618320657442]},
     //         { id: 4, title: "Projects", icon: "assignment", tasks: [1618320657442]},
     //         { id: 5, title: "Health", icon: "favorite", tasks: [1617574935120]},
     //         { id: 6, title: "Shopping", icon: "add_shopping_cart", tasks: [1618331838965]},
@@ -50,15 +53,22 @@ export default createStore({
       if (idx == -1) return;
 
       const task = tasks[idx];
-
       tasks[idx] = {...task, title, desc, notesMD, status, isCompleted, tags, date };
       state.tasks = tasks;
-
       localStorage.setItem('tasks', JSON.stringify(state.tasks));
     },
 
-    createList(state, list) {
+    createList(state, list) {      
+      list.icon = state.icons[Math.trunc(Math.random()*6)];
       state.lists.push(list);
+      localStorage.setItem('lists', JSON.stringify(state.lists));
+    },
+
+    renameList(state, {id, title}) {
+      const idx = state.lists.findIndex(l => l.id == id);
+      if (idx == -1 || title.trim() === "") return;
+
+      state.lists.find(l => l.id == id).title = title;
       localStorage.setItem('lists', JSON.stringify(state.lists));
     },
 
@@ -73,7 +83,6 @@ export default createStore({
       }
 
       state.tasks[idx].isCompleted = !state.tasks[idx].isCompleted;
-     
       localStorage.setItem('tasks', JSON.stringify(state.tasks));
     }
   },
@@ -93,6 +102,10 @@ export default createStore({
     createList({commit}, list) {
       commit('createList', list);
     },
+
+    renameList({commit}, {id, title}) {
+      commit('renameList', {id, title});
+    },  
     
     toggleCompleteStatus({commit}, id) {
       commit('toggleCompleteStatus', id);
