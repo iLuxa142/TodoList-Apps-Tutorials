@@ -20,7 +20,11 @@
     <ul id="slide-out" class="sidenav">
       <li><a class="subheader">Lists:</a></li>
       <li v-for="list of lists" :key="list.id">
-        <router-link :to="'/list/' + list.id" active-class="active">
+        <router-link
+          :to="'/list/' + list.id"
+          active-class="active"
+          class="listtitle"
+        >
           <i class="small material-icons">{{ list.icon }}</i>
           {{ list.title }}
         </router-link>
@@ -40,11 +44,11 @@
             id="listtitle"
             ref="listtitle"
             type="text"
-            data-length="20"
+            data-length="30"
             v-model="addListTitle"
             @keyup.enter="createList"
           />
-          <label for="listtitle">Title (maximum of 20 characters)</label>
+          <label for="listtitle">Title (maximum of 30 characters)</label>
           <a class="waves-effect waves-light btn-small" @click="createList"
             >add</a
           >
@@ -93,7 +97,7 @@ export default {
       this.sidenav.open();
     },
     createList() {
-      if (this.addListTitle == "" || this.addListTitle.length > 20) return;
+      if (this.addListTitle == "" || this.addListTitle.length > 30) return;
 
       const list = {
         id: Date.now(),
@@ -112,5 +116,11 @@ export default {
 <style>
 nav {
   padding: 0 2rem;
+}
+.listtitle {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 300px;
 }
 </style>
