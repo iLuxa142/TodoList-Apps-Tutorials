@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div v-if="tasks.length">
+    <div v-if="tasks[0] != null">
       <div v-if="viewStyle">
         <!-- Cards View -->
         <div
@@ -73,14 +73,24 @@
           <thead>
             <tr>
               <th><i class="tiny material-icons">check</i></th>
-              <th><a href="#" @click="setSortBy('title', $event)">Title</a></th>
               <th>
-                <a href="#" @click="setSortBy('desc', $event)">Description</a>
+                <a href="#" @click.prevent="setSortBy('title', $event)"
+                  >Title</a
+                >
+              </th>
+              <th>
+                <a href="#" @click.prevent="setSortBy('desc', $event)"
+                  >Description</a
+                >
               </th>
               <th>Tags</th>
-              <th><a href="#" @click="setSortBy('date', $event)">Date</a></th>
               <th>
-                <a href="#" @click="setSortBy('status', $event)">Status</a>
+                <a href="#" @click.prevent="setSortBy('date', $event)">Date</a>
+              </th>
+              <th>
+                <a href="#" @click.prevent="setSortBy('status', $event)"
+                  >Status</a
+                >
               </th>
               <th>Actions</th>
             </tr>
@@ -129,7 +139,7 @@
         </table>
       </div>
     </div>
-    <p v-else>No tasks</p>
+    <p v-else>No task in this list</p>
   </div>
 </template>
 
@@ -159,7 +169,8 @@ export default {
   },
   computed: {
     tasks() {
-      return this.$store.getters.tasks;
+      if (this.$route.name == "all-tasks") return this.$store.getters.tasks;
+      return this.$store.getters.tasksFromListId(this.$route.params.id);
     },
 
     filteredTasks() {
@@ -210,8 +221,8 @@ export default {
     },
   },
   methods: {
-    deleteTask(id) {
-      this.$store.dispatch("deleteTask", id);
+    deleteTask(taskId) {
+      this.$store.dispatch("deleteTask", taskId);
     },
 
     toggleCompleteStatus(id) {

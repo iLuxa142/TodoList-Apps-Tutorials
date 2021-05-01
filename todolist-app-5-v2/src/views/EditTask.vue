@@ -1,8 +1,6 @@
 <template>
   <div class="row">
     <div v-if="task" class="col s6 offset-s3">
-      <h4>{{ task.title }}</h4>
-
       <form @submit.prevent="submitHandler">
         <div class="input-field">
           <input id="title" type="text" v-model="title" />
@@ -55,11 +53,11 @@
         </div>
         <hr />
         <button class="btn" type="submit">Update</button>
-        <button class="btn grey" type="button" @click="$router.push('/')">
+        <button class="btn grey" type="button" @click="$router.go(-1)">
           Cancel
         </button>
         <button class="btn red" type="button" @click="deleteTask">
-          X Delete
+          Delete
         </button>
       </form>
     </div>
@@ -134,12 +132,12 @@ export default {
         tags: this.chips.chipsData,
         date: this.date.date,
       });
-      this.$router.push("/");
+      this.$router.go(-1);
     },
 
     deleteTask() {
       this.$store.dispatch("deleteTask", this.task.id);
-      this.$router.push("/");
+      this.$router.go(-1);
     },
   },
   unmounted() {

@@ -2,59 +2,55 @@
   <div>
     <nav class="blue darken-3">
       <div class="nav-wrapper">
-        <ul class="right">
+        <ul>
           <li>
-            <router-link to="/create" exact active-class="active">
-              <i class="small material-icons" title="create task">add_box</i>
-            </router-link>
+            <a href="#" @click.prevent="openSidenav">Lists</a>
           </li>
           <li>
-            <router-link to="/" active-class="active"> Tasks list </router-link>
+            <router-link to="/all-tasks/" active-class="active">
+              All tasks
+            </router-link>
           </li>
         </ul>
       </div>
     </nav>
-
-    <ul id="slide-out" class="sidenav">
-      <li><a class="subheader">List group 1</a></li>
-      <li>
-        <a class="waves-effect" href="#!"
-          ><i class="small material-icons">fiber_new</i>List 1</a
-        >
-      </li>
-      <li>
-        <a href="#!"
-          ><i class="small material-icons">monetization_on</i>Finance</a
-        >
-      </li>
-      <li>
-        <a href="#!"><i class="small material-icons">work</i>Work</a>
-      </li>
-      <li><div class="divider"></div></li>
-      <li><a class="subheader">List group 2</a></li>
-      <li>
-        <a class="waves-effect" href="#!"
-          ><i class="small material-icons">assignment</i>Projects</a
-        >
-      </li>
-      <li>
-        <a href="#!"><i class="small material-icons">favorite</i>Health</a>
-      </li>
-      <li>
-        <a href="#!"><i class="small material-icons">fiber_new</i>New list</a>
-      </li>
-      <li>
-        <a href="#!"
-          ><i class="small material-icons">add_shopping_cart</i>Shopping list</a
-        >
-      </li>
-      <li>
-        <a href="#!"><i class="small material-icons">home</i>Home</a>
-      </li>
-    </ul>
     <a href="#" data-target="slide-out" class="sidenav-trigger"
       ><i class="material-icons">menu</i></a
     >
+    <ul id="slide-out" class="sidenav">
+      <li><a class="subheader">Lists:</a></li>
+      <li v-for="list of lists" :key="list.id">
+        <router-link :to="'/list/' + list.id" active-class="active">
+          <i class="small material-icons">{{ list.icon }}</i>
+          {{ list.title }}
+        </router-link>
+      </li>
+      <li><div class="divider"></div></li>
+      <li><a class="subheader">All tasks:</a></li>
+      <li>
+        <router-link to="/all-tasks/" active-class="active">
+          All tasks
+        </router-link>
+      </li>
+      <li><div class="divider"></div></li>
+      <li><a class="subheader">Add new list:</a></li>
+      <li>
+        <div class="input-field" style="margin: 0px 10px">
+          <input
+            id="listtitle"
+            ref="listtitle"
+            type="text"
+            data-length="20"
+            v-model="addListTitle"
+            @keyup.enter="createList"
+          />
+          <label for="listtitle">Title (maximum of 20 characters)</label>
+          <a class="waves-effect waves-light btn-small" @click="createList"
+            >add</a
+          >
+        </div>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -63,18 +59,52 @@ export default {
   data() {
     return {
       sidenav: null,
+      sidenav2: null,
+      addListTitle: "",
     };
+  },
+  computed: {
+    lists() {
+      return this.$store.getters.lists;
+    },
   },
   mounted() {
     document.addEventListener("DOMContentLoaded", function () {
-      var elems = document.querySelectorAll(".sidenav");
-      this.sidenav = M.Sidenav.init(elems);
+      var elem = document.querySelector(".sidenav");
+      this.sidenav = M.Sidenav.init(elem);
+      console.log(this.sidenav);
     });
+
+    setTimeout(() => {
+      M.updateTextFields();
+      M.CharacterCounter.init(this.$refs.listtitle);
+    }, 0);
   },
   unmounted() {
     if (this.sidenav) {
       this.sidenav.destroy();
     }
+  },
+  methods: {
+    openSidenav() {
+      var elem = document.querySelector(".sidenav");
+      this.sidenav = M.Sidenav.getInstance(elem);
+      console.log(this.sidenav);
+      this.sidenav.open();
+    },
+    createList() {
+      if (this.addListTitle == "" || this.addListTitle.length > 20) return;
+
+      const list = {
+        id: Date.now(),
+        title: this.addListTitle,
+        icon: "fiber_new",
+        tasks: [],
+      };
+
+      this.$store.dispatch("createList", list);
+      this.addListTitle = "";
+    },
   },
 };
 </script>

@@ -3,29 +3,45 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     tasks: JSON.parse(localStorage.getItem('tasks') || '[]').map(task => {
-      if (task.status == "active" && new Date(task.date) < new Date()  ) {
+      if (task.status == "active" && new Date(task.date) < new Date()) {
         task.status = "outdated";
       }
 
       return task;
     }),
-    lists: [
-            { id: 1, listName: "List 1", tasks: [1,5,6]},
-            { id: 2, listName: "List 2", tasks: [2,3,4]},
-           ]
+    lists: JSON.parse(localStorage.getItem('lists') || '[]'),
+    // lists: [
+    //         { id: 1, title: "List 1", icon: "fiber_new", tasks: [1617574933864]},
+    //         { id: 2, title: "Finance", icon: "monetization_on", tasks: [1618331961444]},
+    //         { id: 3, title: "Work", icon: "work", tasks: [1617575867688]},
+    //         { id: 4, title: "Projects", icon: "assignment", tasks: [1618320657442]},
+    //         { id: 5, title: "Health", icon: "favorite", tasks: [1617574935120]},
+    //         { id: 6, title: "Shopping", icon: "add_shopping_cart", tasks: [1618331838965]},
+    //        ]
   },
   mutations: {
-    createTask(state, task) {
+    createTask(state, {listId, task}) {
       state.tasks.push(task);
+      state.lists.find(l => l.id == listId).tasks.push(task.id);
       localStorage.setItem('tasks', JSON.stringify(state.tasks));
+      localStorage.setItem('lists', JSON.stringify(state.lists));
     },
 
-    deleteTask(state,id) {
-      const idx = state.tasks.findIndex(t => t.id === id);
-      if (idx == -1) return;
+    deleteTask(state, taskId) {
+      let tid = state.tasks.findIndex(t => t.id == taskId);
+      if (tid == -1) return;
 
-      state.tasks.splice(idx,1);
+      state.tasks.splice(tid,1);
       localStorage.setItem('tasks', JSON.stringify(state.tasks));
+
+      let list = state.lists.find(l => l.tasks.includes(taskId));
+      if (!list) return;
+      
+      tid = list.tasks.findIndex(id => id == taskId);
+      if (tid == -1) return;
+
+      list.tasks.splice(tid,1);
+      localStorage.setItem('lists', JSON.stringify(state.lists));
     },
 
     updateTask(state, {id, title, desc, notesMD, status, isCompleted, tags, date }) {
@@ -39,6 +55,11 @@ export default createStore({
       state.tasks = tasks;
 
       localStorage.setItem('tasks', JSON.stringify(state.tasks));
+    },
+
+    createList(state, list) {
+      state.lists.push(list);
+      localStorage.setItem('lists', JSON.stringify(state.lists));
     },
 
     toggleCompleteStatus(state, id) {
@@ -57,16 +78,20 @@ export default createStore({
     }
   },
   actions: {
-    createTask({commit}, task) {
-      commit('createTask', task);
+    createTask({commit}, {listId, task}) {
+      commit('createTask', {listId, task});
     },
 
-    deleteTask({commit}, id) {
-      commit('deleteTask', id);
+    deleteTask({commit}, taskId) {
+      commit('deleteTask', taskId);
     },
 
     updateTask({commit}, task) {
       commit('updateTask', task);
+    },
+
+    createList({commit}, list) {
+      commit('createList', list);
     },
     
     toggleCompleteStatus({commit}, id) {
@@ -75,6 +100,9 @@ export default createStore({
   },
   getters: {
     tasks: s => s.tasks,
-    taskById: s=> id => s.tasks.find(t => t.id === id)
+    taskById: s => id => s.tasks.find(t => t.id == id),
+    tasksFromListId: (s, getters) => id => s.lists.find(l => l.id == id).tasks.map(i => getters.taskById(i)),
+    lists: s => s.lists,
+    listById: s => id => s.lists.find(l => l.id == id),
   }
 })

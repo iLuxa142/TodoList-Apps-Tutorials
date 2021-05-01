@@ -1,55 +1,60 @@
 <template>
   <div>
-    <div class="row">
-      <h3>List</h3>
+    <div v-if="list">
+      <div class="row">
+        <h3>
+          <i class="small material-icons">{{ list.icon }}</i> {{ list.title }}
+        </h3>
 
-      <div class="col l6">
-        <span>Quick add task:</span>
-        <div class="input-field">
-          <input
-            id="title"
-            type="text"
-            v-model="addTaskTitle"
-            @keyup.enter="quickAddTask"
-          />
-          <label for="title">Enter task title and press enter key</label>
+        <div class="col l6" v-if="$route.name != 'all-tasks'">
+          <strong>Quick add task:</strong>
+          <div class="input-field">
+            <input
+              id="title"
+              type="text"
+              v-model="addTaskTitle"
+              @keyup.enter="quickAddTask"
+            />
+            <label for="title">Enter task title and press enter key</label>
+          </div>
+
+          <strong>Toggle view style: </strong>
+          <a class="waves-effect waves-light btn" @click="toggleView">
+            <i class="material-icons left">view_list</i>
+            <i class="material-icons left">&sol; &nbsp; view_module</i>
+          </a>
         </div>
 
-        <span>Toggle view style: </span>
-        <a class="waves-effect waves-light btn" @click="toggleView">
-          <i class="material-icons left">view_list</i>
-          <i class="material-icons left">&sol; &nbsp; view_module</i>
-        </a>
-      </div>
-
-      <div class="col l6">
-        <p>
-          <span>Filter by status:</span>
-          <button class="btn btn-small" @click="changeFilter('')">All</button>
-          <button class="btn btn-small" @click="changeFilter('active')">
-            Active
-          </button>
-          <button class="btn btn-small" @click="changeFilter('outdated')">
-            Outdated
-          </button>
-          <button class="btn btn-small" @click="changeFilter('completed')">
-            Completed
-          </button>
-        </p>
-        <div>
-          <span>Filter by text (in title or description):</span>
-          <div class="input-field">
-            <input id="filter" type="text" v-model="filterText" />
-            <label for="filter">Enter text for search/filter</label>
+        <div class="col l6">
+          <p>
+            <strong>Filter by status:</strong>
+            <button class="btn btn-small" @click="changeFilter('')">All</button>
+            <button class="btn btn-small" @click="changeFilter('active')">
+              Active
+            </button>
+            <button class="btn btn-small" @click="changeFilter('outdated')">
+              Outdated
+            </button>
+            <button class="btn btn-small" @click="changeFilter('completed')">
+              Completed
+            </button>
+          </p>
+          <div>
+            <strong>Filter by text (in title or description):</strong>
+            <div class="input-field">
+              <input id="filter" type="text" v-model="filterText" />
+              <label for="filter">Enter text for search/filter</label>
+            </div>
           </div>
         </div>
       </div>
+      <Tasks
+        :filter-status="filterStatus"
+        :filter-text="filterText"
+        :view-style="isCardsView"
+      />
     </div>
-    <Tasks
-      :filter-status="filterStatus"
-      :filter-text="filterText"
-      :view-style="isCardsView"
-    />
+    <div v-else>List not found! Please select the list in the left panel.</div>
   </div>
 </template>
 
@@ -67,6 +72,13 @@ export default {
   components: {
     Tasks,
   },
+  computed: {
+    list() {
+      if (this.$route.name == "all-tasks")
+        return { title: "All Tasks", icon: "format_list_bulleted" };
+      else return this.$store.getters.listById(this.$route.params.id);
+    },
+  },
   methods: {
     quickAddTask() {
       const task = {
@@ -80,7 +92,10 @@ export default {
         date: Date.now(),
       };
 
-      this.$store.dispatch("createTask", task);
+      this.$store.dispatch("createTask", {
+        listId: this.$route.params.id,
+        task,
+      });
       this.addTaskTitle = "";
     },
 

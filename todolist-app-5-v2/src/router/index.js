@@ -2,14 +2,19 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 const routes = [
   {
-    path: '/create',
-    name: 'create',
-    component: () => import('@/views/CreateTask.vue')
+    path: '/list/:id',
+    name: 'list',
+    component: () => import('@/views/List.vue')
+  },
+  {
+    path: '/all-tasks/',
+    name: 'all-tasks',
+    component: () => import('@/views/List.vue')
   },
   {
     path: '/',
-    name: 'list',
-    component: () => import('@/views/List.vue')
+    name: 'unselect',
+    component: () => import('@/views/ListNotSelected.vue')
   },
   {
     path: '/task/:id',
