@@ -100,6 +100,13 @@
               v-for="task of sortedTasks"
               :key="task.id"
               @dblclick="$router.push('/task/' + task.id)"
+              :style="
+                task.status == 'outdated'
+                  ? styleOutdated
+                  : task.status == 'completed'
+                  ? styleCompleted
+                  : 'none'
+              "
             >
               <td>
                 <label>
@@ -165,6 +172,8 @@ export default {
     return {
       sortBy: "title",
       sortOrderAsc: true, // ascending or descending
+      styleOutdated: { color: "red" },
+      styleCompleted: { "text-decoration": "line-through", color: "green" },
     };
   },
   computed: {

@@ -48,13 +48,20 @@
           <div>
             <strong>Filter by text (in title or description):</strong>
             <div class="input-field">
-              <input id="filter" type="text" v-model="filterText" />
+              <input id="filter" type="text" v-model.trim="filterText" />
               <label for="filter">Enter text for search/filter</label>
             </div>
           </div>
-        </div>
 
-        <strong>{{ currentFilters }}</strong>
+          <strong>{{ currentFilters }} </strong>
+          <a
+            href="#"
+            @click.prevent="resetFilters()"
+            v-if="filterText || filterStatus"
+          >
+            Reset</a
+          >
+        </div>
       </div>
       <Tasks
         :filter-status="filterStatus"
@@ -90,7 +97,7 @@ export default {
     currentFilters() {
       return this.filterStatus || this.filterText
         ? `Current filters: ${this.filterStatus || "all"} ${
-            !this.filterText ? "" : "+ text: " + this.filterText
+            !this.filterText ? "" : "+ text: '" + this.filterText + "'"
           }`
         : "";
     },
