@@ -1,23 +1,129 @@
 <template>
-  <nav class="blue darken-3">
-    <div class="nav-wrapper">
-      <router-link to="/" class="brand-logo">Tasks</router-link>
-      <ul class="right">
-        <li><router-link to="/" exact active-class="active"><a href="#">Create</a></router-link></li>
-        <li><router-link to="/list" active-class="active"><a href="#">List</a></router-link></li>
-      </ul>
-    </div>
-  </nav>
+  <div>
+    <nav class="blue darken-3">
+      <div class="nav-wrapper">
+        <ul>
+          <li>
+            <a href="#" @click.prevent="openSidenav">Lists</a>
+          </li>
+          <li>
+            <router-link to="/all-tasks/" active-class="active">
+              All tasks
+            </router-link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <a href="#" data-target="slide-out" class="sidenav-trigger"
+      ><i class="material-icons">menu</i></a
+    >
+    <ul id="slide-out" class="sidenav">
+      <li><a class="subheader">Lists:</a></li>
+      <li v-for="list of lists" :key="list.id">
+        <router-link
+          :to="'/list/' + list.id"
+          active-class="active"
+          class="listtitle"
+        >
+          <i class="material-icons">{{ list.icon }}</i>
+          [{{ list.tasks.length }}] {{ list.title }}
+        </router-link>
+      </li>
+      <li><div class="divider"></div></li>
+      <li><a class="subheader">All tasks:</a></li>
+      <li>
+        <router-link to="/all-tasks/" active-class="active">
+          All tasks
+        </router-link>
+      </li>
+      <li><div class="divider"></div></li>
+      <li><a class="subheader">Add new list:</a></li>
+      <li>
+        <div class="input-field" style="margin: 0px 10px">
+          <input
+            id="newtitle"
+            ref="newtitle"
+            type="text"
+            data-length="30"
+            v-model="addListTitle"
+            @keyup.enter="createList"
+          />
+          <label for="newtitle">Title (maximum of 30 characters)</label>
+          <a class="waves-effect waves-light btn-small" @click="createList"
+            >add</a
+          >
+        </div>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      sidenav: null,
+      sidenav2: null,
+      addListTitle: "",
+    };
+  },
+  computed: {
+    lists() {
+      return this.$store.getters.lists;
+    },
+  },
+  mounted() {
+    document.addEventListener("DOMContentLoaded", function () {
+      var elem = document.querySelector(".sidenav");
+      this.sidenav = M.Sidenav.init(elem);
+    });
 
-}
+    setTimeout(() => {
+      M.updateTextFields();
+      M.CharacterCounter.init(this.$refs.newtitle);
+    }, 0);
+  },
+  unmounted() {
+    if (this.sidenav) {
+      this.sidenav.destroy();
+    }
+  },
+  methods: {
+    openSidenav() {
+      var elem = document.querySelector(".sidenav");
+      this.sidenav = M.Sidenav.getInstance(elem);
+      this.sidenav.open();
+    },
+
+    createList() {
+      if (this.addListTitle.trim() == "" || this.addListTitle.length > 30)
+        return;
+
+      const list = {
+        id: Date.now(),
+        title: this.addListTitle,
+        tasks: [],
+      };
+
+      this.$store.dispatch("createList", list);
+      this.addListTitle = "";
+    },
+  },
+};
 </script>
 
 <style>
-  nav {
-    padding: 0 2rem;
-  }
+nav {
+  padding: 0px 10px;
+}
+.listtitle {
+  padding: 0px 16px !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 300px;
+}
+.material-icons {
+  margin-right: 5px !important;
+}
 </style>

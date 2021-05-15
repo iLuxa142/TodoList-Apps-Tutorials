@@ -8,14 +8,14 @@
 </template>
 
 <script>
-import Navbar from "@/components/Navbar"
+import Navbar from "@/components/Navbar";
 export default {
   components: {
-    Navbar
-  }
-}
+    Navbar,
+  },
+};
 </script>
 
 <style lang="scss">
-  @import "~materialize-css/dist/css/materialize.min.css";
+@import "~materialize-css/dist/css/materialize.min.css";
 </style>

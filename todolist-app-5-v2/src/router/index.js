@@ -2,19 +2,24 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 const routes = [
   {
-    path: '/',
-    name: 'create',
-    component: () => import('@/views/Create.vue')
-  },
-  {
-    path: '/list',
+    path: '/list/:id',
     name: 'list',
     component: () => import('@/views/List.vue')
   },
   {
+    path: '/all-tasks/',
+    name: 'all-tasks',
+    component: () => import('@/views/List.vue')
+  },
+  {
+    path: '/',
+    name: 'unselect',
+    component: () => import('@/views/ListNotSelected.vue')
+  },
+  {
     path: '/task/:id',
     name: 'task',
-    component: () => import('@/views/Task.vue')
+    component: () => import('@/views/EditTask.vue')
   }
 ]
 
@@ -24,30 +29,3 @@ const router = createRouter({
 })
 
 export default router
-
-// import Vue from 'vue'
-// import Router from 'vue-router'
-
-// Vue.use(Router)
-
-// export default new Router({
-//   mode: 'history',
-//   base: process.env.BASE_URL,
-//   routes: [
-//     {
-//       path: '/',
-//       name: 'create',
-//       component: () => import('@/views/Create.vue')
-//     },
-//     {
-//       path: '/list',
-//       name: 'list',
-//       component: () => import('@/views/List.vue')
-//     },
-//     {
-//       path: '/task/:id',
-//       name: 'task',
-//       component: () => import('@/views/Task.vue')
-//     }
-//   ]
-// })
